@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axiom Marketing — Web Design & Advertising</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; background: #fff; color: #000; overflow-x: hidden; margin: 0; }
+
+    .nav-link { color: rgba(255,255,255,0.5); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+    .nav-link:hover { color: #fff; }
+
+    .rule { border: none; border-top: 1px solid currentColor; }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 18s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 32px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-white { background: #fff; color: #000; }
+    .btn-white:hover { background: #e8e8e8; }
+    .btn-black { background: #000; color: #fff; }
+    .btn-black:hover { background: #1a1a1a; }
+    .btn-outline-b { border: 1.5px solid #000; color: #000; background: transparent; }
+    .btn-outline-b:hover { background: #000; color: #fff; }
+    .btn-outline-w { border: 1.5px solid rgba(255,255,255,0.5); color: #fff; background: transparent; }
+    .btn-outline-w:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    .form-input {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      padding: 14px 16px;
+      font-size: 12px;
+      font-family: 'Montserrat', sans-serif;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-input:focus { border-color: rgba(255,255,255,0.6); }
+
+    .watermark-a {
+      position: absolute;
+      right: 80px;
+      top: 10%;
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav style="background:#000; position: sticky; top:0; z-index:50; border-bottom: 1px solid rgba(255,255,255,0.06);">
+    <div style="width:100%; padding: 0 40px 0 0; display:flex; align-items:center; justify-content:space-between; height:80px;">
+      <a href="#" style="display:inline-block; line-height:0;"><img src="AXIOM LOGO ICON.png" alt="Axiom" style="height:72px; width:auto; margin-top:-12px;"></a>
+      <div style="display:flex; align-items:center; gap:40px;">
+        <a href="#how" class="nav-link">Process</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#contact" class="btn btn-white" style="padding:10px 24px;">Start For Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="background:#000; color:#fff; min-height: 92vh; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; padding: 80px 40px;">
+    <img src="AXIOM LOGO.png" alt="" class="watermark-a" style="width:520px; height:auto; opacity:1; object-fit:contain;">
+    <div style="max-width:1400px; margin:0 auto; width:100%; position:relative; z-index:1;">
+
+      <div style="display:flex; align-items:flex-start; gap:24px; margin-bottom:48px;">
+        <div style="width:32px; height:1px; background:rgba(255,255,255,0.3); margin-top:8px; flex-shrink:0;"></div>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.4);">Web Design · Advertising · 2026</p>
+      </div>
+
+      <h1 style="font-size: clamp(56px, 9vw, 130px); font-weight:900; line-height:0.92; letter-spacing:-0.04em; margin-bottom:0; max-width:1100px;">
+        GREAT<br>
+        BUSINESSES<br>
+        DESERVE TO<br>
+        <span style="color:#fff;">BE FOUND.</span>
+      </h1>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:72px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.1); max-width:900px;">
+        <div>
+          <p style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.8; margin-bottom:32px;">
+            We design a bespoke website tailored to your business at no additional cost — you see exactly what you're getting before you commit.
+          </p>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="#contact" class="btn btn-white">Get Your Free Website Today</a>
+            <a href="#work" class="btn btn-outline-w">View Our Work</a>
+          </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px; align-content:start;">
+          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">£0</div>
+            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Upfront</div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">100%</div>
+            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Bespoke</div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">24/7</div>
+            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Support</div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">Monthly</div>
+            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Subscription</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE TICKER -->
+  <div style="background:#000; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); padding:16px 0; overflow:hidden;">
+    <div class="marquee-track" style="gap:80px;">
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">Web Design</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">Bespoke Builds</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">Free Example</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">Monthly Hosting</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">Advertising</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">No Templates</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">Web Design</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">Bespoke Builds</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">Free Example</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">Monthly Hosting</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">Advertising</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); white-space:nowrap;">No Templates</span>
+      <span style="font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap;">★</span>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" style="padding: 120px 40px; max-width:1400px; margin:0 auto;">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #000; padding-bottom:16px; margin-bottom:80px;">
+      <h2 style="font-size: clamp(28px, 4vw, 48px); font-weight:900; letter-spacing:-0.03em; margin:0;">THE PROCESS</h2>
+      <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#999; margin:0;">Three steps</p>
+    </div>
+    <div style="display:grid; gap:0;">
+      <div style="display:grid; grid-template-columns: 100px 1fr 1fr; gap:40px; align-items:start; padding: 40px 0; border-bottom:1px solid #eee;">
+        <div style="font-size:72px; font-weight:900; letter-spacing:-0.05em; line-height:1; color:#000;">01</div>
+        <h3 style="font-size:22px; font-weight:900; letter-spacing:-0.02em; text-transform:uppercase; margin:0; padding-top:8px;">We Build Your<br>Bespoke Free Website</h3>
+        <p style="font-size:14px; color:#666; line-height:1.8; margin:0; padding-top:8px;">Our team designs a fully bespoke website tailored to your business for free. You see exactly what you're getting before spending a penny.</p>
+      </div>
+      <div style="display:grid; grid-template-columns: 100px 1fr 1fr; gap:40px; align-items:start; padding: 40px 0; border-bottom:1px solid #eee;">
+        <div style="font-size:72px; font-weight:900; letter-spacing:-0.05em; line-height:1; color:#000;">02</div>
+        <h3 style="font-size:22px; font-weight:900; letter-spacing:-0.02em; text-transform:uppercase; margin:0; padding-top:8px;">Built For You,<br>Approved By You</h3>
+        <p style="font-size:14px; color:#666; line-height:1.8; margin:0; padding-top:8px;">Once you approve of your website we will launch. Don't? We'll refine and shape it to your preferences until you're satisfied.</p>
+      </div>
+      <div style="display:grid; grid-template-columns: 100px 1fr 1fr; gap:40px; align-items:start; padding: 40px 0;">
+        <div style="font-size:72px; font-weight:900; letter-spacing:-0.05em; line-height:1; color:#000;">03</div>
+        <h3 style="font-size:22px; font-weight:900; letter-spacing:-0.02em; text-transform:uppercase; margin:0; padding-top:8px;">We Launch,<br>We Maintain</h3>
+        <p style="font-size:14px; color:#666; line-height:1.8; margin:0; padding-top:8px;">Pay monthly to secure your website on our company's servers and gain access to 24/7 care, monthly updates, and direct support from our design team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR WORK -->
+  <section id="work" style="background:#000; padding:120px 40px;">
+    <div style="max-width:1400px; margin:0 auto;">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:16px; margin-bottom:80px;">
+        <h2 style="font-size: clamp(28px, 4vw, 48px); font-weight:900; letter-spacing:-0.03em; color:#fff; margin:0;">OUR WORK</h2>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin:0;">Portfolio</p>
+      </div>
+      <!-- Cards: side by side, vertical layout -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px;">
+
+        <!-- Card 1: EJ Cuts -->
+        <div>
+          <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 16px;">Barbershop</p>
+        <a href="https://ejcutz.com" target="_blank" style="display:flex; flex-direction:column; text-decoration:none; color:inherit; border:1px solid rgba(255,255,255,0.08); overflow:hidden;">
+          <div style="position:relative; overflow:hidden; height:380px; flex-shrink:0;">
+            <img src="ejcuts-preview.png" alt="EJ Cuts" style="width:100%; height:100%; object-fit:cover; object-position:top; opacity:0.85;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.7));pointer-events:none;"></div>
+          </div>
+          <div style="padding:40px; display:flex; flex-direction:column; justify-content:space-between; flex:1;">
+            <div>
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+                <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin:0;">001</p>
+                <span style="font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.2); padding:3px 10px;">Barber</span>
+              </div>
+              <h3 style="font-size:40px; font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0 0 16px; line-height:0.9;">EJ CUTS</h3>
+              <p style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.8; margin:0;">Premium barbershop website built to drive bookings and reflect the quality of the brand online.</p>
+            </div>
+            <span class="btn btn-outline-w" style="align-self:flex-start; margin-top:32px; display:flex; align-items:center; gap:10px;">
+              Visit Live Site
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+            </span>
+          </div>
+        </a>
+        </div>
+
+        <!-- Card 2: Eyebrow Technician -->
+        <div>
+          <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 16px;">Eyebrow Technician</p>
+        <div style="display:flex; flex-direction:column; border:1px solid rgba(255,255,255,0.08); overflow:hidden;">
+          <div style="position:relative; overflow:hidden; height:380px; flex-shrink:0; background:#111; display:flex; align-items:center; justify-content:center;">
+            <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.12);">Coming Soon</p>
+          </div>
+          <div style="padding:40px; display:flex; flex-direction:column; justify-content:space-between; flex:1;">
+            <div>
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+                <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin:0;">002</p>
+                <span style="font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.2); padding:3px 10px;">Eyebrow Technician</span>
+              </div>
+              <h3 style="font-size:40px; font-weight:900; letter-spacing:-0.04em; color:rgba(255,255,255,0.2); margin:0 0 16px; line-height:0.9;">COMING<br>SOON</h3>
+              <p style="font-size:13px; color:rgba(255,255,255,0.3); line-height:1.8; margin:0;">Our next bespoke build — a fully custom website for a lash technician. Check back soon.</p>
+            </div>
+            <span style="align-self:flex-start; margin-top:32px; display:flex; align-items:center; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.2); border:1.5px solid rgba(255,255,255,0.1); padding:13px 32px;">In Progress</span>
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" style="padding:120px 40px; max-width:1400px; margin:0 auto;">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #000; padding-bottom:16px; margin-bottom:80px;">
+      <h2 style="font-size: clamp(28px, 4vw, 48px); font-weight:900; letter-spacing:-0.03em; margin:0;">HONEST PRICING</h2>
+      <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#999; margin:0;">No surprises</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+      <div style="background:#000; padding:60px; color:#fff;">
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 32px;">Step One</p>
+        <div style="font-size:80px; font-weight:900; letter-spacing:-0.05em; line-height:1; margin-bottom:8px;">FREE</div>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 40px;">Bespoke Free Website</p>
+        <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:32px; display:grid; gap:16px; margin-bottom:40px;">
+          <div style="display:flex; gap:20px; align-items:start; font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6;"><span style="font-weight:900; color:#fff; flex-shrink:0;">—</span>Tailored to your brand</div>
+          <div style="display:flex; gap:20px; align-items:start; font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6;"><span style="font-weight:900; color:#fff; flex-shrink:0;">—</span>See before you commit</div>
+          <div style="display:flex; gap:20px; align-items:start; font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6;"><span style="font-weight:900; color:#fff; flex-shrink:0;">—</span>Customise anytime</div>
+          <div style="display:flex; gap:20px; align-items:start; font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6;"><span style="font-weight:900; color:#fff; flex-shrink:0;">—</span>Pressure free</div>
+        </div>
+        <a href="#contact" class="btn btn-outline-w" style="display:block; text-align:center;">Request Free Website</a>
+      </div>
+      <div style="background:#000; padding:60px; color:#fff;">
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 32px;">Step Two</p>
+        <div style="font-size:80px; font-weight:900; letter-spacing:-0.05em; line-height:1; margin-bottom:8px;">PAYMENTS</div>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 40px;">24/7 Support</p>
+        <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:32px; display:grid; gap:16px; margin-bottom:40px;">
+          <div style="display:flex; gap:20px; align-items:start; font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6;"><span style="font-weight:900; color:#fff; flex-shrink:0;">—</span>£49 monthly option</div>
+          <div style="display:flex; gap:20px; align-items:start; font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6;"><span style="font-weight:900; color:#fff; flex-shrink:0;">—</span>£550 yearly option</div>
+          <div style="display:flex; gap:20px; align-items:start; font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6;"><span style="font-weight:900; color:#fff; flex-shrink:0;">—</span>Cancel anytime</div>
+          <div style="display:flex; gap:20px; align-items:start; font-size:13px; color:rgba(255,255,255,0.6); line-height:1.6;"><span style="font-weight:900; color:#fff; flex-shrink:0;">—</span>Private server hosting</div>
+        </div>
+        <a href="#contact" class="btn btn-outline-w" style="display:block; text-align:center;">Join The Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:#000; color:#fff; padding:0;">
+
+    <!-- Top: dramatic headline -->
+    <div style="padding:100px 80px 80px; border-bottom:1px solid rgba(255,255,255,0.06); position:relative; overflow:hidden;">
+      <img src="AXIOM LOGO ICON.png" alt="" style="position:absolute; right:-80px; top:50%; transform:translateY(-50%); width:480px; height:auto; opacity:1; pointer-events:none; user-select:none;">
+      <div style="max-width:1400px; margin:0 auto; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; position:relative; z-index:1;">
+        <h2 style="font-size:clamp(56px,9vw,128px); font-weight:900; letter-spacing:-0.05em; line-height:0.86; margin:0;">READY<br>TO BE<br>FOUND?</h2>
+        <div style="padding-bottom:12px; flex-shrink:0; text-align:left; max-width:300px; margin-right:320px;">
+          <p style="font-size:14px; color:rgba(255,255,255,0.5); line-height:1.8; margin:0 0 24px;">Our team will build a bespoke website tailored to your business. Once you approve, we'll launch it. Contact us below and we'll supply your website.</p>
+          <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25);">axiommarketing19@gmail.com</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom: inline form -->
+    <div style="padding:60px 80px 80px;">
+      <div style="max-width:1400px; margin:0 auto;">
+        <form action="https://formsubmit.co/axiommarketing19@gmail.com" method="POST" style="display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:12px; align-items:end;">
+          <input type="hidden" name="_subject" value="New website enquiry — Axiom Marketing">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="business_name" placeholder="Business Name" class="form-input" required style="padding:22px 20px; font-size:13px;">
+          <input type="email" name="email" placeholder="Email Address" class="form-input" required style="padding:22px 20px; font-size:13px;">
+          <input type="tel" name="phone" placeholder="Phone Number" class="form-input" style="padding:22px 20px; font-size:13px;">
+          <button type="submit" style="background:#fff; color:#000; padding:22px 40px; font-size:11px; font-weight:900; letter-spacing:0.2em; text-transform:uppercase; border:none; cursor:pointer; font-family:'Montserrat',sans-serif; white-space:nowrap;">
+            GET STARTED →
+          </button>
+        </form>
+        <p style="font-size:11px; color:rgba(255,255,255,0.2); margin:16px 0 0; font-weight:600; letter-spacing:0.05em;">Free · No commitment · We reply within 24 hours</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#000; border-top:1px solid rgba(255,255,255,0.07); padding:28px 40px;">
+    <div style="max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between;">
+      <a href="#" style="display:inline-block; line-height:0;"><img src="AXIOM LOGO.png" alt="Axiom" style="height:44px;"></a>
+      <p style="font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.2); margin:0;">© 2026 Axiom Marketing</p>
+      <div style="display:flex; gap:32px;">
+        <a href="#how" class="nav-link">Process</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+node_modules/
+temporary screenshots/
+.claude/
+*.cjs
+*.mjs
+package.json
+package-lock.json
+colorway-*.html
+concept-*.html
+contact-concepts*.html
+index-layout-*.html
+index-light.html
+index-original.html
+outreach-tool/
+brand_assets/
+CHLOES BROWS/
+EJ HAIRCUTS/
