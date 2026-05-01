@@ -1,398 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Axiom Marketing — Web Design & Advertising</title>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison De May Beauty — Eyebrow Technician</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Montserrat', sans-serif; background: #fff; color: #000; overflow-x: hidden; margin: 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{background:#E8D6BC;color:#1E1008;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;inset:0 0 auto 0;z-index:100;height:196px;display:flex;align-items:center;background:transparent;transition:background .4s,border-color .4s,box-shadow .4s}
+    .nav.s{background:rgba(250,245,236,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #E4CDB0;box-shadow:0 2px 32px rgba(44,26,14,.06)}
+    .nl{font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,245,236,.8);text-decoration:none;transition:color .2s,transform .2s;display:inline-block}
+    .nl:hover,.nl.dk{color:#B8902E;transform:scale(1.25)}
+    .nav.s .nl{color:#B8902E}.nav.s .nl:hover{color:#B8902E;transform:scale(1.25)}
+    .bg{display:inline-block;background:#B8902E;color:#FAF5EC;font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.5rem;text-decoration:none;transition:background .2s,box-shadow .2s,transform .15s}
+    .bg:hover{background:#9E7D24;box-shadow:0 6px 24px rgba(184,144,46,.3);transform:translateY(-1px)}
+    .bo{display:inline-block;background:transparent;color:#B8902E;font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.5rem;border:1px solid rgba(184,144,46,.5);text-decoration:none;transition:background .2s,border-color .2s,color .2s,transform .15s}
+    .bo:hover{background:#B8902E;border-color:#B8902E;color:#FAF5EC;transform:translateY(-1px)}
+    .iz{overflow:hidden}.iz img{transition:transform .7s cubic-bezier(.25,.46,.45,.94);display:block}
+    .iz:hover img{transform:scale(1.04)}
+    .eb{font-family:'Jost',sans-serif;font-weight:500;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:#B8902E}
+    .gr{width:32px;height:1px;background:#B8902E}
 
-    /* ── BUTTONS ── */
-    .btn { display:inline-block; padding:13px 32px; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; transition:background 0.2s, color 0.2s, transform 0.15s; cursor:pointer; border:none; font-family:'Montserrat',sans-serif; }
-    .btn:active { transform:translateY(1px); }
-    .btn-white { background:#fff; color:#000; }
-    .btn-white:hover { background:#e8e8e8; }
-    .btn-outline-b { border:1.5px solid #000; color:#000; background:transparent; }
-    .btn-outline-b:hover { background:#000; color:#fff; }
-    .btn-outline-w { border:1.5px solid rgba(255,255,255,0.5); color:#fff; background:transparent; }
-    .btn-outline-w:hover { border-color:#fff; background:rgba(255,255,255,0.08); }
+    /* Process lightbox */
+    #plb{position:fixed;inset:0;background:rgba(250,245,236,.97);z-index:999;display:none;align-items:center;justify-content:center;padding:2rem;backdrop-filter:blur(12px)}
+    #plb.open{display:flex}
+    #plb img{max-width:100%;max-height:85vh;object-fit:contain;box-shadow:0 24px 64px rgba(44,26,14,.1)}
+    #plb-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;cursor:pointer;color:#9B7745;font-family:'Jost',sans-serif;font-size:1.1rem;letter-spacing:.15em;text-transform:uppercase;transition:color .2s,transform .2s;display:inline-block}
+    #plb-close:hover{color:#B8902E;transform:scale(1.2)}
+    #plb-prev,#plb-next{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(184,144,46,.6);font-size:2.5rem;padding:1rem;transition:color .2s,transform .2s}
+    #plb-prev:hover{color:#B8902E;transform:translateY(-50%) scale(1.2)}
+    #plb-next:hover{color:#B8902E;transform:translateY(-50%) scale(1.2)}
+    #plb-prev{left:1rem}#plb-next{right:1rem}
+    .proc-img{cursor:pointer}
 
-    /* ── NAV ── */
-    .nav-link { color:rgba(255,255,255,0.5); font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; transition:color 0.2s; }
-    .nav-link:hover { color:#fff; }
-    .nav-inner { width:100%; padding:0 40px 0 0; display:flex; align-items:center; justify-content:space-between; height:80px; }
-    .nav-links { display:flex; align-items:center; gap:40px; }
-    .nav-hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; }
-    .nav-hamburger span { display:block; width:24px; height:2px; background:#fff; }
-    .mobile-menu { display:none; flex-direction:column; gap:20px; padding:24px 24px; background:#000; border-top:1px solid rgba(255,255,255,0.08); }
-    .mobile-menu.open { display:flex; }
-
-    /* ── FORM ── */
-    .form-input { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#fff; padding:14px 16px; font-size:12px; font-family:'Montserrat',sans-serif; width:100%; outline:none; transition:border-color 0.2s; }
-    .form-input::placeholder { color:rgba(255,255,255,0.3); }
-    .form-input:focus { border-color:rgba(255,255,255,0.6); }
-
-    /* ── MARQUEE ── */
-    .marquee-track { display:flex; width:max-content; animation:marquee 18s linear infinite; gap:80px; }
-    @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
-
-    /* ── WATERMARK ── */
-    .watermark-a { position:absolute; right:80px; top:10%; pointer-events:none; user-select:none; }
-
-    /* ── LAYOUT CLASSES (desktop) ── */
-    .section-pad { padding:120px 40px; }
-    .hero-section { background:#000; color:#fff; min-height:92vh; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; padding:80px 40px; }
-    .hero-bottom { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:72px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.1); max-width:900px; }
-    .hero-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; align-content:start; }
-    .process-row { display:grid; grid-template-columns:100px 1fr 1fr; gap:40px; align-items:start; padding:40px 0; }
-    .work-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
-    .pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-    .pricing-card { background:#000; padding:60px; color:#fff; }
-    .contact-top-inner { max-width:1400px; margin:0 auto; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; position:relative; z-index:1; }
-    .contact-text { padding-bottom:12px; flex-shrink:0; text-align:left; max-width:300px; margin-right:320px; }
-    .contact-form-section { padding:60px 80px 80px; }
-    .contact-form { display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:12px; align-items:end; }
-    .footer-inner { max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
-
-    /* ══════════════════════════════════════
-       MOBILE RESPONSIVE — max-width: 768px
-    ══════════════════════════════════════ */
-    @media (max-width: 768px) {
-
-      /* NAV */
-      .nav-inner { padding:0 16px; height:68px; }
-      .nav-links { display:none; }
-      .nav-hamburger { display:flex; }
-
-      /* HERO */
-      .hero-section { padding:60px 24px; min-height:auto; padding-bottom:60px; }
-      .watermark-a { display:none; }
-      .hero-bottom { grid-template-columns:1fr; gap:32px; margin-top:48px; max-width:100%; }
-      .hero-stats { grid-template-columns:repeat(2,1fr); gap:16px; }
-
-      /* PROCESS */
-      .section-pad { padding:60px 24px; }
-      .process-row { grid-template-columns:1fr; gap:12px; padding:32px 0; }
-      .process-row .process-num { font-size:52px !important; }
-
-      /* WORK */
-      .work-grid { grid-template-columns:1fr; gap:24px; }
-
-      /* PRICING */
-      .pricing-grid { grid-template-columns:1fr; gap:16px; }
-      .pricing-card { padding:32px 24px; }
-      .pricing-big-text { font-size:clamp(36px, 10vw, 52px) !important; }
-      #pricing { padding:48px 20px !important; }
-      #pricing .section-header { margin-bottom:40px !important; }
-
-      /* CONTACT TOP */
-      .contact-top-pad { padding:60px 24px 48px !important; }
-      .contact-top-inner { flex-direction:column; align-items:flex-start; gap:28px; }
-      .contact-text { margin-right:0 !important; max-width:100% !important; }
-      .contact-logo-bg { display:none !important; }
-
-      /* CONTACT FORM */
-      .contact-form-section { padding:40px 24px 60px; }
-      .contact-form { grid-template-columns:1fr; }
-      .contact-submit-btn { width:100% !important; }
-
-      /* FOOTER */
-      .footer-inner { flex-direction:column; gap:20px; text-align:center; }
-      .footer-nav { justify-content:center; }
-
-      /* Section headings row */
-      .section-header { flex-wrap:wrap; gap:8px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-section { padding:48px 20px; }
-      .section-pad { padding:48px 20px; }
-      .pricing-card { padding:28px 20px; }
-      .contact-form-section { padding:32px 20px 48px; }
+    /* ── Mobile nav fixes ── */
+    @media(max-width:767px){
+      .nav{height:90px!important}
+      .nav svg[width="600"]{width:200px!important;height:61px!important}
+      #mob{top:90px!important}
+      .hero-img{object-position:62% top!important}
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav style="background:#000; position:sticky; top:0; z-index:50; border-bottom:1px solid rgba(255,255,255,0.06);">
-    <div class="nav-inner">
-      <a href="#" style="display:inline-block; line-height:0;">
-        <img src="AXIOM LOGO ICON.png" alt="Axiom" style="height:72px; width:auto; margin-top:-12px;">
-      </a>
-      <div class="nav-links">
-        <a href="#how" class="nav-link">Process</a>
-        <a href="#work" class="nav-link">Work</a>
-        <a href="#pricing" class="nav-link">Pricing</a>
-        <a href="#contact" class="btn btn-white" style="padding:10px 24px;">Start For Free</a>
-      </div>
-      <button class="nav-hamburger" id="menu-btn" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div style="max-width:1320px;margin:0 auto;padding:0 2rem;width:100%;display:flex;align-items:center;justify-content:space-between;position:relative">
+    <div class="hidden md:flex" style="gap:2.5rem"><a href="about.html" class="nl" style="font-size:1rem;letter-spacing:.18em">About</a><a href="#process" class="nl" style="font-size:1rem;letter-spacing:.18em">Our Process</a></div>
+
+    <!-- Logo — doubled -->
+    <a href="index.html" style="position:absolute;left:50%;transform:translateX(-50%)" aria-label="Maison De May Beauty">
+      <svg width="600" height="183" viewBox="0 0 164 50" fill="none">
+        <path d="M38 13 Q82 2 126 13" stroke="#D4B46A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#D4B46A" text-anchor="middle" letter-spacing="2" id="lt">MAISON DE MAY</text>
+        <text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="#D4B46A" text-anchor="middle" letter-spacing="4" id="ls">BEAUTY</text>
+      </svg>
+    </a>
+
+    <div class="hidden md:flex" style="gap:2.5rem;align-items:center">
+      <a href="gallery.html" class="nl" style="font-size:1rem;letter-spacing:.18em">Gallery</a>
+      <a href="booking.html" class="nl" style="font-size:1rem;letter-spacing:.18em">Book Now</a>
     </div>
-    <div class="mobile-menu" id="mobile-menu">
-      <a href="#how" class="nav-link" style="font-size:13px;">Process</a>
-      <a href="#work" class="nav-link" style="font-size:13px;">Work</a>
-      <a href="#pricing" class="nav-link" style="font-size:13px;">Pricing</a>
-      <a href="#contact" class="btn btn-white" style="text-align:center; padding:14px;">Start For Free</a>
-    </div>
-  </nav>
-
-
-  <!-- HERO -->
-  <section class="hero-section">
-    <img src="AXIOM LOGO.png" alt="" class="watermark-a" style="width:520px; height:auto; opacity:1; object-fit:contain;">
-    <div style="max-width:1400px; margin:0 auto; width:100%; position:relative; z-index:1;">
-
-      <div style="display:flex; align-items:flex-start; gap:24px; margin-bottom:48px;">
-        <div style="width:32px; height:1px; background:rgba(255,255,255,0.3); margin-top:8px; flex-shrink:0;"></div>
-        <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0;">Web Design · Advertising · 2026</p>
-      </div>
-
-      <h1 style="font-size:clamp(42px,9vw,130px); font-weight:900; line-height:0.92; letter-spacing:-0.04em; margin-bottom:0; max-width:1100px;">
-        GREAT<br>BUSINESSES<br>DESERVE TO<br><span style="color:#fff;">BE FOUND.</span>
-      </h1>
-
-      <div class="hero-bottom">
-        <div>
-          <p style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.8; margin-bottom:32px;">
-            We design a bespoke website tailored to your business at no additional cost — you see exactly what you're getting before you commit.
-          </p>
-          <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <a href="#contact" class="btn btn-white">Get Your Free Website Today</a>
-            <a href="#work" class="btn btn-outline-w">View Our Work</a>
-          </div>
-        </div>
-        <div class="hero-stats">
-          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
-            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">£0</div>
-            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Upfront</div>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
-            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">100%</div>
-            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Bespoke</div>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
-            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">24/7</div>
-            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Support</div>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
-            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">Monthly</div>
-            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Subscription</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- MARQUEE -->
-  <div style="background:#000; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); padding:16px 0; overflow:hidden;">
-    <div class="marquee-track">
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">Web Design</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">Bespoke Builds</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">Free Example</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">Monthly Hosting</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">Advertising</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">No Templates</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">Web Design</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">Bespoke Builds</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">Free Example</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">Monthly Hosting</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">Advertising</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);white-space:nowrap;">No Templates</span>
-      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;">★</span>
+    <button id="ham" class="md:hidden" style="background:none;border:none;cursor:pointer" aria-label="Menu">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none"><rect y="0" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/><rect y="6" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/><rect y="12" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/></svg>
+    </button>
+    <a href="booking.html" class="nl md:hidden" style="font-size:.7rem;letter-spacing:.12em">BOOK</a>
+  </div>
+  <!-- Gold line under logo, full width, overlaps hero image -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%);pointer-events:none"></div>
+  <div id="mob" style="display:none;position:fixed;top:90px;left:0;right:0;background:#FAF5EC;border-top:1px solid #E4CDB0;border-bottom:1px solid #E4CDB0;padding:1.5rem 2rem;z-index:999">
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+      <a href="about.html" class="nl dk" data-close>About</a>
+      <a href="#process" class="nl dk" data-close>Our Process</a>
+      <a href="gallery.html" class="nl dk" data-close>Gallery</a>
     </div>
   </div>
+</nav>
 
+<!-- HERO -->
+<section style="height:100vh;position:relative;overflow:hidden">
+  <img src="CHLOES BROWS/After.jpg" alt="" class="hero-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% top;display:block;filter:saturate(.85) contrast(1.08)">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 60%,rgba(250,245,236,.3) 100%)"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:0 2rem 3rem;text-align:center">
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.5rem,8vw,7rem);line-height:.97;letter-spacing:-.035em;color:#1E1008;margin-bottom:1.75rem">
+      <em style="font-style:normal;color:#B8902E">Brows</em><br><em style="font-style:italic;color:#B8902E">You Deserve</em>
+    </h1>
+    <div class="gr" style="margin:0 auto"></div>
+  </div>
+</section>
 
-  <!-- PROCESS -->
-  <section id="how" class="section-pad" style="max-width:1400px; margin:0 auto;">
-    <div class="section-header" style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #000; padding-bottom:16px; margin-bottom:80px;">
-      <h2 style="font-size:clamp(28px,4vw,48px); font-weight:900; letter-spacing:-0.03em; margin:0;">THE PROCESS</h2>
-      <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#999; margin:0;">Three steps</p>
+<!-- Button bar -->
+<div style="background:#FAF5EC;padding:2.5rem 2rem;text-align:center;position:relative;border-top:2.5px solid;border-bottom:2.5px solid;border-image:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%) 1">
+  <a href="booking.html" style="font-family:'Jost',sans-serif;font-weight:500;font-size:1.5625rem;letter-spacing:.18em;text-transform:uppercase;color:#B8902E;text-decoration:none;display:inline-block;transition:transform .2s" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">Book Your Transformation</a>
+</div>
+
+<!-- ABOUT — image as background, beige fades in from left over text -->
+<section id="about" style="position:relative;overflow:hidden;min-height:700px;display:flex;align-items:center">
+  <!-- Full background image on the right -->
+  <img src="CHLOES BROWS/Gallery1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 40%;display:block;filter:saturate(.9) contrast(1.03)">
+  <!-- Beige fade stops before the eyes -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,#F5EDDD 0%,rgba(245,237,221,.97) 22%,rgba(245,237,221,.6) 35%,rgba(245,237,221,.05) 44%,transparent 50%);pointer-events:none"></div>
+  <!-- Gold border top -->
+  <div style="position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%);pointer-events:none;z-index:3"></div>
+  <!-- Gold border bottom -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%);pointer-events:none;z-index:3"></div>
+
+  <!-- Text content -->
+  <div style="position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:6rem 2rem;width:100%">
+    <div style="max-width:480px">
+      <p class="eb" style="margin-bottom:1rem">About</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;letter-spacing:-.02em;color:#B8902E;margin-bottom:1.5rem">The Art of the<br><em style="font-style:italic;color:#B8902E">Perfect Brow</em></h2>
+      <div class="gr" style="margin-bottom:1.75rem"></div>
+      <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:1.05rem;line-height:1.9;color:#B8902E;margin-bottom:1.25rem">Our technician begins every appointment with an evaluation of your brows, then proceeding with the process — thickening and shaping your eyebrows to the beauty standard you deserve.</p>
+      <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:1.05rem;line-height:1.9;color:#B8902E">Top ups every 5–8 weeks to keep your eyebrows to our standard.</p>
     </div>
-    <div>
-      <div class="process-row" style="border-bottom:1px solid #eee;">
-        <div class="process-num" style="font-size:72px; font-weight:900; letter-spacing:-0.05em; line-height:1; color:#000;">01</div>
-        <h3 style="font-size:22px; font-weight:900; letter-spacing:-0.02em; text-transform:uppercase; margin:0; padding-top:8px;">We Build Your<br>Bespoke Free Website</h3>
-        <p style="font-size:14px; color:#666; line-height:1.8; margin:0; padding-top:8px;">Our team designs a fully bespoke website tailored to your business for free. You see exactly what you're getting before spending a penny.</p>
-      </div>
-      <div class="process-row" style="border-bottom:1px solid #eee;">
-        <div class="process-num" style="font-size:72px; font-weight:900; letter-spacing:-0.05em; line-height:1; color:#000;">02</div>
-        <h3 style="font-size:22px; font-weight:900; letter-spacing:-0.02em; text-transform:uppercase; margin:0; padding-top:8px;">Built For You,<br>Approved By You</h3>
-        <p style="font-size:14px; color:#666; line-height:1.8; margin:0; padding-top:8px;">Once you approve of your website we will launch. Don't? We'll refine and shape it to your preferences until you're satisfied.</p>
-      </div>
-      <div class="process-row">
-        <div class="process-num" style="font-size:72px; font-weight:900; letter-spacing:-0.05em; line-height:1; color:#000;">03</div>
-        <h3 style="font-size:22px; font-weight:900; letter-spacing:-0.02em; text-transform:uppercase; margin:0; padding-top:8px;">We Launch,<br>We Maintain</h3>
-        <p style="font-size:14px; color:#666; line-height:1.8; margin:0; padding-top:8px;">Pay monthly to secure your website on our company's servers and gain access to 24/7 care, monthly updates, and direct support from our design team.</p>
-      </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="padding:7rem 2rem;background:#FAF5EC;border-top:1px solid #E4CDB0;border-bottom:1px solid #E4CDB0">
+  <div style="max-width:1320px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:4.5rem">
+      <p class="eb" style="margin-bottom:1rem">The Journey</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3.2rem);letter-spacing:-.02em;color:#B8902E">Your Brow <em style="font-style:italic;color:#B8902E">Transformation</em></h2>
+      <div class="gr" style="margin:1rem auto 0"></div>
     </div>
-  </section>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem" class="pg">
 
-
-  <!-- OUR WORK -->
-  <section id="work" style="background:#000; padding:120px 40px;">
-    <div style="max-width:1400px; margin:0 auto;">
-      <div class="section-header" style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:16px; margin-bottom:80px;">
-        <h2 style="font-size:clamp(28px,4vw,48px); font-weight:900; letter-spacing:-0.03em; color:#fff; margin:0;">OUR WORK</h2>
-        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin:0;">Portfolio</p>
-      </div>
-      <div class="work-grid">
-
-        <div>
-          <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 16px;">Barbershop</p>
-          <a href="https://ejcutz.com" target="_blank" style="display:flex; flex-direction:column; text-decoration:none; color:inherit; border:1px solid rgba(255,255,255,0.08); overflow:hidden;">
-            <div style="position:relative; overflow:hidden; height:380px; flex-shrink:0;">
-              <img src="ejcuts-preview.png" alt="EJ Cuts" style="width:100%; height:100%; object-fit:cover; object-position:top; opacity:0.85;">
-              <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(0,0,0,0.7));pointer-events:none;"></div>
-            </div>
-            <div style="padding:40px; display:flex; flex-direction:column; justify-content:space-between; flex:1;">
-              <div>
-                <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
-                  <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin:0;">001</p>
-                  <span style="font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.2); padding:3px 10px;">Barber</span>
-                </div>
-                <h3 style="font-size:40px; font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0 0 16px; line-height:0.9;">EJ CUTS</h3>
-                <p style="font-size:13px; color:rgba(255,255,255,0.5); line-height:1.8; margin:0;">Premium barbershop website built to drive bookings and reflect the quality of the brand online.</p>
-              </div>
-              <span class="btn btn-outline-w" style="align-self:flex-start; margin-top:32px; display:flex; align-items:center; gap:10px;">
-                Visit Live Site
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
-              </span>
-            </div>
-          </a>
+      <div>
+        <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
+          <img src="CHLOES BROWS/Before.jpg" alt="" class="proc-img" data-idx="0" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">01</div>
         </div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.5rem;color:#B8902E;margin-bottom:.5rem">Before the Transformation</h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:1rem;line-height:1.75;color:#B8902E">Her natural brows before the treatment.</p>
+      </div>
 
-        <div>
-          <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 16px;">Eyebrow Technician</p>
-          <div style="display:flex; flex-direction:column; border:1px solid rgba(255,255,255,0.08); overflow:hidden;">
-            <div style="position:relative; overflow:hidden; height:380px; flex-shrink:0; background:#111; display:flex; align-items:center; justify-content:center;">
-              <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.12); margin:0;">Coming Soon</p>
-            </div>
-            <div style="padding:40px; display:flex; flex-direction:column; justify-content:space-between; flex:1;">
-              <div>
-                <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
-                  <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin:0;">002</p>
-                  <span style="font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.2); padding:3px 10px;">Eyebrow Technician</span>
-                </div>
-                <h3 style="font-size:40px; font-weight:900; letter-spacing:-0.04em; color:rgba(255,255,255,0.2); margin:0 0 16px; line-height:0.9;">COMING<br>SOON</h3>
-                <p style="font-size:13px; color:rgba(255,255,255,0.3); line-height:1.8; margin:0;">Our next bespoke build — a fully custom website for a lash technician. Check back soon.</p>
-              </div>
-              <span style="align-self:flex-start; margin-top:32px; display:flex; align-items:center; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.2); border:1.5px solid rgba(255,255,255,0.1); padding:13px 32px;">In Progress</span>
-            </div>
-          </div>
+      <div>
+        <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
+          <img src="CHLOES BROWS/After.jpg" alt="" class="proc-img" data-idx="1" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">02</div>
         </div>
-
+        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.5rem;color:#B8902E;margin-bottom:.5rem">Just After</h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:1rem;line-height:1.75;color:#B8902E">Post procedure experiencing minimal swelling — this softens over 7–10 days.</p>
       </div>
-    </div>
-  </section>
 
-
-  <!-- PRICING -->
-  <section id="pricing" class="section-pad" style="max-width:1400px; margin:0 auto;">
-    <div class="section-header" style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #000; padding-bottom:16px; margin-bottom:80px;">
-      <h2 style="font-size:clamp(28px,4vw,48px); font-weight:900; letter-spacing:-0.03em; margin:0;">HONEST PRICING</h2>
-      <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#999; margin:0;">No surprises</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card">
-        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 32px;">Step One</p>
-        <div class="pricing-big-text" style="font-size:80px; font-weight:900; letter-spacing:-0.05em; line-height:1; margin-bottom:8px;">FREE</div>
-        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 40px;">Bespoke Free Website</p>
-        <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:32px; display:grid; gap:16px; margin-bottom:40px;">
-          <div style="display:flex;gap:20px;align-items:start;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>Tailored to your brand</div>
-          <div style="display:flex;gap:20px;align-items:start;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>See before you commit</div>
-          <div style="display:flex;gap:20px;align-items:start;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>Customise anytime</div>
-          <div style="display:flex;gap:20px;align-items:start;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>Pressure free</div>
+      <div>
+        <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
+          <img src="CHLOES BROWS/Healed.jpg" alt="" class="proc-img" data-idx="2" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">03</div>
         </div>
-        <a href="#contact" class="btn btn-outline-w" style="display:block; text-align:center;">Request Free Website</a>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.5rem;color:#B8902E;margin-bottom:.5rem">Healed</h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:1rem;line-height:1.75;color:#B8902E">Healed result — eyebrows fuller and thicker.</p>
       </div>
-      <div class="pricing-card">
-        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 32px;">Step Two</p>
-        <div class="pricing-big-text" style="font-size:80px; font-weight:900; letter-spacing:-0.05em; line-height:1; margin-bottom:8px;">PAYMENTS</div>
-        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 40px;">24/7 Support</p>
-        <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:32px; display:grid; gap:16px; margin-bottom:40px;">
-          <div style="display:flex;gap:20px;align-items:start;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>£49 monthly option</div>
-          <div style="display:flex;gap:20px;align-items:start;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>£550 yearly option</div>
-          <div style="display:flex;gap:20px;align-items:start;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>Cancel anytime</div>
-          <div style="display:flex;gap:20px;align-items:start;font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>Private server hosting</div>
+
+      <div>
+        <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
+          <img src="CHLOES BROWS/TopUp.jpg" alt="" class="proc-img" data-idx="3" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">04</div>
         </div>
-        <a href="#contact" class="btn btn-outline-w" style="display:block; text-align:center;">Join The Team</a>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.5rem;color:#B8902E;margin-bottom:.5rem">Top Up</h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:1rem;line-height:1.75;color:#B8902E">5–8 weeks after you will come in for a top up for lasting results.</p>
       </div>
+
     </div>
-  </section>
+    <div style="text-align:center;margin-top:3.5rem"><a href="booking.html" style="font-family:'Jost',sans-serif;font-weight:500;font-size:1.5625rem;letter-spacing:.18em;text-transform:uppercase;color:#B8902E;text-decoration:none;display:inline-block;transition:transform .2s" onmouseover="this.style.transform='scale(1.25)'" onmouseout="this.style.transform='scale(1)'">Book Your Transformation</a></div>
+  </div>
+</section>
+<style>@media(min-width:960px){.pg{grid-template-columns:repeat(4,1fr)!important}}</style>
 
+<!-- Process Lightbox -->
+<div id="plb"><button id="plb-close">✕ Close</button><button id="plb-prev">&#8592;</button><img id="plb-img" src="" alt=""><button id="plb-next">&#8594;</button></div>
 
-  <!-- CONTACT -->
-  <section id="contact" style="background:#000; color:#fff; padding:0;">
+<!-- FOOTER -->
+<footer style="background:#FAF5EC;position:relative;padding:2.5rem 2rem;text-align:center">
+  <div style="position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%)"></div>
+  <svg width="220" height="68" viewBox="0 0 164 50" fill="none" style="display:block;margin:0 auto"><path d="M38 13 Q82 2 126 13" stroke="#B8902E" stroke-width="1.2" fill="none" stroke-linecap="round"/><text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#B8902E" text-anchor="middle" letter-spacing="2">MAISON DE MAY</text><text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="#B8902E" text-anchor="middle" letter-spacing="4">BEAUTY</text></svg>
+</footer>
 
-    <div class="contact-top-pad" style="padding:100px 80px 80px; border-bottom:1px solid rgba(255,255,255,0.06); position:relative; overflow:hidden;">
-      <img class="contact-logo-bg" src="AXIOM LOGO ICON.png" alt="" style="position:absolute; right:-80px; top:50%; transform:translateY(-50%); width:480px; height:auto; opacity:1; pointer-events:none; user-select:none;">
-      <div class="contact-top-inner">
-        <h2 style="font-size:clamp(48px,9vw,128px); font-weight:900; letter-spacing:-0.05em; line-height:0.86; margin:0; flex-shrink:0;">READY<br>TO BE<br>FOUND?</h2>
-        <div class="contact-text">
-          <p style="font-size:14px; color:rgba(255,255,255,0.5); line-height:1.8; margin:0 0 24px;">Our team will build a bespoke website tailored to your business. Once you approve, we'll launch it. Contact us below and we'll supply your website.</p>
-          <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); margin:0;">axiommarketing19@gmail.com</p>
-        </div>
-      </div>
-    </div>
+<script>
+  const nav=document.getElementById('nav'),ham=document.getElementById('ham'),mob=document.getElementById('mob');
+  window.addEventListener('scroll',()=>{const s=scrollY>100;nav.classList.toggle('s',s);document.getElementById('lt').setAttribute('fill',s?'#B8902E':'#D4B46A');document.getElementById('ls').setAttribute('fill',s?'#B8902E':'#D4B46A')},{passive:true});
+  ham.addEventListener('click',()=>{
+    const open=mob.style.display==='block';
+    mob.style.display=open?'none':'block';
+    ham.querySelectorAll('rect').forEach(r=>r.setAttribute('fill',open?'rgba(250,245,236,.8)':'#B8902E'));
+  });
+  mob.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>mob.style.display='none'));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id==='#')return;const t=document.querySelector(id);if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-108,behavior:'smooth'})}));
 
-    <div class="contact-form-section">
-      <div style="max-width:1400px; margin:0 auto;">
-        <form action="https://formsubmit.co/axiommarketing19@gmail.com" method="POST" class="contact-form">
-          <input type="hidden" name="_subject" value="New website enquiry — Axiom Marketing">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="business_name" placeholder="Business Name" class="form-input" required style="padding:22px 20px; font-size:13px;">
-          <input type="email" name="email" placeholder="Email Address" class="form-input" required style="padding:22px 20px; font-size:13px;">
-          <input type="tel" name="phone" placeholder="Phone Number" class="form-input" style="padding:22px 20px; font-size:13px;">
-          <button type="submit" class="contact-submit-btn" style="background:#fff; color:#000; padding:22px 40px; font-size:11px; font-weight:900; letter-spacing:0.2em; text-transform:uppercase; border:none; cursor:pointer; font-family:'Montserrat',sans-serif; white-space:nowrap;">
-            GET STARTED →
-          </button>
-        </form>
-        <p style="font-size:11px; color:rgba(255,255,255,0.2); margin:16px 0 0; font-weight:600; letter-spacing:0.05em;">Free · No commitment · We reply within 24 hours</p>
-      </div>
-    </div>
-
-  </section>
-
-
-  <!-- FOOTER -->
-  <footer style="background:#000; border-top:1px solid rgba(255,255,255,0.07); padding:28px 40px;">
-    <div class="footer-inner">
-      <a href="#" style="display:inline-block; line-height:0;"><img src="AXIOM LOGO.png" alt="Axiom" style="height:44px;"></a>
-      <p style="font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.2); margin:0;">© 2026 Axiom Marketing</p>
-      <div class="footer-nav" style="display:flex; gap:32px;">
-        <a href="#how" class="nav-link">Process</a>
-        <a href="#work" class="nav-link">Work</a>
-        <a href="#pricing" class="nav-link">Pricing</a>
-      </div>
-    </div>
-  </footer>
-
-
-  <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-    mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
-  </script>
-
+  // Process lightbox
+  const pImgs=['CHLOES BROWS/Before.jpg','CHLOES BROWS/After.jpg','CHLOES BROWS/Healed.jpg','CHLOES BROWS/TopUp.jpg'];
+  let pCur=0;
+  const plb=document.getElementById('plb'),plbImg=document.getElementById('plb-img');
+  function pOpen(i){pCur=i;plbImg.src=pImgs[pCur];plb.classList.add('open');document.body.style.overflow='hidden'}
+  function pClose(){plb.classList.remove('open');document.body.style.overflow=''}
+  function pPrev(){pCur=(pCur-1+pImgs.length)%pImgs.length;plbImg.src=pImgs[pCur]}
+  function pNext(){pCur=(pCur+1)%pImgs.length;plbImg.src=pImgs[pCur]}
+  document.querySelectorAll('.proc-img').forEach(img=>img.addEventListener('click',()=>pOpen(parseInt(img.dataset.idx))));
+  document.getElementById('plb-close').addEventListener('click',pClose);
+  document.getElementById('plb-prev').addEventListener('click',pPrev);
+  document.getElementById('plb-next').addEventListener('click',pNext);
+  plb.addEventListener('click',e=>{if(e.target===plb)pClose()});
+  document.addEventListener('keydown',e=>{if(!plb.classList.contains('open'))return;if(e.key==='Escape')pClose();if(e.key==='ArrowLeft')pPrev();if(e.key==='ArrowRight')pNext()});
+</script>
 </body>
 </html>

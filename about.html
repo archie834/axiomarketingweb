@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Chloe — Maison De May Beauty</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:#FAF5EC;color:#1E1008;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;inset:0 0 auto 0;z-index:100;height:196px;display:flex;align-items:center;background:rgba(250,245,236,.97);backdrop-filter:blur(16px);border-bottom:1px solid #E4CDB0;box-shadow:0 2px 32px rgba(44,26,14,.06)}
+    .nl{font-family:'Jost',sans-serif;font-weight:500;font-size:1rem;letter-spacing:.18em;text-transform:uppercase;color:#B8902E;text-decoration:none;display:inline-block;transition:color .2s,transform .2s}
+    .nl:hover{color:#D4B46A;transform:scale(1.25)}
+    .nl.active{color:#D4B46A}
+    .bg{display:inline-block;background:#B8902E;color:#FAF5EC;font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.5rem;text-decoration:none;transition:background .2s,box-shadow .2s,transform .2s;display:inline-block}
+    .bg:hover{background:#9E7D24;box-shadow:0 6px 24px rgba(184,144,46,.3);transform:scale(1.25)}
+    .bo{display:inline-block;background:transparent;color:#B8902E;font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:.9rem 2.25rem;border:1px solid rgba(184,144,46,.5);text-decoration:none;transition:background .2s,border-color .2s,color .2s,transform .15s}
+    .bo:hover{background:#B8902E;border-color:#B8902E;color:#FAF5EC;transform:translateY(-1px)}
+    .eb{font-family:'Jost',sans-serif;font-weight:500;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:#B8902E}
+    .gr{width:32px;height:1px;background:#B8902E}
+    @media(max-width:767px){.nav{height:90px!important}.nav svg[width="600"]{width:200px!important;height:61px!important}#mob{top:90px!important}}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div style="max-width:1320px;margin:0 auto;padding:0 2rem;width:100%;display:flex;align-items:center;justify-content:space-between;position:relative">
+    <div class="hidden md:flex" style="gap:2.5rem">
+      <a href="about.html" class="nl active">About</a>
+      <a href="index.html#process" class="nl">Our Process</a>
+    </div>
+    <a href="index.html" style="position:absolute;left:50%;transform:translateX(-50%)" aria-label="Maison De May Beauty">
+      <svg width="600" height="183" viewBox="0 0 164 50" fill="none">
+        <path d="M38 13 Q82 2 126 13" stroke="#B8902E" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#B8902E" text-anchor="middle" letter-spacing="2">MAISON DE MAY</text>
+        <text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="#B8902E" text-anchor="middle" letter-spacing="4">BEAUTY</text>
+      </svg>
+    </a>
+    <div class="hidden md:flex" style="gap:2.5rem;align-items:center">
+      <a href="gallery.html" class="nl">Gallery</a>
+      <a href="booking.html" class="nl">Book Now</a>
+    </div>
+    <button id="ham" class="md:hidden" style="background:none;border:none;cursor:pointer" aria-label="Menu">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none"><rect y="0" width="22" height="1.5" rx=".75" fill="#1E1008"/><rect y="6" width="22" height="1.5" rx=".75" fill="#1E1008"/><rect y="12" width="22" height="1.5" rx=".75" fill="#1E1008"/></svg>
+    </button>
+    <a href="booking.html" class="nl md:hidden" style="font-size:.7rem;letter-spacing:.12em">BOOK</a>
+  </div>
+  <!-- Gold line -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%);pointer-events:none"></div>
+  <div id="mob" style="display:none;position:fixed;top:90px;left:0;right:0;background:#FAF5EC;border-top:1px solid #E4CDB0;padding:1.5rem 2rem">
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+      <a href="about.html" class="nl active">About</a>
+      <a href="index.html#process" class="nl">Our Process</a>
+      <a href="gallery.html" class="nl">Gallery</a>
+      <a href="booking.html" class="nl">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE -->
+<div style="padding-top:196px">
+
+  <!-- Hero — room as background with beige fade -->
+  <section style="position:relative;overflow:hidden;min-height:600px;display:flex;align-items:center">
+    <img src="CHLOES BROWS/Room2.jpg" alt="Maison De May Beauty Studio" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(.85) contrast(1.05)">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,#FAF5EC 0%,rgba(250,245,236,.95) 28%,rgba(250,245,236,.6) 45%,rgba(250,245,236,.05) 58%,transparent 68%);pointer-events:none"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%)"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%)"></div>
+    <div style="position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:5rem 2rem;width:100%">
+      <div style="max-width:520px">
+        <p class="eb" style="margin-bottom:1rem">About Us</p>
+        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.05;letter-spacing:-.03em;color:#B8902E;margin-bottom:1.25rem">
+          Welcome to<br><em style="font-style:italic">Maison De May Beauty</em>
+        </h1>
+        <div class="gr" style="margin-bottom:1.5rem"></div>
+        <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.95rem;line-height:1.9;color:#6B4F35">Semi-Permanent Makeup designed to enhance your natural features while simplifying your daily routine.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business description -->
+  <section style="padding:6rem 2rem;background:#FAF5EC">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:4rem;align-items:center" class="about-biz">
+
+      <!-- Room photo -->
+      <div style="overflow:hidden;border:2.5px solid #B8902E;box-shadow:0 20px 60px rgba(44,26,14,.1)">
+        <img src="CHLOES BROWS/Room1.jpg" alt="Treatment room" style="width:100%;display:block;object-fit:cover;filter:saturate(.9) contrast(1.03)">
+      </div>
+
+      <!-- Text -->
+      <div>
+        <p class="eb" style="margin-bottom:1rem">Our Space</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.02em;color:#B8902E;margin-bottom:1.5rem">
+          Where Beauty Meets<br><em style="font-style:italic">Precision</em>
+        </h2>
+        <div class="gr" style="margin-bottom:1.75rem"></div>
+        <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.95rem;line-height:1.9;color:#6B4F35;margin-bottom:1.5rem">
+          Welcome to a space where beauty meets precision and confidence begins. At Maison De May Beauty we specialise in Semi-Permanent Makeup designed to enhance your natural features while simplifying your daily routine.
+        </p>
+        <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.95rem;line-height:1.9;color:#6B4F35;margin-bottom:1.5rem">
+          Whether you're looking for perfectly defined brows, our SPMU treatments are tailored to suit your individual style. Using advanced techniques and high quality pigments, we deliver results that are both long lasting and beautifully natural.
+        </p>
+        <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.95rem;line-height:1.9;color:#6B4F35;margin-bottom:2.5rem">
+          So you can wake up every day feeling your best.
+        </p>
+
+        <!-- Stats -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;padding:2rem 0;border-top:1px solid #E4CDB0;border-bottom:1px solid #E4CDB0;margin-bottom:2.5rem">
+          <div style="text-align:center">
+            <p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2rem;color:#B8902E;line-height:1;margin-bottom:.3rem">CPD</p>
+            <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#9B7745">Certified</p>
+          </div>
+          <div style="text-align:center;border-left:1px solid #E4CDB0;border-right:1px solid #E4CDB0">
+            <p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2rem;color:#B8902E;line-height:1;margin-bottom:.3rem">10+</p>
+            <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#9B7745">Happy Clients</p>
+          </div>
+          <div style="text-align:center">
+            <p style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2rem;color:#B8902E;line-height:1;margin-bottom:.3rem">100%</p>
+            <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:#9B7745">Natural Results</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <style>@media(min-width:800px){.about-biz{grid-template-columns:1fr 1fr!important}}</style>
+
+  <!-- Certificates -->
+  <section style="padding:5rem 2rem;background:#FAF5EC;position:relative;border-top:2.5px solid;border-bottom:2.5px solid;border-image:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%) 1">
+    <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:4rem;align-items:center" class="cert-grid">
+      <div>
+        <p class="eb" style="margin-bottom:1rem">Qualifications</p>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3rem);line-height:1.1;letter-spacing:-.02em;color:#B8902E;margin-bottom:1.5rem">
+          Fully Qualified<br><em style="font-style:italic">& Certified</em>
+        </h2>
+        <div class="gr" style="margin-bottom:1.75rem"></div>
+        <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.95rem;line-height:1.9;color:#6B4F35;margin-bottom:1rem">Holding a CPD-accredited Level 4 Microblading qualification as well as a Machine Conversion Course certificate, every treatment is carried out to the highest professional standard.</p>
+        <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.95rem;line-height:1.9;color:#6B4F35">You're in safe, experienced hands.</p>
+      </div>
+      <div style="overflow:hidden;border:2.5px solid #B8902E;box-shadow:0 20px 60px rgba(44,26,14,.1)">
+        <img src="CHLOES BROWS/Certs.jpg" alt="CPD Certificates" style="width:100%;display:block;object-fit:cover;filter:saturate(.9) contrast(1.03)">
+      </div>
+    </div>
+  </section>
+  <style>@media(min-width:800px){.cert-grid{grid-template-columns:1fr 1fr!important}}</style>
+
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#FAF5EC;position:relative;padding:2.5rem 2rem;text-align:center">
+  <div style="position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%)"></div>
+  <svg width="220" height="68" viewBox="0 0 164 50" fill="none" style="display:block;margin:0 auto"><path d="M38 13 Q82 2 126 13" stroke="#B8902E" stroke-width="1.2" fill="none" stroke-linecap="round"/><text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#B8902E" text-anchor="middle" letter-spacing="2">MAISON DE MAY</text><text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="#B8902E" text-anchor="middle" letter-spacing="4">BEAUTY</text></svg>
+</footer>
+
+<script>
+  document.getElementById('ham').addEventListener('click',()=>{const m=document.getElementById('mob');m.style.display=m.style.display==='block'?'none':'block'});
+</script>
+</body>
+</html>

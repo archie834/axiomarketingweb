@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Maison De May Beauty</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:#FAF5EC;color:#1E1008;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;inset:0 0 auto 0;z-index:100;height:196px;display:flex;align-items:center;background:rgba(250,245,236,.97);backdrop-filter:blur(16px);border-bottom:1px solid #E4CDB0;box-shadow:0 2px 32px rgba(44,26,14,.06)}
+    .nl{font-family:'Jost',sans-serif;font-weight:500;font-size:1rem;letter-spacing:.18em;text-transform:uppercase;color:#B8902E;text-decoration:none;display:inline-block;transition:color .2s,transform .2s}
+    .nl:hover{color:#D4B46A;transform:scale(1.25)}
+    .nl.active{color:#D4B46A}
+    .bg{display:inline-block;background:#B8902E;color:#FAF5EC;font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.5rem;text-decoration:none;transition:background .2s,box-shadow .2s,transform .15s}
+    .bg:hover{background:#9E7D24;box-shadow:0 6px 24px rgba(184,144,46,.3);transform:translateY(-1px)}
+    .bo{display:inline-block;background:transparent;color:#B8902E;font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.5rem;border:1px solid rgba(184,144,46,.5);text-decoration:none;transition:background .2s,border-color .2s,color .2s,transform .15s}
+    .bo:hover{background:#B8902E;border-color:#B8902E;color:#FAF5EC;transform:translateY(-1px)}
+    .iz{overflow:hidden;display:block}
+    .iz img{transition:transform .7s cubic-bezier(.25,.46,.45,.94);display:block;width:100%;height:100%;object-fit:cover}
+    .iz:hover img{transform:scale(1.05)}
+    .eb{font-family:'Jost',sans-serif;font-weight:500;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:#B8902E}
+    .gr{width:32px;height:1px;background:#B8902E}
+    @media(max-width:767px){.nav{height:90px!important}.nav svg[width="600"]{width:200px!important;height:61px!important}#mob{top:90px!important}}
+
+    /* Lightbox */
+    #lb{position:fixed;inset:0;background:rgba(250,245,236,.97);z-index:999;display:none;align-items:center;justify-content:center;padding:2rem;backdrop-filter:blur(12px)}
+    #lb.open{display:flex}
+    #lb img{max-width:100%;max-height:90vh;object-fit:contain;box-shadow:0 24px 64px rgba(44,26,14,.12)}
+    #lb-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;cursor:pointer;color:#9B7745;font-family:'Jost',sans-serif;font-size:1.1rem;letter-spacing:.15em;text-transform:uppercase;transition:color .2s,transform .2s;display:inline-block}
+    #lb-close:hover{color:#B8902E;transform:scale(1.2)}
+    #lb-prev,#lb-next{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(184,144,46,.6);font-size:2.5rem;line-height:1;padding:1rem;transition:color .2s,transform .2s}
+    #lb-prev:hover{color:#B8902E;transform:translateY(-50%) scale(1.2)}
+    #lb-next:hover{color:#B8902E;transform:translateY(-50%) scale(1.2)}
+    #lb-prev{left:1rem}#lb-next{right:1rem}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div style="max-width:1320px;margin:0 auto;padding:0 2rem;width:100%;display:flex;align-items:center;justify-content:space-between;position:relative">
+    <div class="hidden md:flex" style="gap:2.5rem">
+      <a href="about.html" class="nl" style="font-size:1rem;letter-spacing:.18em">About</a>
+      <a href="index.html#process" class="nl" style="font-size:1rem;letter-spacing:.18em">Our Process</a>
+    </div>
+    <a href="index.html" style="position:absolute;left:50%;transform:translateX(-50%)" aria-label="Maison De May Beauty">
+      <svg width="600" height="183" viewBox="0 0 164 50" fill="none">
+        <path d="M38 13 Q82 2 126 13" stroke="#B8902E" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#B8902E" text-anchor="middle" letter-spacing="2">MAISON DE MAY</text>
+        <text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="#B8902E" text-anchor="middle" letter-spacing="4">BEAUTY</text>
+      </svg>
+    </a>
+    <div class="hidden md:flex" style="gap:2.5rem;align-items:center">
+      <a href="gallery.html" class="nl active" style="font-size:1rem;letter-spacing:.18em">Gallery</a>
+      <a href="booking.html" class="nl" style="font-size:1rem;letter-spacing:.18em">Book Now</a>
+    </div>
+    <button id="ham" class="md:hidden" style="background:none;border:none;cursor:pointer" aria-label="Menu">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none"><rect y="0" width="22" height="1.5" rx=".75" fill="#1E1008"/><rect y="6" width="22" height="1.5" rx=".75" fill="#1E1008"/><rect y="12" width="22" height="1.5" rx=".75" fill="#1E1008"/></svg>
+    </button>
+    <a href="booking.html" class="nl md:hidden" style="font-size:.7rem;letter-spacing:.12em">BOOK</a>
+  </div>
+  <!-- Thicker gold line — gallery page only -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%);pointer-events:none"></div>
+  <div id="mob" style="display:none;position:fixed;top:90px;left:0;right:0;background:#FAF5EC;border-top:1px solid #E4CDB0;padding:1.5rem 2rem">
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+      <a href="index.html#about" class="nl">About</a>
+      <a href="index.html#process" class="nl">Process</a>
+      <a href="gallery.html" class="nl active">Gallery</a>
+      <a href="booking.html" class="bg" style="text-align:center;padding:.875rem">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO STRIP -->
+<section style="padding-top:196px;padding-bottom:0;background:#FAF5EC">
+  <div style="max-width:1320px;margin:0 auto;padding:5rem 2rem 3rem">
+    <p class="eb" style="margin-bottom:1.25rem">Portfolio</p>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem">
+      <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.0;letter-spacing:-.03em;color:#B8902E">
+        Client <em style="font-style:italic;color:#B8902E">Results</em>
+      </h1>
+      <a href="https://www.instagram.com/maisondemaybeauty" target="_blank" rel="noopener" style="font-family:'Jost',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.18em;text-transform:uppercase;color:#B8902E;text-decoration:none;display:inline-flex;align-items:center;gap:.6rem;border:1.5px solid #B8902E;padding:.75rem 2rem;transition:color .2s,border-color .2s,transform .2s" onmouseover="this.style.color='#D4B46A';this.style.borderColor='#D4B46A';this.style.transform='scale(1.1)'" onmouseout="this.style.color='#B8902E';this.style.borderColor='#B8902E';this.style.transform='scale(1)'">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+        @maisondemaybeauty
+      </a>
+    </div>
+    <div class="gr" style="margin-top:1.5rem"></div>
+  </div>
+</section>
+
+<!-- GALLERY GRID — Clean uniform 3-col grid -->
+<section style="padding:2rem 2rem 7rem">
+  <div style="max-width:1320px;margin:0 auto">
+
+    <!-- Row 1: 3 paddle photos -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem">
+      <a href="#" class="iz" style="aspect-ratio:3/4;box-shadow:0 12px 40px rgba(44,26,14,.1)" data-src="CHLOES BROWS/After.jpg" data-idx="0">
+        <img src="CHLOES BROWS/After.jpg" alt="Brow result" style="object-position:center top">
+      </a>
+      <a href="#" class="iz" style="aspect-ratio:3/4;box-shadow:0 12px 40px rgba(44,26,14,.1)" data-src="CHLOES BROWS/Gallery1.jpg" data-idx="1">
+        <img src="CHLOES BROWS/Gallery1.jpg" alt="Brow result" style="object-position:center top">
+      </a>
+      <a href="#" class="iz" style="aspect-ratio:3/4;box-shadow:0 12px 40px rgba(44,26,14,.1)" data-src="CHLOES BROWS/Elise.jpg" data-idx="2">
+        <img src="CHLOES BROWS/Elise.jpg" alt="Brow result" style="object-position:center top">
+      </a>
+    </div>
+
+    <!-- Row 2: 3 supporting photos -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1rem">
+      <a href="#" class="iz" style="aspect-ratio:3/4;box-shadow:0 12px 40px rgba(44,26,14,.1)" data-src="CHLOES BROWS/Grace.jpg" data-idx="3">
+        <img src="CHLOES BROWS/Grace.jpg" alt="Brow result" style="object-position:center top">
+      </a>
+      <a href="#" class="iz" style="aspect-ratio:3/4;box-shadow:0 12px 40px rgba(44,26,14,.1)" data-src="CHLOES BROWS/Smile eyebrow.jpg" data-idx="4">
+        <img src="CHLOES BROWS/Smile eyebrow.jpg" alt="Brow result" style="object-position:center top">
+      </a>
+      <a href="#" class="iz" style="aspect-ratio:3/4;box-shadow:0 12px 40px rgba(44,26,14,.1)" data-src="CHLOES BROWS/New page face.jpg" data-idx="5">
+        <img src="CHLOES BROWS/New page face.jpg" alt="Brow result" style="object-position:center top">
+      </a>
+    </div>
+
+    <!-- Book CTA -->
+    <div style="text-align:center;margin-top:4rem;padding-top:4rem;border-top:1px solid #E4CDB0">
+      <p class="eb" style="margin-bottom:1rem">Ready to transform your brows?</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.8rem,3.5vw,2.8rem);color:#B8902E;margin-bottom:2rem">Book Your <em style="font-style:italic;color:#B8902E">Appointment</em></h2>
+      <a href="booking.html" class="nl" style="font-size:1.5625rem;letter-spacing:.18em">Book Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lb">
+  <button id="lb-close">✕ Close</button>
+  <button id="lb-prev">&#8592;</button>
+  <img id="lb-img" src="" alt="">
+  <button id="lb-next">&#8594;</button>
+</div>
+
+<!-- FOOTER -->
+<footer style="background:#FAF5EC;position:relative;padding:2.5rem 2rem;text-align:center">
+  <div style="position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%)"></div>
+  <svg width="220" height="68" viewBox="0 0 164 50" fill="none" style="display:block;margin:0 auto"><path d="M38 13 Q82 2 126 13" stroke="#B8902E" stroke-width="1.2" fill="none" stroke-linecap="round"/><text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#B8902E" text-anchor="middle" letter-spacing="2">MAISON DE MAY</text><text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="#B8902E" text-anchor="middle" letter-spacing="4">BEAUTY</text></svg>
+</footer>
+
+<script>
+  // Mobile menu
+  const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+  ham.addEventListener('click',()=>{const open=mob.style.display==='block';mob.style.display=open?'none':'block';ham.querySelectorAll('rect').forEach(r=>r.setAttribute('fill',open?'#1E1008':'#B8902E'));});
+
+  // Lightbox
+  const images = [
+    'CHLOES BROWS/After.jpg',
+    'CHLOES BROWS/Gallery1.jpg',
+    'CHLOES BROWS/Elise.jpg',
+    'CHLOES BROWS/Grace.jpg',
+    'CHLOES BROWS/Smile eyebrow.jpg',
+    'CHLOES BROWS/New page face.jpg',
+  ];
+  let cur = 0;
+  const lb=document.getElementById('lb'), lbImg=document.getElementById('lb-img');
+
+  function open(idx){ cur=idx; lbImg.src=images[cur]; lb.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+  function prev(){ cur=(cur-1+images.length)%images.length; lbImg.src=images[cur]; }
+  function next(){ cur=(cur+1)%images.length; lbImg.src=images[cur]; }
+
+  document.querySelectorAll('[data-idx]').forEach(el=>{
+    el.addEventListener('click',e=>{e.preventDefault();open(parseInt(el.dataset.idx));});
+  });
+  document.getElementById('lb-close').addEventListener('click',close);
+  document.getElementById('lb-prev').addEventListener('click',prev);
+  document.getElementById('lb-next').addEventListener('click',next);
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')prev();if(e.key==='ArrowRight')next();});
+</script>
+</body>
+</html>
