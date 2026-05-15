@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axiom Marketing — Web Design & Advertising</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Montserrat', sans-serif; background: #fff; color: #000; overflow-x: hidden; margin: 0; }
+
+    /* ── BUTTONS ── */
+    .btn { display:inline-block; padding:13px 32px; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; transition:transform 0.2s, color 0.2s; cursor:pointer; border:none; background:transparent; font-family:'Montserrat',sans-serif; }
+    .btn:active { transform:scale(0.97); }
+    .btn-white { color:#fff; }
+    .btn-white:hover { transform:scale(1.15); }
+    .btn-outline-b { color:#000; }
+    .btn-outline-b:hover { transform:scale(1.15); }
+    .btn-outline-w { color:#fff; }
+    .btn-outline-w:hover { transform:scale(1.15); }
+
+    /* ── NAV ── */
+    .nav-link { color:#fff; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; transition:color 0.2s, transform 0.2s; display:inline-block; }
+    .nav-link:hover { color:#fff; transform:scale(1.15); }
+    .nav-link:hover { color:#fff; }
+    .nav-inner { width:100%; padding:0 40px 0 0; display:flex; align-items:center; justify-content:space-between; height:80px; }
+    .nav-links { display:flex; align-items:center; gap:40px; }
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; }
+    .nav-hamburger span { display:block; width:24px; height:2px; background:#fff; }
+    .mobile-menu { display:none; flex-direction:column; gap:20px; padding:24px 24px; background:#000; border-top:1px solid rgba(255,255,255,0.08); }
+    .mobile-menu.open { display:flex; }
+
+    /* ── FORM ── */
+    .form-input { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:#fff; padding:14px 16px; font-size:12px; font-family:'Montserrat',sans-serif; width:100%; outline:none; transition:border-color 0.2s; }
+    .form-input::placeholder { color:rgba(255,255,255,0.3); }
+    .form-input:focus { border-color:rgba(255,255,255,0.6); }
+
+    /* ── MARQUEE ── */
+    .marquee-track { display:flex; width:max-content; animation:marquee 18s linear infinite; gap:80px; }
+    @keyframes marquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+    /* ── HERO ANIMATED BACKGROUND ── */
+    .hero-grid-bg {
+      position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none;
+      background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 20s linear infinite;
+    }
+    @keyframes gridMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 50px 50px; }
+    }
+    .hero-lines-wrap { position:absolute; inset:0; width:100%; height:100%; overflow:hidden; z-index:1; pointer-events:none; }
+    .hero-line { position:absolute; width:100%; height:1px; overflow:hidden; }
+    .hero-line-inner {
+      position:absolute; top:0; width:100%; height:100%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 20%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.35) 80%, transparent 100%);
+      animation: lineMove 5s linear infinite;
+    }
+    .hero-line-inner.rev { animation: lineMove 5s linear infinite reverse; animation-delay: 2.5s; }
+    @keyframes lineMove {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .hero-corner-svg { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:300px; height:100px; z-index:5; pointer-events:none; }
+    .hero-corner-svg svg { position:absolute; top:50%; transform:translateY(-50%); }
+    .hero-corner-svg .c-left { left:-150px; }
+    .hero-corner-svg .c-right { right:-150px; transform:translateY(-50%) scaleX(-1); }
+    .hero-corner-path { stroke-dasharray:50; animation: cornerAnim 6s linear infinite; }
+    .hero-corner-path.delayed { animation-delay:3s; }
+    @keyframes cornerAnim {
+      0%   { stroke-dashoffset:0; }
+      25%  { stroke-dashoffset:100; }
+      50%  { stroke-dashoffset:200; }
+      75%  { stroke-dashoffset:300; }
+      100% { stroke-dashoffset:400; }
+    }
+
+    /* ── WATERMARK ── */
+    .watermark-a { position:absolute; right:80px; top:10%; pointer-events:none; user-select:none; mix-blend-mode:screen; }
+
+    /* ── LAYOUT CLASSES (desktop) ── */
+    .section-pad { padding:120px 40px; }
+    .hero-section { background:#000; color:#fff; min-height:92vh; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; padding:80px 40px; }
+    .hero-bottom { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:72px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.1); max-width:900px; }
+    .hero-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; align-content:start; }
+    .process-row { display:grid; grid-template-columns:100px 1fr 20px; gap:40px; align-items:center; padding:32px 0; cursor:pointer; }
+    .process-row p { display:none; font-size:15px; color:#000; line-height:1.75; grid-column:2/4; padding-top:12px; }
+    .process-row.expanded p { display:block; }
+    .process-row h3 { font-size:22px; font-weight:900; letter-spacing:-0.02em; text-transform:uppercase; margin:0; }
+    .process-chevron { font-size:14px; color:#999; transition:transform 0.2s; user-select:none; }
+    .process-row.expanded .process-chevron { transform:rotate(180deg); }
+    .work-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+    .pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:stretch; }
+    .pricing-card { background:#000; padding:60px; color:#fff; display:flex; flex-direction:column; }
+    .contact-top-inner { max-width:1400px; margin:0 auto; display:flex; align-items:flex-end; justify-content:space-between; gap:40px; position:relative; z-index:1; }
+    .contact-text { padding-bottom:12px; flex-shrink:0; text-align:left; max-width:300px; margin-right:320px; }
+    .contact-form-section { padding:60px 80px 80px; }
+    .contact-form { display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:12px; align-items:end; }
+    .footer-inner { max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+
+    /* ── MOBILE DRAWER ── */
+    .mob-drawer {
+      position:fixed; top:0; right:-100%; width:80%; max-width:320px; height:100vh;
+      background:#000; border-left:2px solid #fff; z-index:200;
+      display:flex; flex-direction:column; padding:80px 32px 40px;
+      gap:28px; transition:right 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .mob-drawer.open { right:0; }
+    .mob-drawer-overlay {
+      position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:199;
+      opacity:0; pointer-events:none; transition:opacity 0.3s ease;
+    }
+    .mob-drawer-overlay.open { opacity:1; pointer-events:all; }
+    .mob-drawer .nav-link { font-size:14px; letter-spacing:0.15em; }
+    .mob-drawer-close {
+      position:absolute; top:20px; right:20px; background:none; border:none;
+      color:#fff; font-size:24px; cursor:pointer; line-height:1; font-family:'Montserrat',sans-serif;
+    }
+
+    /* ══════════════════════════════════════
+       MOBILE RESPONSIVE — max-width: 768px
+    ══════════════════════════════════════ */
+    @media (max-width: 768px) {
+
+      /* NAV — logo left, hamburger right */
+      .nav-inner { padding:0 16px; height:60px; }
+      .nav-inner > div:first-child { gap:0; }
+      .nav-inner > div:first-child .nav-link { display:none; }
+      .nav-links { display:none; }
+      .nav-hamburger { display:flex; }
+
+      /* HERO — headline first, no dead space */
+      .hero-section { padding:20px 20px 28px; min-height:auto; justify-content:flex-start; }
+      .hero-section > div[style*="max-width:1400px"] { display:flex; flex-direction:column; }
+      /* Reorder: h1 first, tagline second */
+      .hero-section h1 { order:-1; margin-bottom:12px; }
+      .hero-section > div[style*="max-width:1400px"] > div:first-child { order:0; margin-bottom:16px !important; }
+      .watermark-a { display:none !important; }
+      .hero-bottom { grid-template-columns:1fr; gap:16px; margin-top:20px; max-width:100%; border-top:1px solid rgba(255,255,255,0.15); padding-top:16px; }
+      .hero-stats { grid-template-columns:repeat(3,1fr); gap:8px; padding-bottom:0; }
+      /* Kill ALL dead space — hide paragraph and inline logo */
+      .hero-bottom > div:first-child > p { display:none !important; }
+      .hero-cta-logo { display:none !important; }
+      .hero-cta-wrap { display:flex; gap:8px; flex-wrap:wrap; }
+      /* Process — accordion numbered list */
+      .process-row { grid-template-columns:44px 1fr 20px !important; gap:0 10px !important; padding:14px 0 !important; border-bottom:1px solid #eee; align-items:center !important; cursor:pointer; }
+      .process-row:last-child { border-bottom:none; }
+      .process-row .process-num { font-size:28px !important; color:#000; line-height:1; }
+      .process-row h3 { font-size:14px !important; font-weight:900; letter-spacing:-0.01em; padding-top:0 !important; margin:0 !important; text-transform:uppercase; }
+      .process-row p { display:none !important; font-size:12px !important; line-height:1.6; color:#666; margin:0 !important; padding:8px 0 0 54px !important; }
+      .process-row.expanded { align-items:start !important; flex-wrap:wrap; }
+      .process-row.expanded p { display:block !important; grid-column:2/4; padding-top:6px !important; }
+      .process-chevron { font-size:12px; color:#999; transition:transform 0.2s; user-select:none; }
+      .process-row.expanded .process-chevron { transform:rotate(180deg); }
+      #how { padding:24px 20px !important; }
+      #how .section-header { margin-bottom:16px !important; }
+      /* Work cards — shorter on mobile so both visible */
+      #work .work-grid a[style*="min-height:600px"] { min-height:220px !important; }
+      #work .work-grid div[style*="min-height:600px"] { min-height:220px !important; }
+      #work .work-grid a h3 { font-size:18px !important; margin-bottom:6px !important; }
+      #work .work-grid a p { display:none !important; }
+      #work .work-grid a span { padding:8px 16px !important; font-size:9px !important; }
+      #work .work-grid a > div { padding:16px !important; }
+      #work { padding:24px 20px !important; }
+      #work .section-header { margin-bottom:16px !important; }
+
+      /* PROCESS — condensed, no wasted space */
+      .section-pad { padding:40px 20px; }
+      .process-row { grid-template-columns:56px 1fr; gap:16px; padding:20px 0; align-items:start; }
+      .process-row .process-num { font-size:36px !important; line-height:1; padding-top:4px; }
+      .process-row h3 { font-size:16px !important; margin-bottom:4px !important; padding-top:0 !important; }
+      .process-row p { font-size:12px !important; line-height:1.6; color:#666; }
+      #how { padding:32px 20px !important; }
+      #how .section-header { margin-bottom:24px !important; }
+      #how .section-header h2 { font-size:24px !important; }
+
+      /* WORK — side by side */
+      .work-grid { grid-template-columns:1fr 1fr; gap:12px; }
+      #work { padding:32px 20px !important; background:#000; }
+      #work .section-header { margin-bottom:20px !important; }
+      #work .section-header h2 { color:#fff; font-size:24px !important; }
+
+      /* PRICING — side by side, compact */
+      .pricing-grid { grid-template-columns:1fr 1fr; gap:10px; }
+      .pricing-card { padding:14px 12px; }
+      .pricing-big-text { font-size:18px !important; line-height:1.1 !important; margin-bottom:4px !important; }
+      .pricing-card > p:first-child { margin-bottom:10px !important; }
+      .pricing-card > p { margin-bottom:6px !important; font-size:8px !important; }
+      #pricing { padding:24px 20px !important; }
+      #pricing .section-header { margin-bottom:16px !important; }
+      #pricing .section-header h2 { font-size:22px !important; }
+
+      /* CONTACT — compact */
+      .contact-top-pad { padding:40px 20px 32px !important; }
+      .contact-top-inner { flex-direction:column; align-items:flex-start; gap:20px; }
+      .contact-top-inner h2 { font-size:clamp(36px,12vw,56px) !important; }
+      .contact-text { margin-right:0 !important; max-width:100% !important; }
+      .contact-logo-bg { display:none !important; }
+      .contact-form-section { padding:24px 20px 40px; }
+      .contact-form { grid-template-columns:1fr; gap:10px; }
+      .contact-submit-btn { width:100% !important; }
+
+      /* FOOTER */
+      .footer-inner { flex-direction:column; gap:16px; text-align:center; }
+      .footer-nav { justify-content:center; }
+      .section-header { flex-wrap:wrap; gap:8px; }
+    }
+
+    @media (max-width: 480px) {
+      .pricing-grid { grid-template-columns:1fr 1fr; gap:8px; }
+      .pricing-card { padding:16px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav style="background:#000; position:sticky; top:0; z-index:50; border-bottom:2px solid #fff;">
+    <div class="nav-inner">
+      <!-- Far left: logo + service pages -->
+      <div style="display:flex;align-items:center;gap:28px;">
+        <a href="#" style="display:inline-block; line-height:0;">
+          <img src="AXIOM LOGO ICON.png" alt="Axiom" style="height:72px; width:auto; margin-top:-12px;">
+        </a>
+        <a href="digital-marketing.html" class="nav-link">Marketing</a>
+        <a href="seo.html" class="nav-link">SEO</a>
+        <a href="physical.html" class="nav-link">Physical Ads</a>
+        <a href="media-management.html" class="nav-link">Media Management</a>
+      </div>
+      <div class="nav-links">
+        <a href="#how" class="nav-link">Process</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+      </div>
+      <button class="nav-hamburger" id="menu-btn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile slide-out drawer -->
+  <div class="mob-drawer-overlay" id="drawer-overlay"></div>
+  <div class="mob-drawer" id="mob-drawer">
+    <button class="mob-drawer-close" id="drawer-close">✕</button>
+    <a href="digital-marketing.html" class="nav-link">Marketing</a>
+    <a href="seo.html" class="nav-link">SEO</a>
+    <a href="physical.html" class="nav-link">Physical Ads</a>
+    <a href="media-management.html" class="nav-link">Media Management</a>
+    <div style="width:100%;height:1px;background:rgba(255,255,255,0.15);"></div>
+    <a href="#how" class="nav-link" data-drawer-close>Process</a>
+    <a href="#work" class="nav-link" data-drawer-close>Work</a>
+    <a href="#pricing" class="nav-link" data-drawer-close>Pricing</a>
+    <a href="#contact" class="nav-link" data-drawer-close>Contact</a>
+  </div>
+
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <!-- Animated grid background -->
+    <div class="hero-grid-bg"></div>
+    <!-- Animated horizontal lines -->
+    <div class="hero-lines-wrap">
+      <div class="hero-line" style="top:10%"><div class="hero-line-inner"></div></div>
+      <div class="hero-line" style="top:30%"><div class="hero-line-inner rev"></div></div>
+      <div class="hero-line" style="top:50%"><div class="hero-line-inner"></div></div>
+      <div class="hero-line" style="top:70%"><div class="hero-line-inner rev"></div></div>
+      <div class="hero-line" style="top:90%"><div class="hero-line-inner"></div></div>
+    </div>
+    <!-- Corner line SVGs -->
+    <div class="hero-corner-svg hidden md:block">
+      <svg class="c-left" width="120" height="60" viewBox="0 0 120 60" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none">
+        <path class="hero-corner-path" d="M120 0 L20 0 Q0 0 0 20 L0 60"/>
+      </svg>
+      <svg class="c-right" width="120" height="60" viewBox="0 0 120 60" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none">
+        <path class="hero-corner-path delayed" d="M120 0 L20 0 Q0 0 0 20 L0 60"/>
+      </svg>
+    </div>
+    <img src="AXIOM LOGO.png" alt="" class="watermark-a" style="width:520px; height:auto; opacity:1; object-fit:contain;">
+    <div style="max-width:1400px; margin:0 auto; width:100%; position:relative; z-index:1;">
+
+      <div style="display:flex; align-items:flex-start; gap:24px; margin-bottom:48px;">
+        <div style="width:32px; height:1px; background:rgba(255,255,255,0.3); margin-top:8px; flex-shrink:0;"></div>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0;">Web Design · Advertising · 2026</p>
+      </div>
+
+      <h1 style="font-size:clamp(42px,9vw,130px); font-weight:900; line-height:0.92; letter-spacing:-0.04em; margin-bottom:0; max-width:1100px;">
+        GREAT<br>BUSINESSES<br>DESERVE TO<br><span style="color:#fff;">BE FOUND.</span>
+      </h1>
+
+      <div class="hero-bottom">
+        <div>
+          <p style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.8; margin-bottom:32px;">
+            We build your website first — fully bespoke, tailored to your brand. You see it, you approve it, and only then do you pay. No risk, no pressure, no templates.
+          </p>
+          <div class="hero-cta-wrap" style="display:flex; gap:12px; flex-wrap:wrap;">
+            <img src="AXIOM LOGO.png" alt="" class="hero-cta-logo" style="display:none;">
+            <a href="#contact" class="btn btn-white">Build Your Dream Website Today</a>
+            <a href="#work" class="btn btn-outline-w">View Our Work</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">100%</div>
+            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Bespoke</div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">24/7</div>
+            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Support</div>
+          </div>
+          <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+            <div style="font-size:28px; font-weight:900; letter-spacing:-0.04em;">£29</div>
+            <div style="font-size:8px; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-top:4px; font-weight:700;">Monthly Maintenance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- MARQUEE -->
+  <div style="background:#000; border-top:2px solid #fff; border-bottom:2px solid #fff; padding:16px 0; overflow:hidden;">
+    <div class="marquee-track">
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Web Design</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">See First, Pay Later</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">SEO</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Business Cards</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Flyers & Posters</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Facebook Ads</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Bespoke Builds</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Monthly Hosting</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">No Templates</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Web Design</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">See First, Pay Later</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">SEO</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Business Cards</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Flyers & Posters</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Facebook Ads</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Bespoke Builds</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">Monthly Hosting</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">No Templates</span>
+      <span style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#fff;white-space:nowrap;">★</span>
+    </div>
+  </div>
+
+
+  <!-- PROCESS -->
+  <section id="how" class="section-pad" style="max-width:1400px; margin:0 auto;">
+    <div class="section-header" style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #000; padding-bottom:16px; margin-bottom:80px;">
+      <h2 style="font-size:clamp(28px,4vw,48px); font-weight:900; letter-spacing:-0.03em; margin:0;">THE PROCESS</h2>
+      <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#999; margin:0;">Three steps</p>
+    </div>
+    <div>
+      <div class="process-row" style="border-bottom:1px solid #eee;">
+        <div class="process-num" style="font-size:72px; font-weight:900; letter-spacing:-0.05em; line-height:1; color:#000;">01</div>
+        <h3 style="font-size:22px; font-weight:900; letter-spacing:-0.02em; text-transform:uppercase; margin:0; padding-top:8px;">We Build Your<br>Bespoke Website</h3>
+        <span class="process-chevron">▾</span>
+        <p style="font-size:14px; color:#666; line-height:1.8; margin:0; padding-top:8px;">Our team designs a fully bespoke website built around your brand, your goals, and your customers. No templates, no shortcuts — built properly from scratch.</p>
+      </div>
+      <div class="process-row" style="border-bottom:1px solid #eee;">
+        <div class="process-num" style="font-size:72px; font-weight:900; letter-spacing:-0.05em; line-height:1; color:#000;">02</div>
+        <h3 style="font-size:22px; font-weight:900; letter-spacing:-0.02em; text-transform:uppercase; margin:0; padding-top:8px;">Built For You,<br>Approved By You</h3>
+        <span class="process-chevron">▾</span>
+        <p style="font-size:14px; color:#666; line-height:1.8; margin:0; padding-top:8px;">Once you approve of your website we will launch. Don't? We'll refine and shape it to your preferences until you're satisfied.</p>
+      </div>
+      <div class="process-row">
+        <div class="process-num" style="font-size:72px; font-weight:900; letter-spacing:-0.05em; line-height:1; color:#000;">03</div>
+        <h3 style="font-size:22px; font-weight:900; letter-spacing:-0.02em; text-transform:uppercase; margin:0; padding-top:8px;">We Launch,<br>We Maintain</h3>
+        <span class="process-chevron">▾</span>
+        <p style="font-size:14px; color:#666; line-height:1.8; margin:0; padding-top:8px;">Pay monthly to secure your website on our company's servers and gain access to 24/7 care, monthly updates, and direct support from our design team.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- OUR WORK -->
+  <section id="work" style="background:#000; padding:120px 40px;">
+    <div style="max-width:1400px; margin:0 auto;">
+      <div class="section-header" style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:16px; margin-bottom:80px;">
+        <h2 style="font-size:clamp(28px,4vw,48px); font-weight:900; letter-spacing:-0.03em; color:#fff; margin:0;">OUR WORK</h2>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin:0;">Portfolio</p>
+      </div>
+      <div class="work-grid">
+
+        <div>
+          <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 16px;">Barbershop</p>
+          <a href="https://ejcutz.com" target="_blank" rel="noopener" style="display:block; position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.08); text-decoration:none; min-height:600px; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.25)';this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.querySelector('img').style.transform='scale(1)'">
+            <img src="ejcuts-preview.png" alt="EJ Cuts" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);">
+            <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%); pointer-events:none;"></div>
+            <div style="position:relative; z-index:2; padding:40px; display:flex; flex-direction:column; justify-content:flex-end; min-height:600px;">
+              <div>
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+                  <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin:0;">001</p>
+                  <span style="font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.6); border:1px solid rgba(255,255,255,0.3); padding:3px 10px;">Barber</span>
+                </div>
+                <h3 style="font-size:40px; font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0 0 16px; line-height:0.9;">EJ CUTS</h3>
+                <p style="font-size:13px; color:rgba(255,255,255,0.6); line-height:1.8; margin:0 0 32px;">Premium barbershop website built to drive bookings and reflect the quality of the brand online.</p>
+                <span style="display:inline-flex; align-items:center; gap:10px; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#fff; border:1.5px solid rgba(255,255,255,0.5); padding:13px 32px;">
+                  Visit Live Site
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div>
+          <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 16px;">Eyebrow Technician</p>
+          <a href="https://maison-de-may.vercel.app/" target="_blank" rel="noopener" style="display:block; position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.08); text-decoration:none; min-height:600px; transition:border-color 0.3s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.25)';this.querySelector('img').style.transform='scale(1.05)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.querySelector('img').style.transform='scale(1)'">
+            <!-- Full background image -->
+            <img src="maison-preview.jpg" alt="Maison De May Beauty" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);">
+            <!-- Dark gradient so text is readable -->
+            <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%); pointer-events:none;"></div>
+            <!-- Text overlaid at bottom -->
+            <div style="position:relative; z-index:2; padding:40px; display:flex; flex-direction:column; justify-content:flex-end; min-height:600px;">
+              <div>
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+                  <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.5); margin:0;">002</p>
+                  <span style="font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.6); border:1px solid rgba(255,255,255,0.3); padding:3px 10px;">Eyebrow Technician</span>
+                </div>
+                <h3 style="font-size:40px; font-weight:900; letter-spacing:-0.04em; color:#fff; margin:0 0 16px; line-height:0.9;">MAISON<br>DE MAY</h3>
+                <p style="font-size:13px; color:rgba(255,255,255,0.6); line-height:1.8; margin:0 0 32px;">Luxury eyebrow technician website built for Maison De May Beauty — featuring microblading services, gallery, and WhatsApp booking integration.</p>
+                <span style="display:inline-flex; align-items:center; gap:10px; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#fff; border:1.5px solid rgba(255,255,255,0.5); padding:13px 32px;">
+                  Visit Live Site
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></svg>
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PRICING -->
+  <section id="pricing" class="section-pad" style="max-width:1400px; margin:0 auto;">
+    <div class="section-header" style="display:flex; align-items:baseline; justify-content:space-between; border-bottom:2px solid #000; padding-bottom:16px; margin-bottom:80px;">
+      <h2 style="font-size:clamp(28px,4vw,48px); font-weight:900; letter-spacing:-0.03em; margin:0;">HONEST PRICING</h2>
+      <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#999; margin:0;">No surprises</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card" style="display:flex;flex-direction:column;">
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 32px;">Step One</p>
+        <div class="pricing-big-text" style="font-size:60px; font-weight:900; letter-spacing:-0.05em; line-height:1; margin-bottom:8px;">WE BUILD<br>YOU APPROVE<br>YOU PAY</div>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 40px;">£250 — £1,000 · Size & Complexity</p>
+        <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; display:grid; gap:10px; margin-bottom:24px; flex:1;">
+          <div style="display:flex;gap:12px;align-items:start;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.4;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>We build first, no commitment</div>
+          <div style="display:flex;gap:12px;align-items:start;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.4;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>You approve every detail</div>
+          <div style="display:flex;gap:12px;align-items:start;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.4;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>Only pay when happy</div>
+          <div style="display:flex;gap:12px;align-items:start;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.4;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>£250–£1,000 by size</div>
+        </div>
+        <a href="#contact" class="btn btn-outline-w" style="display:block; text-align:center;">Start The Process</a>
+      </div>
+      <div class="pricing-card" style="display:flex;flex-direction:column;">
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 32px;">Step Two</p>
+        <div class="pricing-big-text" style="font-size:60px; font-weight:900; letter-spacing:-0.05em; line-height:1; margin-bottom:8px;">ONGOING<br>PAYMENTS</div>
+        <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0 0 40px;">Monthly Maintenance</p>
+        <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:20px; display:grid; gap:10px; margin-bottom:24px; flex:1;">
+          <div style="display:flex;gap:12px;align-items:start;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.4;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>£29/month hosting</div>
+          <div style="display:flex;gap:12px;align-items:start;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.4;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>Cancel anytime</div>
+          <div style="display:flex;gap:12px;align-items:start;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.4;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>24/7 support</div>
+          <div style="display:flex;gap:12px;align-items:start;font-size:12px;color:rgba(255,255,255,0.6);line-height:1.4;"><span style="font-weight:900;color:#fff;flex-shrink:0;">—</span>Extra cost for ads & SEO</div>
+        </div>
+        <a href="#contact" class="btn btn-outline-w" style="display:block; text-align:center;">Join The Team</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:#000; color:#fff; padding:0;">
+
+    <div class="contact-top-pad" style="padding:100px 80px 80px; border-bottom:1px solid rgba(255,255,255,0.06); position:relative; overflow:hidden;">
+      <img class="contact-logo-bg" src="AXIOM LOGO ICON.png" alt="" style="position:absolute; right:-80px; top:50%; transform:translateY(-50%); width:480px; height:auto; opacity:1; pointer-events:none; user-select:none;">
+      <div class="contact-top-inner">
+        <h2 style="font-size:clamp(48px,9vw,128px); font-weight:900; letter-spacing:-0.05em; line-height:0.86; margin:0; flex-shrink:0;">READY<br>TO BE<br>FOUND?</h2>
+        <div class="contact-text">
+          <p style="font-size:14px; color:rgba(255,255,255,0.5); line-height:1.8; margin:0 0 24px;">Our team will build a bespoke website tailored to your business. Once you approve, we'll launch it. Contact us below and we'll supply your website.</p>
+          <p style="font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.25); margin:0;">axiommarketing19@gmail.com</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-section">
+      <div style="max-width:1400px; margin:0 auto;">
+        <form action="https://formsubmit.co/axiommarketing90@gmail.com" method="POST" class="contact-form">
+          <input type="hidden" name="_subject" value="New website enquiry — Axiom Marketing">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://axiommarketing.co.uk/">
+          <input type="text" name="business_name" placeholder="Business Name" class="form-input" required style="padding:22px 20px; font-size:13px;">
+          <input type="email" name="email" placeholder="Email Address" class="form-input" required style="padding:22px 20px; font-size:13px;">
+          <input type="tel" name="phone" placeholder="Phone Number" class="form-input" style="padding:22px 20px; font-size:13px;">
+          <button type="submit" class="contact-submit-btn" style="background:#fff; color:#000; padding:22px 40px; font-size:11px; font-weight:900; letter-spacing:0.2em; text-transform:uppercase; border:none; cursor:pointer; font-family:'Montserrat',sans-serif; white-space:nowrap;">
+            GET STARTED →
+          </button>
+        </form>
+        <p style="font-size:11px; color:rgba(255,255,255,0.2); margin:16px 0 0; font-weight:600; letter-spacing:0.05em;">Free · No commitment · We reply within 24 hours</p>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer style="background:#000; border-top:1px solid rgba(255,255,255,0.07); padding:28px 40px;">
+    <div class="footer-inner">
+      <a href="#" style="display:inline-block; line-height:0;"><img src="AXIOM LOGO.png" alt="Axiom" style="height:44px;"></a>
+      <p style="font-size:10px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.2); margin:0;">© 2026 Axiom Marketing</p>
+      <div class="footer-nav" style="display:flex; gap:32px;">
+        <a href="#how" class="nav-link">Process</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const drawer = document.getElementById('mob-drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    const drawerClose = document.getElementById('drawer-close');
+    function openDrawer(){ drawer.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeDrawer(){ drawer.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow=''; }
+    menuBtn.addEventListener('click', openDrawer);
+    drawerClose.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    drawer.querySelectorAll('[data-drawer-close]').forEach(l => l.addEventListener('click', closeDrawer));
+
+    // Tighten pricing bullet gaps on mobile
+    if (window.innerWidth <= 768) {
+      document.querySelectorAll('.pricing-card div[style*="gap:16px"]').forEach(el => {
+        el.style.gap = '4px';
+        el.style.marginBottom = '12px';
+        el.style.paddingTop = '12px';
+      });
+      document.querySelectorAll('.pricing-card div[style*="gap:16px"] > div').forEach(el => {
+        el.style.fontSize = '11px';
+        el.style.lineHeight = '1.4';
+      });
+    }
+
+    // Process accordion — mobile only
+    document.querySelectorAll('.process-row').forEach(row => {
+      row.addEventListener('click', () => {
+        const isOpen = row.classList.contains('expanded');
+        document.querySelectorAll('.process-row').forEach(r => r.classList.remove('expanded'));
+        if (!isOpen) row.classList.add('expanded');
+      });
+    });
+  </script>
+
+</body>
+</html>

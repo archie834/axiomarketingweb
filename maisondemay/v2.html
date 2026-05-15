@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison De May — V2 Full Bleed</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{background:#FAF5EC;color:#1E1008;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;inset:0 0 auto 0;z-index:100;height:68px;display:flex;align-items:center;background:transparent;transition:background .4s,border-color .4s,box-shadow .4s}
+    .nav.s{background:rgba(250,245,236,.97);backdrop-filter:blur(16px);border-bottom:1px solid #E4CDB0;box-shadow:0 2px 32px rgba(44,26,14,.06)}
+    .nl{font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,245,236,.8);text-decoration:none;transition:color .2s}
+    .nl:hover,.nl.dk{color:#B8902E}
+    .nav.s .nl{color:#6B4F35}.nav.s .nl:hover{color:#B8902E}
+    .bg{display:inline-block;background:#B8902E;color:#FAF5EC;font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.5rem;text-decoration:none;transition:background .2s,box-shadow .2s,transform .15s}
+    .bg:hover{background:#9E7D24;box-shadow:0 6px 24px rgba(184,144,46,.3);transform:translateY(-1px)}
+    .bo{display:inline-block;background:transparent;color:#B8902E;font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.5rem;border:1px solid rgba(184,144,46,.5);text-decoration:none;transition:background .2s,border-color .2s,color .2s,transform .15s}
+    .bo:hover{background:#B8902E;border-color:#B8902E;color:#FAF5EC;transform:translateY(-1px)}
+    .iz{overflow:hidden}.iz img{transition:transform .7s cubic-bezier(.25,.46,.45,.94);display:block}
+    .iz:hover img{transform:scale(1.04)}
+    .fi{width:100%;background:#FDF9F2;border:1px solid #E4CDB0;padding:.85rem 1rem;font-family:'Jost',sans-serif;font-weight:300;font-size:.875rem;color:#1E1008;appearance:none;transition:border-color .2s,box-shadow .2s}
+    .fi::placeholder{color:rgba(107,79,53,.3)}.fi:focus{outline:none;border-color:#B8902E;box-shadow:0 0 0 3px rgba(184,144,46,.1)}
+    .lb{display:block;font-family:'Jost',sans-serif;font-weight:500;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:#9B7745;margin-bottom:.5rem}
+    .eb{font-family:'Jost',sans-serif;font-weight:500;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:#B8902E}
+    .gr{width:32px;height:1px;background:#B8902E}
+  </style>
+</head>
+<body>
+<!-- NAV — transparent over photo, opaque on scroll -->
+<nav class="nav" id="nav">
+  <div style="max-width:1320px;margin:0 auto;padding:0 2rem;width:100%;display:flex;align-items:center;justify-content:space-between;position:relative">
+    <div class="hidden md:flex" style="gap:2.5rem"><a href="#about" class="nl">About</a><a href="#process" class="nl">Process</a></div>
+    <a href="#" style="position:absolute;left:50%;transform:translateX(-50%)" aria-label="Maison De May Beauty">
+      <svg width="164" height="50" viewBox="0 0 164 50" fill="none"><path d="M38 13 Q82 2 126 13" stroke="#D4B46A" stroke-width="1.2" fill="none" stroke-linecap="round"/><text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#D4B46A" text-anchor="middle" letter-spacing="2" id="lt">MAISON DE MAY</text><text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="rgba(212,180,106,.7)" text-anchor="middle" letter-spacing="4" id="ls">BEAUTY</text></svg>
+    </a>
+    <div class="hidden md:flex" style="gap:2.5rem;align-items:center"><a href="#gallery" class="nl">Gallery</a><a href="#booking" class="bg" style="padding:.6rem 1.3rem;font-size:.6rem">Book Now</a></div>
+    <button id="ham" class="md:hidden" style="background:none;border:none;cursor:pointer" aria-label="Menu"><svg width="22" height="14" viewBox="0 0 22 14" fill="none"><rect y="0" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/><rect y="6" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/><rect y="12" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/></svg></button>
+    <a href="#booking" class="bg md:hidden" style="padding:.5rem 1rem;font-size:.58rem">Book</a>
+  </div>
+  <div id="mob" style="display:none;position:absolute;top:68px;left:0;right:0;background:#FAF5EC;border-top:1px solid #E4CDB0;padding:1.5rem 2rem">
+    <div style="display:flex;flex-direction:column;gap:1.5rem"><a href="#about" class="nl dk" data-close>About</a><a href="#process" class="nl dk" data-close>Process</a><a href="#gallery" class="nl dk" data-close>Gallery</a><a href="#booking" class="bg" data-close style="text-align:center;padding:.875rem">Book Now</a></div>
+  </div>
+</nav>
+
+<!-- HERO V2: Full-bleed photo, text center-bottom over gradient -->
+<section style="height:100vh;position:relative;overflow:hidden">
+  <img src="CHLOES BROWS/After.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:saturate(.85) contrast(1.08)">
+  <!-- Cream gradient from bottom 55% up -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,1) 0%,rgba(250,245,236,.92) 22%,rgba(250,245,236,.4) 48%,rgba(250,245,236,.05) 70%,transparent 100%)"></div>
+  <!-- Slight vignette sides -->
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 60%,rgba(250,245,236,.3) 100%)"></div>
+
+  <!-- Content: centred, sitting on gradient -->
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:0 2rem 5rem;text-align:center">
+    <p class="eb" style="margin-bottom:1.25rem">Eyebrow Technician · North East</p>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.5rem,8vw,7rem);line-height:.97;letter-spacing:-.035em;color:#1E1008;margin-bottom:1.75rem">
+      Brows Crafted<br><em style="font-style:italic;color:#B8902E">with Precision</em>
+    </h1>
+    <div class="gr" style="margin:0 auto 1.75rem"></div>
+    <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.9rem;line-height:1.85;color:#6B4F35;max-width:400px;margin:0 auto 2.5rem">Semi-permanent microblading tailored to your natural beauty.</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem">
+      <a href="#booking" class="bg" style="padding:.9rem 2.25rem">Book Your Appointment</a>
+      <a href="#process" class="bo" style="padding:.9rem 2.25rem">See the Process</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding:7rem 2rem">
+  <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:4rem;align-items:center" class="ag">
+    <div style="order:2" class="iz"><img src="CHLOES BROWS/Gallery1.jpg" alt="" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;display:block;filter:saturate(.92);box-shadow:0 20px 60px rgba(44,26,14,.1)"></div>
+    <div style="order:1"><p class="eb" style="margin-bottom:1rem">About</p><h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;letter-spacing:-.02em;color:#1E1008;margin-bottom:1.5rem">The Art of the<br><em style="font-style:italic;color:#B8902E">Perfect Brow</em></h2><div class="gr" style="margin-bottom:1.75rem"></div><p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.875rem;line-height:1.9;color:#6B4F35;margin-bottom:1.25rem">Every treatment begins with a thorough consultation to understand your bone structure, skin tone, and brow goals.</p><p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.875rem;line-height:1.9;color:#6B4F35;margin-bottom:2.5rem">Ultra-fine strokes crafted to look completely natural. Lasting 12–18 months.</p><a href="#booking" class="bg" style="padding:.9rem 2rem">Book a Consultation</a></div>
+  </div>
+</section>
+<style>@media(min-width:800px){.ag{grid-template-columns:1fr 1fr!important}.ag>div:first-child{order:2!important}.ag>div:last-child{order:1!important}}</style>
+
+<!-- PROCESS -->
+<section id="process" style="padding:7rem 2rem;background:#F0E6D3;border-top:1px solid #E4CDB0;border-bottom:1px solid #E4CDB0">
+  <div style="max-width:1320px;margin:0 auto"><div style="text-align:center;margin-bottom:4.5rem"><p class="eb" style="margin-bottom:1rem">The Journey</p><h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3.2rem);letter-spacing:-.02em;color:#1E1008">Your Brow <em style="font-style:italic;color:#B8902E">Transformation</em></h2><div class="gr" style="margin:1rem auto 0"></div></div>
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem" class="pg">
+    <div><div class="iz" style="position:relative;margin-bottom:1.25rem;box-shadow:0 12px 36px rgba(44,26,14,.09)"><img src="CHLOES BROWS/Before.jpg" alt="" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(240,230,211,.5) 0%,transparent 45%);pointer-events:none"></div><div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.18)">01</div></div><h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.3rem;color:#1E1008;margin-bottom:.4rem">Before</h3><p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.78rem;line-height:1.75;color:#6B4F35">Natural brows before treatment begins.</p></div>
+    <div><div class="iz" style="position:relative;margin-bottom:1.25rem;box-shadow:0 12px 36px rgba(44,26,14,.09)"><img src="CHLOES BROWS/After.jpg" alt="" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(240,230,211,.5) 0%,transparent 45%);pointer-events:none"></div><div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.18)">02</div></div><h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.3rem;color:#1E1008;margin-bottom:.4rem">Just After</h3><p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.78rem;line-height:1.75;color:#6B4F35">Immediately post-procedure — softens over 7–10 days.</p></div>
+    <div><div class="iz" style="position:relative;margin-bottom:1.25rem;box-shadow:0 12px 36px rgba(44,26,14,.09)"><img src="CHLOES BROWS/Healed.jpg" alt="" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(240,230,211,.5) 0%,transparent 45%);pointer-events:none"></div><div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.18)">03</div></div><h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.3rem;color:#1E1008;margin-bottom:.4rem">Healed</h3><p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.78rem;line-height:1.75;color:#6B4F35">Strokes soften for a natural finish.</p></div>
+    <div><div class="iz" style="position:relative;margin-bottom:1.25rem;box-shadow:0 12px 36px rgba(44,26,14,.09)"><img src="CHLOES BROWS/TopUp.jpg" alt="" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)"><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(240,230,211,.5) 0%,transparent 45%);pointer-events:none"></div><div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.18)">04</div></div><h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.3rem;color:#1E1008;margin-bottom:.4rem">Top Up</h3><p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.78rem;line-height:1.75;color:#6B4F35">5–8 week top-up for lasting results.</p></div>
+  </div>
+  <div style="text-align:center;margin-top:3.5rem"><a href="#booking" class="bg" style="padding:.9rem 2.25rem">Book Your Transformation</a></div></div>
+</section>
+<style>@media(min-width:960px){.pg{grid-template-columns:repeat(4,1fr)!important}}</style>
+
+<!-- GALLERY -->
+<section id="gallery" style="padding:7rem 2rem"><div style="max-width:1320px;margin:0 auto"><div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1.5rem;margin-bottom:3rem"><div><p class="eb" style="margin-bottom:.75rem">Portfolio</p><h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3.2rem);letter-spacing:-.02em;color:#1E1008">Client <em style="font-style:italic;color:#B8902E">Results</em></h2></div><a href="https://www.instagram.com/maisondemaybeauty" target="_blank" rel="noopener" class="bo" style="display:inline-flex;align-items:center;gap:.4rem;font-size:.6rem;padding:.65rem 1.2rem"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>@maisondemaybeauty</a></div>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.875rem" class="gg">
+  <div class="iz" style="aspect-ratio:3/4;box-shadow:0 12px 36px rgba(44,26,14,.08)"><img src="CHLOES BROWS/Grace.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(.9)"></div>
+  <div class="iz" style="aspect-ratio:3/4;box-shadow:0 12px 36px rgba(44,26,14,.08)"><img src="CHLOES BROWS/Elise.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:saturate(.9)"></div>
+  <div class="iz" style="aspect-ratio:3/4;box-shadow:0 12px 36px rgba(44,26,14,.08)"><img src="CHLOES BROWS/Smile eyebrow.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:saturate(.9)"></div>
+  <div class="iz" style="aspect-ratio:3/4;box-shadow:0 12px 36px rgba(44,26,14,.08)"><img src="CHLOES BROWS/Gallery1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:saturate(.9)"></div>
+</div></div></section>
+<style>@media(min-width:768px){.gg{grid-template-columns:repeat(4,1fr)!important;gap:1rem!important}}</style>
+
+<!-- BOOKING -->
+<section id="booking" style="padding:7rem 2rem;background:#F0E6D3;border-top:1px solid #E4CDB0"><div style="max-width:640px;margin:0 auto"><div style="text-align:center;margin-bottom:3rem"><p class="eb" style="margin-bottom:1rem">Appointments</p><h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3.2rem);letter-spacing:-.02em;color:#1E1008;margin-bottom:1.5rem">Book Your <em style="font-style:italic;color:#B8902E">Appointment</em></h2><div class="gr" style="margin:0 auto 1.25rem"></div><p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.875rem;line-height:1.8;color:#6B4F35">Fill in your details and I'll be in touch within 24 hours.</p></div>
+<form id="bf" style="display:flex;flex-direction:column;gap:1.25rem" novalidate>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem" class="ng"><div><label class="lb">First Name</label><input type="text" name="fn" class="fi" placeholder="Jane" required></div><div><label class="lb">Last Name</label><input type="text" name="ln" class="fi" placeholder="Smith" required></div></div>
+  <div><label class="lb">Email</label><input type="email" name="em" class="fi" placeholder="jane@example.com" required></div>
+  <div><label class="lb">Phone</label><input type="tel" name="ph" class="fi" placeholder="+44 7700 000 000"></div>
+  <div><label class="lb">Treatment</label><select name="tr" class="fi" style="background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23B8902E' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 14px center"><option value="" disabled selected>Select a treatment</option><option>Microblading — Initial Session</option><option>Top Up (5–8 weeks)</option><option>Consultation</option></select></div>
+  <div><label class="lb">Preferred Date</label><input type="date" name="dt" class="fi"></div>
+  <div><label class="lb">Message <span style="opacity:.4;font-size:.58rem">(optional)</span></label><textarea name="ms" class="fi" rows="3" style="resize:vertical" placeholder="Any questions..."></textarea></div>
+  <button type="submit" class="bg" style="width:100%;padding:1.1rem;font-size:.7rem;border:none;cursor:pointer">Send Enquiry</button>
+  <p style="text-align:center;font-family:'Jost',sans-serif;font-weight:300;font-size:.75rem;color:#9B7745">Or DM: <a href="https://www.instagram.com/maisondemaybeauty" target="_blank" style="color:#B8902E;text-decoration:none">@maisondemaybeauty</a></p>
+</form>
+<div id="fs" style="display:none;text-align:center;padding:3rem;border:1px solid rgba(184,144,46,.25)"><h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.6rem;color:#1E1008;margin-bottom:.75rem">Enquiry Sent</h3><p style="font-family:'Jost',sans-serif;font-weight:300;font-size:.875rem;color:#6B4F35">I'll be in touch within 24 hours.</p></div>
+</div></section>
+<style>@media(max-width:480px){.ng{grid-template-columns:1fr!important}}</style>
+
+<footer style="padding:3rem 2rem;background:#1E1008"><div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1.75rem;text-align:center"><svg width="164" height="50" viewBox="0 0 164 50" fill="none"><path d="M38 13 Q82 2 126 13" stroke="#B8902E" stroke-width="1.2" fill="none" stroke-linecap="round"/><text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#D4B46A" text-anchor="middle" letter-spacing="2">MAISON DE MAY</text><text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="#9B7745" text-anchor="middle" letter-spacing="4">BEAUTY</text></svg><div style="display:flex;flex-wrap:wrap;justify-content:center;gap:2rem"><a href="#about" style="font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,245,236,.3);text-decoration:none" onmouseover="this.style.color='#D4B46A'" onmouseout="this.style.color='rgba(250,245,236,.3)'">About</a><a href="#process" style="font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,245,236,.3);text-decoration:none" onmouseover="this.style.color='#D4B46A'" onmouseout="this.style.color='rgba(250,245,236,.3)'">Process</a><a href="#gallery" style="font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,245,236,.3);text-decoration:none" onmouseover="this.style.color='#D4B46A'" onmouseout="this.style.color='rgba(250,245,236,.3)'">Gallery</a><a href="#booking" style="font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,245,236,.3);text-decoration:none" onmouseover="this.style.color='#D4B46A'" onmouseout="this.style.color='rgba(250,245,236,.3)'">Book</a></div><p style="font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.1em;color:rgba(250,245,236,.16)">© 2025 Maison De May Beauty</p></div></footer>
+
+<script>
+  const nav=document.getElementById('nav'),ham=document.getElementById('ham'),mob=document.getElementById('mob');
+  window.addEventListener('scroll',()=>{const s=scrollY>80;nav.classList.toggle('s',s);document.getElementById('lt').setAttribute('fill',s?'#B8902E':'#D4B46A');document.getElementById('ls').setAttribute('fill',s?'#9B7745':'rgba(212,180,106,.7)')},{passive:true});
+  ham.addEventListener('click',()=>mob.style.display=mob.style.display==='block'?'none':'block');
+  mob.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>mob.style.display='none'));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id==='#')return;const t=document.querySelector(id);if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-68,behavior:'smooth'})}));
+  document.getElementById('bf').addEventListener('submit',e=>{e.preventDefault();const d=new FormData(e.target);window.location.href=`mailto:archiegordon20010@gmail.com?subject=${encodeURIComponent('Maison De May — Booking')}&body=${encodeURIComponent(`Name: ${d.get('fn')} ${d.get('ln')}\nEmail: ${d.get('em')}\nPhone: ${d.get('ph')||'—'}\nTreatment: ${d.get('tr')||'—'}\nDate: ${d.get('dt')||'—'}\n\n${d.get('ms')||''}`)}`;e.target.style.display='none';document.getElementById('fs').style.display='block'});
+</script>
+</body>
+</html>

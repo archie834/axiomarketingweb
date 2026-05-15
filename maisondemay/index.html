@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison De May Beauty — Eyebrow Technician</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{background:#E8D6BC;color:#1E1008;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
+    .nav{position:fixed;inset:0 0 auto 0;z-index:100;height:196px;display:flex;align-items:center;background:transparent;transition:background .4s,border-color .4s,box-shadow .4s}
+    .nav.s{background:rgba(250,245,236,.97);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #E4CDB0;box-shadow:0 2px 32px rgba(44,26,14,.06)}
+    .nl{font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(250,245,236,.8);text-decoration:none;transition:color .2s,transform .2s;display:inline-block}
+    .nl:hover,.nl.dk{color:#B8902E;transform:scale(1.25)}
+    .nav.s .nl{color:#B8902E}.nav.s .nl:hover{color:#B8902E;transform:scale(1.25)}
+    .bg{display:inline-block;background:#B8902E;color:#FAF5EC;font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.5rem;text-decoration:none;transition:background .2s,box-shadow .2s,transform .15s}
+    .bg:hover{background:#9E7D24;box-shadow:0 6px 24px rgba(184,144,46,.3);transform:translateY(-1px)}
+    .bo{display:inline-block;background:transparent;color:#B8902E;font-family:'Jost',sans-serif;font-weight:500;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:.7rem 1.5rem;border:1px solid rgba(184,144,46,.5);text-decoration:none;transition:background .2s,border-color .2s,color .2s,transform .15s}
+    .bo:hover{background:#B8902E;border-color:#B8902E;color:#FAF5EC;transform:translateY(-1px)}
+    .iz{overflow:hidden}.iz img{transition:transform .7s cubic-bezier(.25,.46,.45,.94);display:block}
+    .iz:hover img{transform:scale(1.04)}
+    .eb{font-family:'Jost',sans-serif;font-weight:500;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:#B8902E}
+    .gr{width:32px;height:1px;background:#B8902E}
+
+    /* Process lightbox */
+    #plb{position:fixed;inset:0;background:rgba(250,245,236,.97);z-index:999;display:none;align-items:center;justify-content:center;padding:2rem;backdrop-filter:blur(12px)}
+    #plb.open{display:flex}
+    #plb img{max-width:100%;max-height:85vh;object-fit:contain;box-shadow:0 24px 64px rgba(44,26,14,.1)}
+    #plb-close{position:absolute;top:1.5rem;right:2rem;background:none;border:none;cursor:pointer;color:#9B7745;font-family:'Jost',sans-serif;font-size:1.1rem;letter-spacing:.15em;text-transform:uppercase;transition:color .2s,transform .2s;display:inline-block}
+    #plb-close:hover{color:#B8902E;transform:scale(1.2)}
+    #plb-prev,#plb-next{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(184,144,46,.6);font-size:2.5rem;padding:1rem;transition:color .2s,transform .2s}
+    #plb-prev:hover{color:#B8902E;transform:translateY(-50%) scale(1.2)}
+    #plb-next:hover{color:#B8902E;transform:translateY(-50%) scale(1.2)}
+    #plb-prev{left:1rem}#plb-next{right:1rem}
+    .proc-img{cursor:pointer}
+
+    /* ── Mobile nav fixes ── */
+    @media(max-width:767px){
+      .nav{height:90px!important}
+      .nav svg[width="600"]{width:200px!important;height:61px!important}
+      #mob{top:90px!important}
+      .hero-img{object-position:62% top!important}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div style="max-width:1320px;margin:0 auto;padding:0 2rem;width:100%;display:flex;align-items:center;justify-content:space-between;position:relative">
+    <div class="hidden md:flex" style="gap:2.5rem"><a href="about.html" class="nl" style="font-size:1rem;letter-spacing:.18em">About</a><a href="#process" class="nl" style="font-size:1rem;letter-spacing:.18em">Our Process</a></div>
+
+    <!-- Logo — doubled -->
+    <a href="index.html" style="position:absolute;left:50%;transform:translateX(-50%)" aria-label="Maison De May Beauty">
+      <svg width="600" height="183" viewBox="0 0 164 50" fill="none">
+        <path d="M38 13 Q82 2 126 13" stroke="#D4B46A" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+        <text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#D4B46A" text-anchor="middle" letter-spacing="2" id="lt">MAISON DE MAY</text>
+        <text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="#D4B46A" text-anchor="middle" letter-spacing="4" id="ls">BEAUTY</text>
+      </svg>
+    </a>
+
+    <div class="hidden md:flex" style="gap:2.5rem;align-items:center">
+      <a href="gallery.html" class="nl" style="font-size:1rem;letter-spacing:.18em">Gallery</a>
+      <a href="booking.html" class="nl" style="font-size:1rem;letter-spacing:.18em">Book Now</a>
+    </div>
+    <button id="ham" class="md:hidden" style="background:none;border:none;cursor:pointer" aria-label="Menu">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none"><rect y="0" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/><rect y="6" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/><rect y="12" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/></svg>
+    </button>
+    <a href="booking.html" class="nl md:hidden" style="font-size:.7rem;letter-spacing:.12em">BOOK</a>
+  </div>
+  <!-- Gold line under logo, full width, overlaps hero image -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%);pointer-events:none"></div>
+  <div id="mob" style="display:none;position:fixed;top:90px;left:0;right:0;background:#FAF5EC;border-top:1px solid #E4CDB0;border-bottom:1px solid #E4CDB0;padding:1.5rem 2rem;z-index:999">
+    <div style="display:flex;flex-direction:column;gap:1.5rem">
+      <a href="about.html" class="nl dk" data-close>About</a>
+      <a href="#process" class="nl dk" data-close>Our Process</a>
+      <a href="gallery.html" class="nl dk" data-close>Gallery</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="height:100vh;position:relative;overflow:hidden">
+  <img src="CHLOES BROWS/After.jpg" alt="" class="hero-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% top;display:block;filter:saturate(.85) contrast(1.08)">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 60%,rgba(250,245,236,.3) 100%)"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;padding:0 2rem 3rem;text-align:center">
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.5rem,8vw,7rem);line-height:.97;letter-spacing:-.035em;color:#1E1008;margin-bottom:1.75rem">
+      <em style="font-style:normal;color:#B8902E">Brows</em><br><em style="font-style:italic;color:#B8902E">You Deserve</em>
+    </h1>
+    <div class="gr" style="margin:0 auto"></div>
+  </div>
+</section>
+
+<!-- Button bar -->
+<div style="background:#FAF5EC;padding:2.5rem 2rem;text-align:center;position:relative;border-top:2.5px solid;border-bottom:2.5px solid;border-image:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%) 1">
+  <a href="booking.html" style="font-family:'Jost',sans-serif;font-weight:500;font-size:1.5625rem;letter-spacing:.18em;text-transform:uppercase;color:#B8902E;text-decoration:none;display:inline-block;transition:transform .2s" onmouseover="this.style.transform='scale(1.15)'" onmouseout="this.style.transform='scale(1)'">Book Your Transformation</a>
+</div>
+
+<!-- ABOUT — image as background, beige fades in from left over text -->
+<section id="about" style="position:relative;overflow:hidden;min-height:700px;display:flex;align-items:center">
+  <!-- Full background image on the right -->
+  <img src="CHLOES BROWS/Gallery1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 40%;display:block;filter:saturate(.9) contrast(1.03)">
+  <!-- Beige fade stops before the eyes -->
+  <div style="position:absolute;inset:0;background:linear-gradient(to right,#F5EDDD 0%,rgba(245,237,221,.97) 22%,rgba(245,237,221,.6) 35%,rgba(245,237,221,.05) 44%,transparent 50%);pointer-events:none"></div>
+  <!-- Gold border top -->
+  <div style="position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%);pointer-events:none;z-index:3"></div>
+  <!-- Gold border bottom -->
+  <div style="position:absolute;bottom:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%);pointer-events:none;z-index:3"></div>
+
+  <!-- Text content -->
+  <div style="position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:6rem 2rem;width:100%">
+    <div style="max-width:480px">
+      <p class="eb" style="margin-bottom:1rem">About</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;letter-spacing:-.02em;color:#B8902E;margin-bottom:1.5rem">The Art of the<br><em style="font-style:italic;color:#B8902E">Perfect Brow</em></h2>
+      <div class="gr" style="margin-bottom:1.75rem"></div>
+      <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:1.05rem;line-height:1.9;color:#B8902E;margin-bottom:1.25rem">Our technician begins every appointment with an evaluation of your brows, then proceeding with the process — thickening and shaping your eyebrows to the beauty standard you deserve.</p>
+      <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:1.05rem;line-height:1.9;color:#B8902E">Top ups every 5–8 weeks to keep your eyebrows to our standard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="padding:7rem 2rem;background:#FAF5EC;border-top:1px solid #E4CDB0;border-bottom:1px solid #E4CDB0">
+  <div style="max-width:1320px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:4.5rem">
+      <p class="eb" style="margin-bottom:1rem">The Journey</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,3.5vw,3.2rem);letter-spacing:-.02em;color:#B8902E">Your Brow <em style="font-style:italic;color:#B8902E">Transformation</em></h2>
+      <div class="gr" style="margin:1rem auto 0"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem" class="pg">
+
+      <div>
+        <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
+          <img src="CHLOES BROWS/Before.jpg" alt="" class="proc-img" data-idx="0" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">01</div>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.5rem;color:#B8902E;margin-bottom:.5rem">Before the Transformation</h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:1rem;line-height:1.75;color:#B8902E">Her natural brows before the treatment.</p>
+      </div>
+
+      <div>
+        <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
+          <img src="CHLOES BROWS/After.jpg" alt="" class="proc-img" data-idx="1" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">02</div>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.5rem;color:#B8902E;margin-bottom:.5rem">Just After</h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:1rem;line-height:1.75;color:#B8902E">Post procedure experiencing minimal swelling — this softens over 7–10 days.</p>
+      </div>
+
+      <div>
+        <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
+          <img src="CHLOES BROWS/Healed.jpg" alt="" class="proc-img" data-idx="2" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">03</div>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.5rem;color:#B8902E;margin-bottom:.5rem">Healed</h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:1rem;line-height:1.75;color:#B8902E">Healed result — eyebrows fuller and thicker.</p>
+      </div>
+
+      <div>
+        <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
+          <img src="CHLOES BROWS/TopUp.jpg" alt="" class="proc-img" data-idx="3" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">04</div>
+        </div>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.5rem;color:#B8902E;margin-bottom:.5rem">Top Up</h3>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;font-size:1rem;line-height:1.75;color:#B8902E">5–8 weeks after you will come in for a top up for lasting results.</p>
+      </div>
+
+    </div>
+    <div style="text-align:center;margin-top:3.5rem"><a href="booking.html" style="font-family:'Jost',sans-serif;font-weight:500;font-size:1.5625rem;letter-spacing:.18em;text-transform:uppercase;color:#B8902E;text-decoration:none;display:inline-block;transition:transform .2s" onmouseover="this.style.transform='scale(1.25)'" onmouseout="this.style.transform='scale(1)'">Book Your Transformation</a></div>
+  </div>
+</section>
+<style>@media(min-width:960px){.pg{grid-template-columns:repeat(4,1fr)!important}}</style>
+
+<!-- Process Lightbox -->
+<div id="plb"><button id="plb-close">✕ Close</button><button id="plb-prev">&#8592;</button><img id="plb-img" src="" alt=""><button id="plb-next">&#8594;</button></div>
+
+<!-- FOOTER -->
+<footer style="background:#FAF5EC;position:relative;padding:2.5rem 2rem;text-align:center">
+  <div style="position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%)"></div>
+  <svg width="220" height="68" viewBox="0 0 164 50" fill="none" style="display:block;margin:0 auto"><path d="M38 13 Q82 2 126 13" stroke="#B8902E" stroke-width="1.2" fill="none" stroke-linecap="round"/><text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#B8902E" text-anchor="middle" letter-spacing="2">MAISON DE MAY</text><text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="#B8902E" text-anchor="middle" letter-spacing="4">BEAUTY</text></svg>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav'),ham=document.getElementById('ham'),mob=document.getElementById('mob');
+  window.addEventListener('scroll',()=>{const s=scrollY>100;nav.classList.toggle('s',s);document.getElementById('lt').setAttribute('fill',s?'#B8902E':'#D4B46A');document.getElementById('ls').setAttribute('fill',s?'#B8902E':'#D4B46A')},{passive:true});
+  ham.addEventListener('click',()=>{
+    const open=mob.style.display==='block';
+    mob.style.display=open?'none':'block';
+    ham.querySelectorAll('rect').forEach(r=>r.setAttribute('fill',open?'rgba(250,245,236,.8)':'#B8902E'));
+  });
+  mob.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>mob.style.display='none'));
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id==='#')return;const t=document.querySelector(id);if(!t)return;e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+scrollY-108,behavior:'smooth'})}));
+
+  // Process lightbox
+  const pImgs=['CHLOES BROWS/Before.jpg','CHLOES BROWS/After.jpg','CHLOES BROWS/Healed.jpg','CHLOES BROWS/TopUp.jpg'];
+  let pCur=0;
+  const plb=document.getElementById('plb'),plbImg=document.getElementById('plb-img');
+  function pOpen(i){pCur=i;plbImg.src=pImgs[pCur];plb.classList.add('open');document.body.style.overflow='hidden'}
+  function pClose(){plb.classList.remove('open');document.body.style.overflow=''}
+  function pPrev(){pCur=(pCur-1+pImgs.length)%pImgs.length;plbImg.src=pImgs[pCur]}
+  function pNext(){pCur=(pCur+1)%pImgs.length;plbImg.src=pImgs[pCur]}
+  document.querySelectorAll('.proc-img').forEach(img=>img.addEventListener('click',()=>pOpen(parseInt(img.dataset.idx))));
+  document.getElementById('plb-close').addEventListener('click',pClose);
+  document.getElementById('plb-prev').addEventListener('click',pPrev);
+  document.getElementById('plb-next').addEventListener('click',pNext);
+  plb.addEventListener('click',e=>{if(e.target===plb)pClose()});
+  document.addEventListener('keydown',e=>{if(!plb.classList.contains('open'))return;if(e.key==='Escape')pClose();if(e.key==='ArrowLeft')pPrev();if(e.key==='ArrowRight')pNext()});
+</script>
+</body>
+</html>
