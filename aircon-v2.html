@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Con v2 — White Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:#f0f4ed;}
+:root{--green:#2D6B16;--green-dark:#1A4209;--green-mid:#3A8520;--lime:#7ECB5A;}
+
+.ac{padding:70px 40px;max-width:1180px;margin:0 auto;}
+.ac-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;gap:24px;}
+.ac-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5rem);color:var(--green-dark);line-height:0.9;letter-spacing:0.02em;}
+.ac-title span{color:var(--green-mid);}
+.ac-tagline{font-size:0.78rem;font-weight:700;color:#888;letter-spacing:0.1em;text-transform:uppercase;text-align:right;}
+.ac-tagline strong{display:block;font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--green-dark);letter-spacing:0.04em;}
+
+.ac-body{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:28px;}
+
+.benefit-card{background:#fff;border-radius:12px;padding:28px 24px;box-shadow:0 2px 16px rgba(45,107,22,0.08);}
+.benefit-icon{width:44px;height:44px;background:var(--green-dark);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.benefit-title{font-size:0.9rem;font-weight:700;color:var(--green-dark);margin-bottom:6px;}
+.benefit-desc{font-size:0.78rem;color:#888;line-height:1.6;}
+
+.ac-bottom{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.price-block{background:var(--green-dark);border-radius:12px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;}
+.price-info-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:4px;}
+.price-info-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#fff;letter-spacing:0.02em;}
+.price-big{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--lime);line-height:1;}
+.price-big small{font-family:'Montserrat',sans-serif;font-size:0.65rem;color:rgba(255,255,255,0.4);display:block;letter-spacing:0;}
+
+.cta-block{background:var(--lime);border-radius:12px;padding:32px 36px;display:flex;flex-direction:column;justify-content:center;}
+.cta-block p{font-size:0.8rem;font-weight:700;color:var(--green-dark);margin-bottom:4px;letter-spacing:0.04em;text-transform:uppercase;}
+.cta-block h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--green-dark);line-height:1;margin-bottom:20px;}
+.btn{display:inline-block;background:var(--green-dark);color:#fff;padding:13px 32px;border-radius:6px;font-size:0.82rem;font-weight:700;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;transition:background 0.15s,transform 0.15s;}
+.btn:hover{background:#2a6014;transform:translateY(-2px);}
+.badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+.badge{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green-dark);background:rgba(26,66,9,0.1);padding:5px 10px;border-radius:4px;}
+</style>
+</head>
+<body>
+<div class="ac">
+  <div class="ac-top">
+    <div>
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green-mid);margin-bottom:10px;">Lucky Motors — Peterborough</div>
+      <div class="ac-title">AIR CON<br><span>RE-GAS</span></div>
+    </div>
+    <div class="ac-tagline">
+      <strong>ALL MAKES &amp; MODELS</strong>
+      Cars, vans &amp; light commercial
+    </div>
+  </div>
+
+  <div class="ac-body">
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#7ECB5A"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      </div>
+      <div class="benefit-title">Ice Cold Air</div>
+      <div class="benefit-desc">Powerful cooling when you need it most — guaranteed to make a difference.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#7ECB5A"><path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z"/></svg>
+      </div>
+      <div class="benefit-title">Better Fuel Efficiency</div>
+      <div class="benefit-desc">A well serviced air con system puts less strain on your engine.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#7ECB5A"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </div>
+      <div class="benefit-title">Faster Window Demisting</div>
+      <div class="benefit-desc">Clearer windows for safer driving all year round, not just summer.</div>
+    </div>
+  </div>
+
+  <div class="ac-bottom">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div class="price-block">
+        <div>
+          <div class="price-info-label">Refrigerant</div>
+          <div class="price-info-name">R134a</div>
+        </div>
+        <div class="price-big">£50<small>Incl. VAT</small></div>
+      </div>
+      <div class="price-block">
+        <div>
+          <div class="price-info-label">Refrigerant</div>
+          <div class="price-info-name">R1234yf</div>
+        </div>
+        <div class="price-big">£90<small>Incl. VAT</small></div>
+      </div>
+    </div>
+    <div class="cta-block">
+      <p>Ready to book?</p>
+      <h3>KEEP YOUR AIR CON WORKING AT ITS BEST</h3>
+      <a href="tel:01733977754" class="btn">Book Now — 01733 977754</a>
+      <div class="badges">
+        <span class="badge">Professional Equipment</span>
+        <span class="badge">Certified Service</span>
+        <span class="badge">Competitive Prices</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

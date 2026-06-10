@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Con v5 — Diagonal / Feature</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:#fff;}
+:root{--green:#2D6B16;--green-dark:#1A4209;--green-mid:#3A8520;--lime:#7ECB5A;}
+
+.ac{position:relative;padding:70px 48px;background:#fff;overflow:hidden;}
+.ac::before{content:'';position:absolute;right:-120px;top:-60px;width:520px;height:520px;background:radial-gradient(circle,rgba(126,203,90,0.12) 0%,transparent 70%);pointer-events:none;}
+
+.ac-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+
+/* LEFT */
+.eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green-mid);margin-bottom:14px;}
+.heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,6vw,5.5rem);color:var(--green-dark);line-height:0.9;letter-spacing:0.02em;margin-bottom:12px;}
+.heading em{color:var(--lime);font-style:normal;}
+.sub{font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#bbb;border-bottom:2px solid #eee;padding-bottom:20px;margin-bottom:28px;}
+
+.benefits{display:flex;flex-direction:column;gap:0;}
+.benefit{display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid #f0f0f0;font-size:0.84rem;font-weight:600;color:#444;}
+.benefit:last-child{border-bottom:none;}
+.b-num{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--lime);min-width:28px;}
+
+/* RIGHT */
+.ac-right{display:flex;flex-direction:column;gap:20px;}
+.highlight-box{background:var(--green-dark);border-radius:16px;padding:36px 40px;position:relative;overflow:hidden;}
+.highlight-box::after{content:'❄';position:absolute;right:24px;bottom:-10px;font-size:5rem;opacity:0.08;line-height:1;}
+.hb-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+.hb-text{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#fff;letter-spacing:0.04em;line-height:1.2;margin-bottom:24px;}
+
+.price-row{display:flex;gap:12px;margin-bottom:28px;}
+.price-pill{flex:1;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:14px 18px;text-align:center;}
+.pp-type{font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:4px;}
+.pp-price{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--lime);line-height:1;}
+.pp-note{font-size:0.58rem;color:rgba(255,255,255,0.3);}
+
+.btn{display:block;background:var(--lime);color:var(--green-dark);padding:16px;border-radius:8px;font-size:0.88rem;font-weight:700;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;text-align:center;transition:background 0.15s,transform 0.15s;}
+.btn:hover{background:#93d872;transform:translateY(-2px);}
+.btn span{font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:600;display:block;margin-top:2px;opacity:0.7;}
+
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;}
+.badge{font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green-dark);background:rgba(45,107,22,0.07);border:1px solid rgba(45,107,22,0.12);padding:6px 12px;border-radius:20px;}
+</style>
+</head>
+<body>
+<div class="ac">
+  <div class="ac-inner">
+    <div>
+      <div class="eyebrow">Lucky Motors Peterborough</div>
+      <div class="heading">AIR CON<br><em>RE-GAS</em></div>
+      <div class="sub">All Makes &amp; Models — Cars, Vans &amp; Light Commercial</div>
+      <div class="benefits">
+        <div class="benefit"><span class="b-num">01</span>Ice Cold Air — powerful cooling when you need it most</div>
+        <div class="benefit"><span class="b-num">02</span>Better Fuel Efficiency — less strain on your engine</div>
+        <div class="benefit"><span class="b-num">03</span>Faster Window Demisting — clearer windows all year</div>
+        <div class="benefit"><span class="b-num">04</span>Air Con Health Check included with every re-gas</div>
+        <div class="benefit"><span class="b-num">05</span>Cars, vans &amp; light commercial vehicles welcome</div>
+      </div>
+    </div>
+
+    <div class="ac-right">
+      <div class="highlight-box">
+        <div class="hb-tag">Special Offer</div>
+        <div class="hb-text">Keep your air con<br>working at its best</div>
+        <div class="price-row">
+          <div class="price-pill">
+            <div class="pp-type">R134a Re-Gas</div>
+            <div class="pp-price">£50</div>
+            <div class="pp-note">Incl. VAT</div>
+          </div>
+          <div class="price-pill">
+            <div class="pp-type">R1234yf Re-Gas</div>
+            <div class="pp-price">£90</div>
+            <div class="pp-note">Incl. VAT</div>
+          </div>
+        </div>
+        <a href="tel:01733977754" class="btn">
+          Book Now
+          <span>Call 01733 977754</span>
+        </a>
+      </div>
+      <div class="badge-row">
+        <span class="badge">Professional Equipment</span>
+        <span class="badge">Certified Service</span>
+        <span class="badge">Competitive Prices</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

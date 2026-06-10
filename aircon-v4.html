@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Con v4 — Stacked Prices Left</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:#fff;}
+:root{--green:#2D6B16;--green-dark:#1A4209;--green-mid:#3A8520;--lime:#7ECB5A;--off:#F5F7F4;}
+
+.ac{display:grid;grid-template-columns:380px 1fr;min-height:480px;}
+
+/* LEFT: prices */
+.ac-prices{background:var(--green-dark);padding:56px 44px;display:flex;flex-direction:column;justify-content:center;gap:16px;}
+.prices-label{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--lime);margin-bottom:8px;}
+.price-item{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:24px 28px;}
+.pi-type{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:6px;}
+.pi-row{display:flex;align-items:baseline;justify-content:space-between;}
+.pi-name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:0.04em;}
+.pi-price{font-family:'Bebas Neue',sans-serif;font-size:3.6rem;color:var(--lime);line-height:1;}
+.pi-note{font-size:0.62rem;color:rgba(255,255,255,0.3);margin-top:4px;}
+.ac-divider{height:1px;background:rgba(255,255,255,0.08);margin:4px 0;}
+
+/* RIGHT: content */
+.ac-content{background:var(--off);padding:56px 60px;display:flex;flex-direction:column;justify-content:center;}
+.eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green-mid);margin-bottom:12px;}
+.heading{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,5vw,4.8rem);color:var(--green-dark);line-height:0.9;letter-spacing:0.02em;margin-bottom:8px;}
+.heading span{color:var(--green-mid);}
+.sub{font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#aaa;margin-bottom:28px;}
+
+.benefits{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:36px;}
+.benefit{display:flex;align-items:flex-start;gap:10px;}
+.b-tick{width:20px;height:20px;background:var(--green-mid);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.b-text strong{display:block;font-size:0.82rem;font-weight:700;color:var(--green-dark);margin-bottom:1px;}
+.b-text span{font-size:0.72rem;color:#888;}
+
+.cta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.btn{display:inline-block;background:var(--green-dark);color:#fff;padding:14px 36px;border-radius:6px;font-size:0.85rem;font-weight:700;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;transition:background 0.15s,transform 0.15s;}
+.btn:hover{background:var(--green-mid);transform:translateY(-2px);}
+.cta-note{font-size:0.75rem;color:#888;font-weight:600;}
+.badges{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+.badge{font-size:0.62rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--green-dark);background:rgba(45,107,22,0.08);padding:5px 10px;border-radius:4px;}
+</style>
+</head>
+<body>
+<div class="ac">
+  <div class="ac-prices">
+    <div class="prices-label">Special Offer Prices</div>
+    <div class="price-item">
+      <div class="pi-type">Refrigerant Type</div>
+      <div class="pi-row">
+        <div class="pi-name">R134a</div>
+        <div class="pi-price">£50</div>
+      </div>
+      <div class="pi-note">Prices include VAT</div>
+    </div>
+    <div class="ac-divider"></div>
+    <div class="price-item">
+      <div class="pi-type">Refrigerant Type</div>
+      <div class="pi-row">
+        <div class="pi-name">R1234yf</div>
+        <div class="pi-price">£90</div>
+      </div>
+      <div class="pi-note">Prices include VAT</div>
+    </div>
+  </div>
+
+  <div class="ac-content">
+    <div class="eyebrow">Lucky Motors Peterborough</div>
+    <div class="heading">AIR CON<br><span>RE-GAS</span></div>
+    <div class="sub">All Makes &amp; Models — Cars, Vans &amp; Light Commercial</div>
+
+    <div class="benefits">
+      <div class="benefit">
+        <div class="b-tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div class="b-text"><strong>Ice Cold Air</strong><span>Powerful cooling when needed most</span></div>
+      </div>
+      <div class="benefit">
+        <div class="b-tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div class="b-text"><strong>Better Fuel Economy</strong><span>Less strain on your engine</span></div>
+      </div>
+      <div class="benefit">
+        <div class="b-tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div class="b-text"><strong>Faster Demisting</strong><span>Clearer windows all year round</span></div>
+      </div>
+      <div class="benefit">
+        <div class="b-tick"><svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></div>
+        <div class="b-text"><strong>Health Check Included</strong><span>System pressure &amp; performance check</span></div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a href="tel:01733977754" class="btn">Book Now</a>
+      <span class="cta-note">Call 01733 977754</span>
+    </div>
+    <div class="badges">
+      <span class="badge">Professional Equipment</span>
+      <span class="badge">Certified Service</span>
+      <span class="badge">Competitive Prices</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
