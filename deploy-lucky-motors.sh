@@ -29,7 +29,7 @@ rm -f "$DEPLOY_DIR/stock-images/"*.jpg
 cp "$SRC/stock-images/"*.jpg "$DEPLOY_DIR/stock-images/"
 
 mkdir -p "$DEPLOY_DIR/ejcuts"
-for f in "aircon-vent.jpg" "aircon-gauges.jpg" "carplay image.png" "ecu remaping.JPG" "garage pic.webp" "lucky motors logo.png"; do
+for f in "air con add.PNG" "carplay image.png" "ecu remaping.JPG" "garage pic.webp" "lucky motors logo.png"; do
   cp "$SRC/ejcuts/$f" "$DEPLOY_DIR/ejcuts/"
 done
 
