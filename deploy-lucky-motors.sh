@@ -9,6 +9,8 @@ DEPLOY_DIR="$HOME/lucky-motors-deploy"
 
 if [ ! -d "$DEPLOY_DIR/.git" ]; then
   git clone https://github.com/archie834/luckymotorsweb.git "$DEPLOY_DIR"
+  git -C "$DEPLOY_DIR" config user.name "archie834"
+  git -C "$DEPLOY_DIR" config user.email "archiegordon20010@gmail.com"
 else
   git -C "$DEPLOY_DIR" pull
 fi
