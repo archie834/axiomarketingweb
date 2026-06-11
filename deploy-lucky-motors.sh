@@ -18,6 +18,8 @@ fi
 cp "$SRC/car-dealer.html" "$DEPLOY_DIR/index.html"
 cp "$SRC/stock.json" "$DEPLOY_DIR/"
 cp "$SRC/scrape-stock.mjs" "$DEPLOY_DIR/"
+cp "$SRC/robots.txt" "$DEPLOY_DIR/"
+cp "$SRC/sitemap.xml" "$DEPLOY_DIR/"
 
 mkdir -p "$DEPLOY_DIR/.github/workflows"
 cp "$SRC/.github/workflows/scrape-stock.yml" "$DEPLOY_DIR/.github/workflows/"
@@ -27,7 +29,7 @@ rm -f "$DEPLOY_DIR/stock-images/"*.jpg
 cp "$SRC/stock-images/"*.jpg "$DEPLOY_DIR/stock-images/"
 
 mkdir -p "$DEPLOY_DIR/ejcuts"
-for f in "air con add.PNG" "carplay image.png" "ecu remaping.JPG" "garage pic.webp" "lucky motors logo.png"; do
+for f in "aircon-visual.jpg" "carplay image.png" "ecu remaping.JPG" "garage pic.webp" "lucky motors logo.png"; do
   cp "$SRC/ejcuts/$f" "$DEPLOY_DIR/ejcuts/"
 done
 
