@@ -2,7 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Management — Axiom Marketing</title>
+  <title>Digital Marketing Agency Peterborough | Axio Marketing</title>
+  <meta name="description" content="Digital marketing agency based in Peterborough, Cambridgeshire. Facebook Ads, Google Ads, email marketing &amp; content strategy for local businesses. Get real results.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axiomarketing.co.uk/digital-marketing.html">
+  <meta property="og:title" content="Digital Marketing Agency Peterborough | Axio Marketing">
+  <meta property="og:description" content="Facebook Ads, Google Ads, email marketing for Peterborough &amp; Cambridgeshire businesses. No jargon, just results.">
+  <meta property="og:url" content="https://axiomarketing.co.uk/digital-marketing.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -14,7 +25,8 @@
     .nav-link{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#fff;transition:transform 0.2s;display:inline-block}
     .nav-link:hover{transform:scale(1.15)}
     .nav-ham{background:none;border:none;cursor:pointer;display:none;flex-direction:column;gap:5px;padding:4px;}
-    .nav-ham span{display:block;width:22px;height:2px;background:#fff}
+    .nav-ham span{display:block;width:22px;height:2px;background:#fff;transition:background 0.2s}
+    .nav-ham.open span{background:#fff}
     .drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:199;opacity:0;pointer-events:none;transition:opacity 0.3s}
     .drawer-overlay.open{opacity:1;pointer-events:all}
     .drawer{position:fixed;top:0;right:-100%;width:75%;max-width:300px;height:100vh;background:#000;border-left:2px solid #fff;z-index:200;display:flex;flex-direction:column;padding:70px 28px 40px;gap:24px;transition:right 0.3s cubic-bezier(0.25,0.46,0.45,0.94)}
@@ -23,11 +35,13 @@
     .drawer .nav-link{font-size:13px;letter-spacing:0.15em;}
     .drawer hr{border:none;border-top:1px solid rgba(255,255,255,0.15);}
     .page{padding-top:60px;overflow-x:hidden;}
+    /* HERO */
     .hero{padding:40px 20px 32px;border-bottom:1px solid rgba(255,255,255,0.1);position:relative;overflow:visible;}
     .hero-logo{position:absolute;right:0;top:-36px;height:200px;opacity:0.9;mix-blend-mode:screen;pointer-events:none;}
     .hero-tag{font-size:9px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px;}
     .hero h1{font-size:clamp(32px,8vw,56px);font-weight:900;letter-spacing:-0.04em;line-height:0.92;margin-bottom:16px;}
     .hero p{font-size:13px;color:rgba(255,255,255,0.5);line-height:1.7;max-width:480px;}
+    /* SERVICES */
     .services{padding:32px 20px;}
     .services h2{font-size:20px;font-weight:900;letter-spacing:-0.02em;margin-bottom:24px;border-bottom:2px solid #fff;padding-bottom:12px;}
     .service-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.1);}
@@ -35,40 +49,62 @@
     .service-num{font-size:9px;font-weight:700;letter-spacing:0.2em;color:rgba(255,255,255,0.3);margin-bottom:8px;}
     .service-item h3{font-size:14px;font-weight:900;letter-spacing:-0.01em;margin-bottom:6px;text-transform:uppercase;}
     .service-item p{font-size:11px;color:rgba(255,255,255,0.45);line-height:1.55;}
-    /* Results */
-    .results{padding:32px 20px;border-top:1px solid rgba(255,255,255,0.1);}
-    .results h2{font-size:20px;font-weight:900;margin-bottom:20px;border-bottom:2px solid #fff;padding-bottom:12px;}
-    .results-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.1);}
-    .result-item{background:#000;padding:20px 16px;}
-    .result-arrow{font-size:24px;font-weight:900;margin-bottom:6px;}
-    .result-item h3{font-size:13px;font-weight:900;text-transform:uppercase;margin-bottom:4px;}
-    .result-item p{font-size:11px;color:rgba(255,255,255,0.45);line-height:1.5;}
+    /* CTA */
     .cta-bar{background:#fff;color:#000;padding:32px 20px;text-align:center;}
     .cta-bar h2{font-size:clamp(24px,6vw,40px);font-weight:900;letter-spacing:-0.03em;margin-bottom:16px;}
     .cta-bar p{font-size:12px;color:#666;line-height:1.7;margin-bottom:24px;}
     .cta-btn{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#000;border-bottom:2px solid #000;padding-bottom:2px;display:inline-block;transition:transform 0.2s}
     .cta-btn:hover{transform:scale(1.1)}
+    /* FOOTER */
     footer{background:#000;border-top:1px solid rgba(255,255,255,0.1);padding:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
     footer img{height:28px;opacity:0.4;}
     footer p{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.2);}
-    @media(min-width:768px){nav{height:80px;padding:0 40px;}.nav-logo{height:52px;}.nav-desktop{display:flex!important;gap:40px;}.nav-link{font-size:11px;}.nav-ham{display:none!important;}.page{padding-top:80px;overflow-x:visible;}.hero{padding:180px 80px 100px;}.hero h1{font-size:clamp(56px,9vw,120px);line-height:0.88;}.hero p{font-size:16px;max-width:600px;}.hero-tag{font-size:11px;margin-bottom:24px;}.hero-logo{height:520px;top:50%;right:18%;transform:translateY(-50%);}.services{padding:80px;}.services h2{font-size:clamp(28px,4vw,48px);margin-bottom:60px;padding-bottom:16px;}.service-grid{grid-template-columns:repeat(4,1fr);gap:0;background:rgba(255,255,255,0.1);}.service-item{padding:40px 28px;}.service-num{font-size:11px;margin-bottom:16px;}.service-item h3{font-size:16px;margin-bottom:12px;}.service-item p{font-size:13px;line-height:1.8;}.results{padding:80px;}.results h2{font-size:clamp(28px,4vw,48px);margin-bottom:60px;}.results-grid{grid-template-columns:repeat(4,1fr);}.result-item{padding:40px 28px;}.cta-bar{padding:120px 80px;}.cta-bar h2{font-size:clamp(48px,6vw,80px);}.cta-bar p{font-size:15px;margin-bottom:32px;}.cta-btn{font-size:11px;letter-spacing:0.22em;}footer{padding:32px 80px;}}
+    @media(min-width:768px){nav{height:80px;padding:0 40px;}.nav-logo{height:52px;}.nav-desktop{display:flex!important;gap:40px;}.nav-link{font-size:11px;}.nav-ham{display:none!important;}.page{padding-top:80px;overflow-x:visible;}.hero{padding:180px 80px 100px;}.hero h1{font-size:clamp(56px,9vw,120px);line-height:0.88;}.hero p{font-size:16px;max-width:600px;}.hero-tag{font-size:11px;margin-bottom:24px;}.hero-logo{height:520px;top:50%;right:18%;transform:translateY(-50%);}.services{padding:80px;}.services h2{font-size:clamp(28px,4vw,48px);margin-bottom:60px;padding-bottom:16px;}.service-grid{grid-template-columns:repeat(4,1fr);gap:0;background:rgba(255,255,255,0.1);}.service-item{padding:40px 28px;}.service-num{font-size:11px;margin-bottom:16px;}.service-item h3{font-size:16px;margin-bottom:12px;}.service-item p{font-size:13px;line-height:1.8;}.cta-bar{padding:120px 80px;}.cta-bar h2{font-size:clamp(48px,6vw,80px);}.cta-bar p{font-size:15px;margin-bottom:32px;}.cta-btn{font-size:11px;letter-spacing:0.22em;}footer{padding:32px 80px;}}
     @media(max-width:767px){.nav-desktop{display:none;}.nav-ham{display:flex;}}
   </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://axiomarketing.co.uk/"},
+    {"@type": "ListItem", "position": 2, "name": "Digital Marketing", "item": "https://axiomarketing.co.uk/digital-marketing.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Digital Marketing Agency Peterborough",
+  "provider": {"@type": "MarketingAgency", "@id": "https://axiomarketing.co.uk/#business"},
+  "areaServed": [
+    {"@type": "City", "name": "Peterborough"},
+    {"@type": "AdministrativeArea", "name": "Cambridgeshire"},
+    {"@type": "City", "name": "Stamford"},
+    {"@type": "City", "name": "Huntingdon"}
+  ],
+  "description": "Facebook Ads, Google Ads, email marketing and content strategy for businesses in Peterborough and Cambridgeshire.",
+  "serviceType": "Digital Marketing"
+}
+</script>
 </head>
 <body>
+
 <nav>
-  <a href="index.html"><img src="AXIOM LOGO ICON.png" alt="Axiom" class="nav-logo"></a>
+  <a href="index.html"><img src="AXIOM LOGO ICON.png" alt="Axio Marketing logo" class="nav-logo"></a>
   <div class="nav-desktop">
-    <a href="digital-marketing.html" class="nav-link">Marketing</a>
+    <a href="digital-marketing.html" class="nav-link" style="opacity:1">Marketing</a>
     <a href="seo.html" class="nav-link">SEO</a>
     <a href="physical.html" class="nav-link">Physical Ads</a>
-    <a href="media-management.html" class="nav-link" style="opacity:1">Media</a>
+    <a href="media-management.html" class="nav-link">Media</a>
     <a href="index.html#how" class="nav-link">Process</a>
     <a href="index.html#work" class="nav-link">Work</a>
     <a href="index.html#contact" class="nav-link">Contact</a>
   </div>
   <button class="nav-ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
 <div class="drawer-overlay" id="overlay"></div>
 <div class="drawer" id="drawer">
   <button class="drawer-close" id="dclose">✕</button>
@@ -82,61 +118,58 @@
   <a href="index.html#pricing" class="nav-link" data-close>Pricing</a>
   <a href="index.html#contact" class="nav-link" data-close>Contact</a>
 </div>
+
 <div class="page">
   <div class="hero">
     <img src="AXIOM LOGO.png" alt="" class="hero-logo">
-    <p class="hero-tag">Our Services</p>
-    <h1>MEDIA<br>MANAGEMENT</h1>
-    <p>Consistent, professional content posted across your social accounts every day — 1 to 3 times daily across up to 3 platforms simultaneously. You run your business. We handle your presence.</p>
+    <p class="hero-tag">Digital Marketing Agency · Peterborough, Cambridgeshire</p>
+    <h1>DIGITAL<br>MARKETING</h1>
+    <p>We put your Peterborough business in front of the right people at the right time. Targeted campaigns built to drive real results — more enquiries, more sales, more growth. Serving Peterborough, Cambridge, Stamford and across Cambridgeshire.</p>
   </div>
+
   <div class="services">
-    <h2>WHAT WE DO</h2>
+    <h2>WHAT DOES A DIGITAL MARKETING AGENCY DO FOR PETERBOROUGH BUSINESSES?</h2>
     <div class="service-grid">
       <div class="service-item">
         <p class="service-num">01</p>
-        <h3>Daily Posting</h3>
-        <p>1–3 posts every single day. Consistent, on-brand, on schedule. No gaps, no missed days, no effort from you.</p>
+        <h3>Facebook Ads</h3>
+        <p>Targeted Facebook campaigns written, designed and optimised by us. We put your brand in front of people ready to buy.</p>
       </div>
       <div class="service-item">
         <p class="service-num">02</p>
-        <h3>Multi-Platform</h3>
-        <p>Instagram, Facebook, TikTok — up to 3 accounts managed simultaneously, all posting at the right times.</p>
+        <h3>Paid Advertising</h3>
+        <p>Google Ads and beyond. We manage every campaign to maximise your return on every pound spent.</p>
       </div>
       <div class="service-item">
         <p class="service-num">03</p>
-        <h3>Content Creation</h3>
-        <p>Graphics, captions and hashtags — all created and branded for you. Approve the style once. We take it from there.</p>
+        <h3>Email Marketing</h3>
+        <p>Automated email sequences that turn leads into customers and bring existing customers back again.</p>
       </div>
       <div class="service-item">
         <p class="service-num">04</p>
-        <h3>Strategy & Scheduling</h3>
-        <p>We plan your content calendar and post at peak times to maximise reach and grow your audience month by month.</p>
+        <h3>Content Strategy</h3>
+        <p>We create content that builds authority and drives traffic — photography, video, and copy that stands out.</p>
       </div>
     </div>
   </div>
-  <div class="results">
-    <h2>WHAT IT ACHIEVES</h2>
-    <div class="results-grid">
-      <div class="result-item"><div class="result-arrow">↑</div><h3>Brand Awareness</h3><p>Daily posting keeps you front of mind so customers think of you first when they need your service.</p></div>
-      <div class="result-item"><div class="result-arrow">↑</div><h3>Follower Growth</h3><p>The algorithm rewards active profiles. More posts means more reach, discovery and followers every month.</p></div>
-      <div class="result-item"><div class="result-arrow">↑</div><h3>Customer Trust</h3><p>An active, professional social presence signals that your business is legitimate and thriving.</p></div>
-      <div class="result-item"><div class="result-arrow">↑</div><h3>More Sales</h3><p>More visibility leads to more enquiries, more footfall, and more revenue. Social media is one of the highest-ROI channels available.</p></div>
-    </div>
-  </div>
+
   <div class="cta-bar">
-    <h2>STAY CONSISTENT.</h2>
-    <p>1–3 posts a day. Up to 3 platforms. Zero stress for you.</p>
+    <h2>READY TO GROW?</h2>
+    <p>Let's build a strategy that gets your business real results. No jargon, no fluff.</p>
     <a href="index.html#contact" class="cta-btn">Get Started →</a>
   </div>
 </div>
+
 <footer>
-  <a href="index.html"><img src="AXIOM LOGO ICON.png" alt="Axiom"></a>
-  <p>© 2025 Axiom Marketing</p>
+  <a href="index.html"><img src="AXIOM LOGO ICON.png" alt="Axio Marketing logo"></a>
+  <p>© 2026 Axio Marketing</p>
+  <address style="font-style:normal;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.2);">Peterborough, Cambridgeshire, UK &bull; <a href="tel:+441538712402" style="color:rgba(255,255,255,0.2);text-decoration:none;">01538 712402</a></address>
 </footer>
+
 <script>
   const ham=document.getElementById('ham'),drawer=document.getElementById('drawer'),overlay=document.getElementById('overlay'),dclose=document.getElementById('dclose');
-  function open(){drawer.classList.add('open');overlay.classList.add('open');document.body.style.overflow='hidden'}
-  function close(){drawer.classList.remove('open');overlay.classList.remove('open');document.body.style.overflow=''}
+  function open(){drawer.classList.add('open');overlay.classList.add('open');ham.classList.add('open');document.body.style.overflow='hidden'}
+  function close(){drawer.classList.remove('open');overlay.classList.remove('open');ham.classList.remove('open');document.body.style.overflow=''}
   ham.addEventListener('click',open);dclose.addEventListener('click',close);overlay.addEventListener('click',close);
   drawer.querySelectorAll('[data-close]').forEach(l=>l.addEventListener('click',close));
 </script>

@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Block draft/example pages from indexing
+Disallow: /call-1.html
+Disallow: /call-2.html
+Disallow: /call-3.html
+Disallow: /call-4.html
+Disallow: /call-5.html
+Disallow: /call-preview.html
+Disallow: /restaurant-example.html
+Disallow: /salon-example.html
+Disallow: /web-design-leek.html
+Disallow: /plumber-example.html
+Disallow: /ejcuts/
+Disallow: /maisondemay/
+Disallow: /services/
+
+Sitemap: https://axiomarketing.co.uk/sitemap.xml
