@@ -23,6 +23,12 @@
     .btn-outline-w { color:#fff; }
     .btn-outline-w:hover { transform:scale(1.15); }
 
+    /* ── SOCIAL LINKS ── */
+    .social-link { color:rgba(255,255,255,0.5); display:inline-flex; transition:transform 0.2s, color 0.2s; }
+    .social-link:hover { color:#fff; transform:scale(1.15); }
+    .social-link:focus-visible { outline:2px solid #fff; outline-offset:4px; }
+    .social-link:active { transform:scale(0.97); }
+
     /* ── NAV ── */
     .nav-link { color:#fff; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; text-decoration:none; transition:color 0.2s, transform 0.2s; display:inline-block; }
     .nav-link:hover { color:#fff; transform:scale(1.15); }
@@ -314,6 +320,11 @@
     "telephone": "+441538712402",
     "email": "axiomarketingltd@gmail.com",
     "image": "https://axiomarketing.co.uk/og-image.jpg",
+    "sameAs": [
+      "https://www.facebook.com/share/14ggdPkm4tJ/?mibextid=wwXIfr",
+      "https://www.instagram.com/axio_marketing/",
+      "https://www.tiktok.com/@axio_marketing"
+    ],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Peterborough",
@@ -597,6 +608,23 @@
     </div>
   </div>
 
+  <!-- SOCIALS -->
+  <section style="background:#000; padding:28px 40px; border-top:1px solid rgba(255,255,255,0.08);">
+    <div style="max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;">
+      <p style="font-size:10px; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin:0;">Follow Us</p>
+      <div style="display:flex; align-items:center; gap:22px;">
+        <a href="https://www.instagram.com/axio_marketing/" target="_blank" rel="noopener" aria-label="Axio Marketing on Instagram" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://www.facebook.com/share/14ggdPkm4tJ/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Axio Marketing on Facebook" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54v-2.89h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.992 22 12z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@axio_marketing" target="_blank" rel="noopener" aria-label="Axio Marketing on TikTok" class="social-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- OUR WORK -->
   <section id="work" style="background:#000; padding:72px 40px;">
