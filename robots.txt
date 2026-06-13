@@ -16,41 +16,35 @@ Disallow: /ejcuts/
 Disallow: /maisondemay/
 Disallow: /services/
 
-Sitemap: https://axiomarketing.co.uk/sitemap.xml
-
 # AI/LLM crawlers — explicitly allowed for citation in AI answers
+# (same draft/example exclusions as above)
 User-agent: GPTBot
-Allow: /
-
 User-agent: ChatGPT-User
-Allow: /
-
 User-agent: OAI-SearchBot
-Allow: /
-
 User-agent: ClaudeBot
-Allow: /
-
 User-agent: anthropic-ai
-Allow: /
-
 User-agent: Claude-User
-Allow: /
-
 User-agent: PerplexityBot
-Allow: /
-
 User-agent: Perplexity-User
-Allow: /
-
 User-agent: Google-Extended
-Allow: /
-
 User-agent: Applebot-Extended
-Allow: /
-
 User-agent: CCBot
 Allow: /
+Disallow: /call-1.html
+Disallow: /call-2.html
+Disallow: /call-3.html
+Disallow: /call-4.html
+Disallow: /call-5.html
+Disallow: /call-preview.html
+Disallow: /restaurant-example.html
+Disallow: /salon-example.html
+Disallow: /web-design-leek.html
+Disallow: /plumber-example.html
+Disallow: /ejcuts/
+Disallow: /maisondemay/
+Disallow: /services/
+
+Sitemap: https://axiomarketing.co.uk/sitemap.xml
 
 # AI/LLM crawler reference
 # https://axiomarketing.co.uk/llms.txt
