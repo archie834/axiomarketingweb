@@ -17,3 +17,6 @@ Disallow: /maisondemay/
 Disallow: /services/
 
 Sitemap: https://axiomarketing.co.uk/sitemap.xml
+
+# AI/LLM crawler reference
+# https://axiomarketing.co.uk/llms.txt

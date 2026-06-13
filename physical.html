@@ -9,9 +9,11 @@
   <meta property="og:title" content="Print &amp; Advertising Design Peterborough | Axio Marketing">
   <meta property="og:description" content="Business cards, flyers and posters for Peterborough businesses. Designed to stand out and drive action.">
   <meta property="og:url" content="https://axiomarketing.co.uk/physical.html">
+  <meta property="og:image" content="https://axiomarketing.co.uk/og-image.jpg">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://axiomarketing.co.uk/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
@@ -57,10 +59,17 @@
     .cta-bar p{font-size:12px;color:#666;line-height:1.7;margin-bottom:24px;}
     .cta-btn{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#000;border-bottom:2px solid #000;padding-bottom:2px;display:inline-block;transition:transform 0.2s}
     .cta-btn:hover{transform:scale(1.1)}
+    .faq{padding:32px 20px;border-top:1px solid rgba(255,255,255,0.1);}
+    .faq h2{font-size:20px;font-weight:900;letter-spacing:-0.02em;margin-bottom:20px;border-bottom:2px solid #fff;padding-bottom:12px;}
+    .faq-row{border-bottom:1px solid rgba(255,255,255,0.1);cursor:pointer;}
+    .faq-row-inner{display:grid;grid-template-columns:1fr 20px;gap:16px;align-items:center;padding:14px 0;}
+    .faq-row h3{font-size:13px;font-weight:900;letter-spacing:-0.01em;margin:0;}
+    .faq-chevron-icon{font-size:14px;color:rgba(255,255,255,0.4);transition:transform 0.2s;user-select:none;}
+    .faq-answer{display:none;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.7;margin:0 0 14px;}
     footer{background:#000;border-top:1px solid rgba(255,255,255,0.1);padding:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
     footer img.logo{height:28px;opacity:0.4;}
     footer p{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.2);}
-    @media(min-width:768px){nav{height:80px;padding:0 40px;}.nav-logo{height:52px;}.nav-desktop{display:flex!important;gap:40px;}.nav-link{font-size:11px;}.nav-ham{display:none!important;}.page{padding-top:80px;overflow-x:visible;}.hero{padding:180px 80px 100px;}.hero h1{font-size:clamp(56px,9vw,120px);line-height:0.88;}.hero p{font-size:16px;max-width:600px;}.hero-tag{font-size:11px;margin-bottom:24px;}.hero-logo{height:520px;top:50%;right:18%;transform:translateY(-50%);}.services{padding:80px;}.services h2{font-size:clamp(28px,4vw,48px);margin-bottom:60px;padding-bottom:16px;}.service-grid{grid-template-columns:repeat(4,1fr);gap:0;background:rgba(255,255,255,0.1);}.service-item{padding:40px 28px;}.service-num{font-size:11px;margin-bottom:16px;}.service-item h3{font-size:16px;margin-bottom:12px;}.service-item p{font-size:13px;line-height:1.8;}.examples{padding:80px;}.example-grid{gap:16px;}.cta-bar{padding:120px 80px;}.cta-bar h2{font-size:clamp(48px,6vw,80px);}.cta-bar p{font-size:15px;margin-bottom:32px;}.cta-btn{font-size:11px;letter-spacing:0.22em;}footer{padding:32px 80px;}}
+    @media(min-width:768px){nav{height:80px;padding:0 40px;}.nav-logo{height:52px;}.nav-desktop{display:flex!important;gap:40px;}.nav-link{font-size:11px;}.nav-ham{display:none!important;}.page{padding-top:80px;overflow-x:visible;}.hero{padding:180px 80px 100px;}.hero h1{font-size:clamp(56px,9vw,120px);line-height:0.88;}.hero p{font-size:16px;max-width:600px;}.hero-tag{font-size:11px;margin-bottom:24px;}.hero-logo{height:520px;top:50%;right:18%;transform:translateY(-50%);}.services{padding:80px;}.services h2{font-size:clamp(28px,4vw,48px);margin-bottom:60px;padding-bottom:16px;}.service-grid{grid-template-columns:repeat(4,1fr);gap:0;background:rgba(255,255,255,0.1);}.service-item{padding:40px 28px;}.service-num{font-size:11px;margin-bottom:16px;}.service-item h3{font-size:16px;margin-bottom:12px;}.service-item p{font-size:13px;line-height:1.8;}.examples{padding:80px;}.example-grid{gap:16px;}.faq{padding:80px;}.faq h2{font-size:clamp(28px,4vw,48px);margin-bottom:40px;padding-bottom:16px;}.faq-row h3{font-size:16px;}.faq-answer{font-size:14px;max-width:700px;}.cta-bar{padding:120px 80px;}.cta-bar h2{font-size:clamp(48px,6vw,80px);}.cta-bar p{font-size:15px;margin-bottom:32px;}.cta-btn{font-size:11px;letter-spacing:0.22em;}footer{padding:32px 80px;}}
     @media(max-width:767px){.nav-desktop{display:none;}.nav-ham{display:flex;}}
   </style>
   <script type="application/ld+json">
@@ -78,7 +87,14 @@
   "@context": "https://schema.org",
   "@type": "Service",
   "name": "Print & Advertising Design Peterborough",
-  "provider": {"@type": "MarketingAgency", "@id": "https://axiomarketing.co.uk/#business"},
+  "provider": {
+    "@type": "MarketingAgency",
+    "@id": "https://axiomarketing.co.uk/#business",
+    "name": "Axio Marketing",
+    "telephone": "+441538712402",
+    "address": {"@type": "PostalAddress", "addressLocality": "Peterborough", "addressRegion": "Cambridgeshire", "addressCountry": "GB"},
+    "geo": {"@type": "GeoCoordinates", "latitude": 52.5696, "longitude": -0.2405}
+  },
   "areaServed": [
     {"@type": "City", "name": "Peterborough"},
     {"@type": "AdministrativeArea", "name": "Cambridgeshire"},
@@ -87,6 +103,46 @@
   ],
   "description": "Business cards, flyers, posters and banners designed for businesses in Peterborough and Cambridgeshire. High-impact print marketing.",
   "serviceType": "Print Design"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can you design and print business cards, flyers and posters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We design business cards, flyers, posters and banners to match your brand, then either arrange printing through trusted local suppliers or supply you with print-ready files — whichever works best for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to design print materials?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most print designs — business cards, flyers and posters — are turned around within a few working days, depending on revisions. We'll agree a timeline upfront based on your needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you match my existing branding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We design every piece of print marketing to match your existing logo, colours and brand guidelines, so everything looks consistent across your website, social media and printed materials."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer design only, or printing too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. We design your business cards, flyers, posters and banners, and can either arrange printing for you through trusted local suppliers in Peterborough and Cambridgeshire, or hand over print-ready files if you'd rather print yourself."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -157,6 +213,37 @@
       <div><div>Flyer</div><img src="example-flyer.png" alt="Flyer"></div>
     </div>
   </div>
+  <div class="faq" id="faq">
+    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+    <div class="faq-row">
+      <div class="faq-row-inner">
+        <h3>Can you design and print business cards, flyers and posters?</h3>
+        <span class="faq-chevron-icon">▾</span>
+      </div>
+      <p class="faq-answer">Yes. We design business cards, flyers, posters and banners to match your brand, then either arrange printing through trusted local suppliers or supply you with print-ready files — whichever works best for you.</p>
+    </div>
+    <div class="faq-row">
+      <div class="faq-row-inner">
+        <h3>How long does it take to design print materials?</h3>
+        <span class="faq-chevron-icon">▾</span>
+      </div>
+      <p class="faq-answer">Most print designs — business cards, flyers and posters — are turned around within a few working days, depending on revisions. We'll agree a timeline upfront based on your needs.</p>
+    </div>
+    <div class="faq-row">
+      <div class="faq-row-inner">
+        <h3>Can you match my existing branding?</h3>
+        <span class="faq-chevron-icon">▾</span>
+      </div>
+      <p class="faq-answer">Yes. We design every piece of print marketing to match your existing logo, colours and brand guidelines, so everything looks consistent across your website, social media and printed materials.</p>
+    </div>
+    <div class="faq-row">
+      <div class="faq-row-inner">
+        <h3>Do you offer design only, or printing too?</h3>
+        <span class="faq-chevron-icon">▾</span>
+      </div>
+      <p class="faq-answer">Both. We design your business cards, flyers, posters and banners, and can either arrange printing for you through trusted local suppliers in Peterborough and Cambridgeshire, or hand over print-ready files if you'd rather print yourself.</p>
+    </div>
+  </div>
   <div class="cta-bar">
     <h2>MAKE YOUR MARK.</h2>
     <p>Let's create print materials that people actually keep and remember.</p>
@@ -174,6 +261,17 @@
   function close(){drawer.classList.remove('open');overlay.classList.remove('open');document.body.style.overflow=''}
   ham.addEventListener('click',open);dclose.addEventListener('click',close);overlay.addEventListener('click',close);
   drawer.querySelectorAll('[data-close]').forEach(l=>l.addEventListener('click',close));
+
+  document.querySelectorAll('.faq-row').forEach(row => {
+    row.querySelector('.faq-row-inner').addEventListener('click', () => {
+      const ans = row.querySelector('.faq-answer');
+      const chev = row.querySelector('.faq-chevron-icon');
+      const isOpen = ans.style.display === 'block';
+      document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+      document.querySelectorAll('.faq-chevron-icon').forEach(c => c.style.transform = 'rotate(0deg)');
+      if (!isOpen) { ans.style.display = 'block'; chev.style.transform = 'rotate(180deg)'; }
+    });
+  });
 </script>
 </body>
 </html>

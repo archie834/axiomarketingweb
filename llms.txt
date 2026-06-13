@@ -1,0 +1,30 @@
+# Axio Marketing
+
+> Web design and digital marketing agency based in Peterborough, Cambridgeshire, UK. Builds a complete bespoke website for free — clients only pay a one-off fee (£250–£1,000) once they approve it, plus £29/month hosting. No upfront cost, no long-term contracts.
+
+## Business Details
+- Address: Peterborough, Cambridgeshire, United Kingdom
+- Phone: +44 1538 712402
+- Email: axiomarketingltd@gmail.com
+- Areas served: Peterborough, Stamford, Huntingdon, Ely, March, Wisbech, Cambridgeshire, Lincolnshire, Northamptonshire
+
+## Services
+- Web Design — bespoke websites, build-first model (see it before you pay), from £250 one-off + £29/month hosting
+- SEO — local and national SEO, on-page optimisation, Google Business Profile management, link building
+- Digital Marketing — Facebook Ads, Google Ads, email marketing, content strategy
+- Social Media Management — 1–3 posts daily across Instagram, Facebook & TikTok
+- Physical/Print Marketing — business cards, flyers, posters & banners
+
+## Pages
+- [Homepage](https://axiomarketing.co.uk/index.html): Overview, process, portfolio, pricing, FAQ and contact form
+- [Web Design Peterborough](https://axiomarketing.co.uk/web-design-peterborough.html): Flagship local web design landing page with portfolio, areas served, pricing and FAQ
+- [Build First, Pay Later](https://axiomarketing.co.uk/build-first.html): Explains the build-first, pay-after-approval model with step-by-step process and FAQ
+- [SEO Services](https://axiomarketing.co.uk/seo.html): Local SEO services for Peterborough & Cambridgeshire
+- [Digital Marketing](https://axiomarketing.co.uk/digital-marketing.html): Facebook Ads, Google Ads, email marketing
+- [Social Media Management](https://axiomarketing.co.uk/media-management.html): Daily social media posting across Instagram, Facebook & TikTok
+- [Print & Physical Advertising](https://axiomarketing.co.uk/physical.html): Business cards, flyers, posters and banners
+
+## Portfolio Examples
+- EJ Cuts (barbershop): https://ejcutz.com
+- Maison De May Beauty (eyebrow technician): https://maison-de-may.vercel.app/
+- Lucky Motors Peterborough Ltd (car dealership): https://www.luckymotorspeterboroughltd.co.uk/
