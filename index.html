@@ -17,7 +17,6 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap">
@@ -100,7 +99,8 @@
       0% { transform: translateX(-100%); }
       100% { transform: translateX(100%); }
     }
-    .hero-corner-svg { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:300px; height:100px; z-index:5; pointer-events:none; }
+    .hero-corner-svg { display:none; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:300px; height:100px; z-index:5; pointer-events:none; }
+    @media (min-width: 768px) { .hero-corner-svg { display:block; } }
     .hero-corner-svg svg { position:absolute; top:50%; transform:translateY(-50%); }
     .hero-corner-svg .c-left { left:-150px; }
     .hero-corner-svg .c-right { right:-150px; transform:translateY(-50%) scaleX(-1); }
@@ -551,7 +551,7 @@
       <div class="hero-line" style="top:90%"><div class="hero-line-inner"></div></div>
     </div>
     <!-- Corner line SVGs -->
-    <div class="hero-corner-svg hidden md:block">
+    <div class="hero-corner-svg">
       <svg class="c-left" width="120" height="60" viewBox="0 0 120 60" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none">
         <path class="hero-corner-path" d="M120 0 L20 0 Q0 0 0 20 L0 60"/>
       </svg>
