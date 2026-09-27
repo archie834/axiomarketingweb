@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Restaurant Manchester | Wren — Neighbourhood Restaurant & Bar</title>
+  <meta name="description" content="Wren is a neighbourhood restaurant & bar in Manchester's Northern Quarter. Seasonal menus, natural wine, and good company. Book a table: 0161 345 6789.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://wrenrestaurant.co.uk/">
+
+  <meta property="og:type" content="restaurant">
+  <meta property="og:site_name" content="Wren Restaurant">
+  <meta property="og:title" content="Wren — Neighbourhood Restaurant & Bar, Manchester">
+  <meta property="og:description" content="Seasonal menus, natural wine, and good company in Manchester's Northern Quarter. Book a table today.">
+  <meta property="og:url" content="https://wrenrestaurant.co.uk/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=630&fit=crop&auto=format&q=80">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wren — Neighbourhood Restaurant & Bar, Manchester">
+  <meta name="twitter:description" content="Seasonal menus, natural wine, and good company in Manchester's Northern Quarter.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=630&fit=crop&auto=format&q=80">
+
+  <meta name="geo.region" content="GB-MAN">
+  <meta name="theme-color" content="#0d0b08">
+
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Wren",
+      "description": "Neighbourhood restaurant and bar in Manchester's Northern Quarter. Seasonal British menus, natural wine, and cocktails.",
+      "url": "https://wrenrestaurant.co.uk",
+      "telephone": "+441613456789",
+      "email": "hello@wrenrestaurant.co.uk",
+      "servesCuisine": ["British", "European", "Seasonal"],
+      "priceRange": "££",
+      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&h=800&fit=crop&auto=format&q=80",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "34 Tib Street",
+        "addressLocality": "Manchester",
+        "addressRegion": "Greater Manchester",
+        "postalCode": "M4 1LA",
+        "addressCountry": "GB"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": 53.4841, "longitude": -2.2374 },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Wednesday","Thursday"], "opens": "17:00", "closes": "22:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday"], "opens": "12:00", "closes": "23:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "10:00", "closes": "23:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Sunday"], "opens": "10:00", "closes": "16:00" }
+      ],
+      "hasMenu": "https://wrenrestaurant.co.uk/#menu",
+      "acceptsReservations": true,
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "186",
+        "bestRating": "5"
+      },
+      "sameAs": [
+        "https://www.instagram.com/wrenrestaurantmcr",
+        "https://www.facebook.com/wrenrestaurantmcr"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Do you take walk-ins?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — we keep a handful of tables for walk-ins every service. For groups of 5 or more we'd recommend booking ahead." } },
+        { "@type": "Question", "name": "Do you cater for dietary requirements?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Our menu changes seasonally but we always have vegan, vegetarian and gluten-free options. Let us know when booking and we'll take care of the rest." } },
+        { "@type": "Question", "name": "Can I book a private dining event?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — our private dining room seats up to 18 guests. Get in touch at hello@wrenrestaurant.co.uk to discuss menus and availability." } },
+        { "@type": "Question", "name": "Is there parking nearby?", "acceptedAnswer": { "@type": "Answer", "text": "The nearest car parks are on Church Street and Piccadilly. We're a 5-minute walk from Manchester Piccadilly and Victoria stations." } }
+      ]
+    }
+  ]
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #f8f4ef; color: #1a1511; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    :root {
+      --dark:   #0d0b08;
+      --warm:   #1a1511;
+      --accent: #c4a76b;
+      --cream:  #f8f4ef;
+      --pale:   #f0ebe3;
+      --mid:    #7a6550;
+      --sand:   #e2d8cc;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 72px; display: flex; align-items: center;
+      padding: 0 40px; justify-content: space-between;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .site-nav.scrolled {
+      background: rgba(13,11,8,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 500; letter-spacing: 0.06em;
+      color: #fff; text-transform: uppercase;
+    }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.55); transition: color 0.15s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-reserve {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--dark); background: var(--accent);
+      padding: 10px 22px; transition: background 0.15s;
+    }
+    .nav-reserve:hover { background: #a88a50; }
+    .nav-ham { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-ham span { display: block; width: 22px; height: 1.5px; background: #fff; }
+    .mob-menu { display: none; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--dark); border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 99; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { color: rgba(255,255,255,0.65); font-size: 14px; font-weight: 500; padding: 16px 40px; border-bottom: 1px solid rgba(255,255,255,0.06); letter-spacing: 0.08em; text-transform: uppercase; }
+    .mob-menu a:last-child { background: var(--accent); color: var(--dark); font-weight: 700; border: none; text-align: center; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden; color: #fff;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&h=1000&fit=crop&auto=format&q=85');
+      background-size: cover; background-position: center;
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,8,5,0.95) 0%, rgba(10,8,5,0.55) 40%, rgba(10,8,5,0.1) 100%);
+    }
+    .hero-inner {
+      position: relative; z-index: 1; width: 100%;
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 40px 72px;
+      display: flex; flex-direction: column;
+    }
+    .hero-tag {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+    }
+    .hero-tag::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(56px, 8vw, 110px);
+      font-weight: 400; line-height: 0.95;
+      letter-spacing: -0.02em; margin-bottom: 32px;
+      max-width: 800px;
+    }
+    .hero h1 em { font-style: italic; color: rgba(255,255,255,0.35); }
+    .hero-bottom {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 32px;
+      padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);
+      flex-wrap: wrap;
+    }
+    .hero-desc { font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.75; max-width: 380px; }
+    .hero-actions { display: flex; gap: 12px; flex-shrink: 0; }
+    .btn-gold {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      background: var(--accent); color: var(--dark);
+      padding: 14px 28px; transition: background 0.15s, transform 0.15s; display: inline-block;
+    }
+    .btn-gold:hover { background: #a88a50; transform: translateY(-1px); }
+    .btn-outline-w {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55); padding: 14px 28px;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: border-color 0.15s, color 0.15s; display: inline-block;
+    }
+    .btn-outline-w:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+    /* ── INFO STRIP ── */
+    .info-strip {
+      background: var(--dark); color: rgba(255,255,255,0.45);
+      padding: 0 40px; display: flex; align-items: stretch;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      overflow-x: auto;
+    }
+    .info-item {
+      padding: 20px 32px; font-size: 12px; line-height: 1.5;
+      border-right: 1px solid rgba(255,255,255,0.06); flex-shrink: 0;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .info-item:first-child { padding-left: 0; }
+    .info-label { font-size: 9px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.25); display: block; margin-bottom: 3px; }
+    .info-val { color: rgba(255,255,255,0.7); font-weight: 500; }
+
+    /* ── INTRO ── */
+    .intro { padding: 100px 40px; background: var(--cream); }
+    .intro-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .intro-text {}
+    .section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+    .section-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+    .section-h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 24px; }
+    .intro-text p { font-size: 15px; color: var(--mid); line-height: 1.85; margin-bottom: 16px; }
+    .intro-text p:first-of-type { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--warm); font-style: italic; line-height: 1.65; }
+    .intro-img { position: relative; }
+    .intro-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    .intro-img-badge {
+      position: absolute; bottom: -20px; right: -20px;
+      background: var(--accent); padding: 20px 24px; text-align: center;
+    }
+    .intro-img-badge p { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--dark); line-height: 1; }
+    .intro-img-badge span { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(13,11,8,0.6); }
+
+    /* ── MENU ── */
+    .menu-mob-toggle { display: none; }
+    .menu-body { display: block; }
+    .menu { padding: 100px 40px; background: var(--pale); border-top: 1px solid var(--sand); }
+    .menu-inner { max-width: 1200px; margin: 0 auto; }
+    .menu-header { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 64px; align-items: end; }
+    .menu-note { font-size: 14px; color: var(--mid); line-height: 1.75; }
+    .menu-tabs { display: flex; gap: 0; margin-bottom: 48px; border-bottom: 1px solid var(--sand); }
+    .menu-tab {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--mid); padding: 12px 24px; cursor: pointer;
+      border-bottom: 2px solid transparent; margin-bottom: -1px;
+      transition: color 0.15s, border-color 0.15s; background: none; border-top: none; border-left: none; border-right: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .menu-tab.active { color: var(--warm); border-bottom-color: var(--accent); }
+    .menu-panel { display: none; }
+    .menu-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; }
+    .menu-section-title { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; margin-top: 32px; grid-column: 1 / -1; }
+    .menu-item { padding: 16px 0; border-bottom: 1px solid var(--sand); display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+    .menu-item-name { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 400; color: var(--warm); }
+    .menu-item-desc { font-size: 12px; color: var(--mid); margin-top: 3px; line-height: 1.5; }
+    .menu-item-price { font-size: 14px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+    .menu-item-v { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; color: #5a8a5a; border: 1px solid #5a8a5a; padding: 2px 6px; margin-left: 8px; border-radius: 2px; }
+    .menu-key { font-size: 11px; color: var(--mid); margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; }
+    .menu-key span { display: flex; align-items: center; gap: 6px; }
+
+    /* ── GALLERY ── */
+    .gallery { padding: 0 40px 100px; background: var(--pale); }
+    .gallery-inner { max-width: 1200px; margin: 0 auto; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 8px;
+    }
+    .gallery-grid img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-grid .span2 { grid-row: 1 / 3; }
+
+    /* ── RESERVE ── */
+    .reserve { background: var(--dark); color: #fff; padding: 100px 40px; }
+    .reserve-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 420px 1fr; gap: 80px; align-items: start; }
+    .reserve-left { position: sticky; top: 88px; }
+    .reserve-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+    .reserve-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+    .reserve-h2 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
+    .reserve-h2 em { font-style: italic; color: rgba(255,255,255,0.3); }
+    .reserve-left p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.75; margin-bottom: 32px; }
+    .reserve-info { display: flex; flex-direction: column; gap: 12px; }
+    .reserve-info-row { font-size: 13px; color: rgba(255,255,255,0.45); display: flex; gap: 12px; }
+    .reserve-info-row strong { color: rgba(255,255,255,0.7); min-width: 80px; }
+
+    .reserve-form { display: flex; flex-direction: column; gap: 20px; }
+    .rform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .rform-field { display: flex; flex-direction: column; gap: 8px; }
+    .rform-label { font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+    .rform-input {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      color: #fff; padding: 13px 16px; font-size: 14px;
+      font-family: 'Inter', sans-serif; outline: none;
+      transition: border-color 0.15s; width: 100%;
+    }
+    .rform-input::placeholder { color: rgba(255,255,255,0.2); }
+    .rform-input:focus { border-color: rgba(255,255,255,0.35); }
+    select.rform-input { appearance: none; cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.3)' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+    select.rform-input option { background: #1a1511; }
+    textarea.rform-input { resize: none; height: 90px; line-height: 1.6; }
+    .rform-submit {
+      background: var(--accent); color: var(--dark);
+      font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 16px 36px; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif; transition: background 0.15s, transform 0.15s;
+      align-self: flex-start;
+    }
+    .rform-submit:hover { background: #a88a50; transform: translateY(-1px); }
+    .rform-note { font-size: 12px; color: rgba(255,255,255,0.2); line-height: 1.6; }
+
+    /* ── FAQ ── */
+    .faq { padding: 100px 40px; background: var(--cream); }
+    .faq-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 380px 1fr; gap: 80px; }
+    .faq-left { position: sticky; top: 88px; }
+    .faq-left p { font-size: 14px; color: var(--mid); line-height: 1.75; margin-top: 16px; }
+    .faq-left a { color: var(--accent); font-weight: 600; }
+    .faq-list { border-top: 1px solid var(--sand); }
+    .faq-item { border-bottom: 1px solid var(--sand); }
+    .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 22px 0; font-size: 15px; font-weight: 500; color: var(--warm); cursor: pointer; display: flex; justify-content: space-between; gap: 16px; font-family: inherit; transition: color 0.15s; }
+    .faq-q:hover { color: var(--accent); }
+    .faq-arrow { color: var(--sand); font-size: 18px; flex-shrink: 0; transition: transform 0.2s; }
+    .faq-item.open .faq-arrow { transform: rotate(45deg); color: var(--accent); }
+    .faq-a { display: none; padding: 0 0 22px; font-size: 14px; color: var(--mid); line-height: 1.8; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--dark); color: rgba(255,255,255,0.35); padding: 56px 40px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; margin-bottom: 12px; }
+    .footer-text { font-size: 12px; line-height: 1.85; }
+    .footer-col-title { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 16px; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.38); transition: color 0.15s; }
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+    .footer-bottom { max-width: 1200px; margin: 28px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 11px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .intro-inner, .reserve-inner, .faq-inner { grid-template-columns: 1fr; gap: 48px; }
+      .intro-left, .reserve-left, .faq-left { position: static; }
+      .menu-header, .menu-panel.active { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .site-nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-ham { display: flex; }
+      /* Hero */
+      .hero-inner { padding: 0 20px 32px; }
+      .hero h1 { font-size: clamp(34px, 10vw, 52px); margin-bottom: 16px; line-height: 1.0; }
+      .hero-tag { margin-bottom: 10px; font-size: 9px; }
+      .hero-bottom { flex-direction: column; align-items: flex-start; gap: 14px; padding-top: 14px; }
+      .hero-desc { font-size: 12px; max-width: 100%; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .hero-actions .btn-gold, .hero-actions .btn-outline-w { width: 100%; text-align: center; padding: 12px 16px; font-size: 10px; }
+      /* Info strip — hidden */
+      .info-strip { display: none; }
+      /* Intro — no image */
+      .intro { padding: 24px 20px; }
+      .intro-inner { grid-template-columns: 1fr; gap: 0; }
+      .intro-img { display: none; }
+      .section-h2 { font-size: clamp(24px, 7vw, 36px); margin-bottom: 14px; }
+      .intro-text p { font-size: 13px; margin-bottom: 10px; line-height: 1.65; }
+      .intro-text p:first-of-type { font-size: 15px; }
+      /* Menu */
+      .menu { padding: 24px 20px; }
+      .menu-header { margin-bottom: 16px; gap: 8px; }
+      .menu-note { display: none; }
+      .menu-mob-toggle {
+        display: flex; align-items: center; justify-content: space-between;
+        width: 100%; background: var(--accent); color: var(--dark);
+        border: none; padding: 14px 18px; font-size: 11px; font-weight: 700;
+        letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+        font-family: 'Inter', sans-serif; margin-bottom: 0;
+      }
+      .menu-mob-arrow { font-size: 16px; transition: transform 0.2s; }
+      .menu-mob-toggle[aria-expanded="true"] .menu-mob-arrow { transform: rotate(180deg); }
+      .menu-body { display: none; padding-top: 20px; }
+      .menu-body.open { display: block; }
+      .menu-tabs { margin-bottom: 20px; }
+      .menu-tab { padding: 10px 14px; font-size: 10px; }
+      .menu-section-title { margin-top: 16px; margin-bottom: 10px; font-size: 9px; }
+      .menu-item { padding: 8px 0; }
+      .menu-item-name { font-size: 13px; }
+      .menu-item-desc { font-size: 11px; margin-top: 1px; }
+      .menu-item-price { font-size: 13px; }
+      .menu-key { display: none; }
+      /* Gallery — hidden on mobile */
+      .gallery { display: none; }
+      /* Reserve — hide the left info panel, just show the form */
+      .reserve { padding: 24px 20px; }
+      .reserve-inner { gap: 20px; }
+      .reserve-left { display: none; }
+      .rform-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .rform-grid:nth-child(3), .rform-grid:nth-child(4) { grid-template-columns: 1fr; }
+      .reserve-form { gap: 10px; }
+      .rform-input { padding: 10px 12px; font-size: 13px; }
+      .rform-label { font-size: 9px; }
+      .rform-submit { width: 100%; padding: 13px; font-size: 11px; }
+      .rform-note { font-size: 11px; }
+      /* FAQ */
+      .faq { padding: 24px 20px; }
+      .faq-inner { gap: 16px; }
+      .faq-left p { display: none; }
+      .faq-q { padding: 13px 0; font-size: 13px; }
+      .faq-a { font-size: 12px; padding-bottom: 14px; }
+      /* Footer */
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 20px; }
+      footer { padding: 24px 20px; }
+      .footer-bottom { flex-direction: column; gap: 4px; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="site-nav" id="sitenav" aria-label="Main navigation">
+    <a href="/" class="nav-logo">Wren</a>
+    <div class="nav-links">
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+      <a href="#reserve" class="nav-reserve">Reserve a table</a>
+    </div>
+    <button class="nav-ham" id="ham" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <nav class="mob-menu" id="mobMenu" aria-label="Mobile navigation">
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#reserve">Reserve a table</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="hero-bg" role="img" aria-label="Wren restaurant interior"></div>
+    <div class="hero-inner">
+      <div class="hero-tag">Northern Quarter — Manchester</div>
+      <h1 id="hero-h1">Good food.<br><em>Good company.</em><br>Good wine.</h1>
+      <div class="hero-bottom">
+        <p class="hero-desc">A neighbourhood restaurant and bar on Tib Street. Seasonal menus, natural wine, and the kind of place you come back to.</p>
+        <div class="hero-actions">
+          <a href="#reserve" class="btn-gold">Reserve a table</a>
+          <a href="#menu" class="btn-outline-w">View menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info strip -->
+  <div class="info-strip" role="complementary" aria-label="Opening hours and location">
+    <div class="info-item">
+      <div><span class="info-label">Wed – Thu</span><span class="info-val">5pm – 10:30pm</span></div>
+    </div>
+    <div class="info-item">
+      <div><span class="info-label">Friday</span><span class="info-val">12pm – 11pm</span></div>
+    </div>
+    <div class="info-item">
+      <div><span class="info-label">Saturday</span><span class="info-val">10am – 11pm</span></div>
+    </div>
+    <div class="info-item">
+      <div><span class="info-label">Sunday</span><span class="info-val">10am – 4pm</span></div>
+    </div>
+    <div class="info-item">
+      <div><span class="info-label">Address</span><span class="info-val">34 Tib Street, Manchester M4 1LA</span></div>
+    </div>
+    <div class="info-item">
+      <div><span class="info-label">Phone</span><span class="info-val"><a href="tel:+441613456789" style="color:rgba(255,255,255,0.7);">0161 345 6789</a></span></div>
+    </div>
+  </div>
+
+  <!-- Intro / About -->
+  <section class="intro" id="about" aria-labelledby="intro-h2">
+    <div class="intro-inner">
+      <div class="intro-text">
+        <p class="section-eyebrow">About Wren</p>
+        <h2 class="section-h2" id="intro-h2">A proper neighbourhood<br>restaurant.</h2>
+        <p>"We opened Wren because Manchester's Northern Quarter needed somewhere that cared as much about the food as the atmosphere. No gimmicks — just really good ingredients, cooked well."</p>
+        <p>Our menu changes with the seasons and whatever our suppliers have that week. You might find sea trout on Monday and smoked brisket by Friday. That's the point.</p>
+        <p style="margin-bottom:36px;">We're open Wednesday to Sunday, walk-ins always welcome, and we've got a private dining room for groups.</p>
+        <a href="#reserve" class="btn-gold">Book a table</a>
+      </div>
+      <div class="intro-img">
+        <img src="https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=560&h=700&fit=crop&auto=format&q=80" alt="Guests dining at Wren restaurant" loading="lazy" width="560" height="700">
+        <div class="intro-img-badge">
+          <p>4.8★</p>
+          <span>186 reviews</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu" id="menu" aria-labelledby="menu-h2">
+    <div class="menu-inner">
+      <div class="menu-header">
+        <div>
+          <p class="section-eyebrow">What we serve</p>
+          <h2 class="section-h2" id="menu-h2">The menu.</h2>
+        </div>
+        <p class="menu-note">Our menus change regularly with the seasons. Prices include VAT. A 12.5% optional service charge is added to your bill. Please let us know about any dietary requirements when booking.</p>
+      </div>
+
+      <button class="menu-mob-toggle" id="menuToggle" aria-expanded="false">
+        View the menu <span class="menu-mob-arrow">↓</span>
+      </button>
+      <div class="menu-body" id="menuBody">
+      <div class="menu-tabs" role="tablist">
+        <button class="menu-tab active" role="tab" aria-selected="true" data-panel="brunch">Brunch</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-panel="lunch">Lunch & Dinner</button>
+        <button class="menu-tab" role="tab" aria-selected="false" data-panel="drinks">Drinks</button>
+      </div>
+
+      <!-- Brunch -->
+      <div class="menu-panel active" id="panel-brunch" role="tabpanel">
+        <p class="menu-section-title">Small plates</p>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Sourdough & cultured butter <span class="menu-item-v">V</span></div><div class="menu-item-desc">House baked, salted & whipped</div></div>
+          <div class="menu-item-price">£4.5</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Burrata <span class="menu-item-v">V</span></div><div class="menu-item-desc">Heritage tomatoes, basil oil, flaky salt</div></div>
+          <div class="menu-item-price">£10</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Smoked salmon</div><div class="menu-item-desc">Crème fraîche, capers, rye toast</div></div>
+          <div class="menu-item-price">£11</div>
+        </div>
+        <p class="menu-section-title">Main plates</p>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Avocado on toast <span class="menu-item-v">V</span></div><div class="menu-item-desc">Poached eggs, chilli flakes, toasted seeds, lemon</div></div>
+          <div class="menu-item-price">£13</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Wren full breakfast</div><div class="menu-item-desc">Bacon, sausage, eggs your way, mushroom, tomato, sourdough</div></div>
+          <div class="menu-item-price">£16</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Shakshuka <span class="menu-item-v">V</span></div><div class="menu-item-desc">Spiced tomatoes, feta, soft herbs, flatbread</div></div>
+          <div class="menu-item-price">£14</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">French toast</div><div class="menu-item-desc">Brioche, whipped ricotta, seasonal compote, maple</div></div>
+          <div class="menu-item-price">£12</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Eggs Benedict</div><div class="menu-item-desc">Poached eggs, hollandaise, toasted muffin — bacon or smoked salmon</div></div>
+          <div class="menu-item-price">£14</div>
+        </div>
+      </div>
+
+      <!-- Lunch & Dinner -->
+      <div class="menu-panel" id="panel-lunch" role="tabpanel">
+        <p class="menu-section-title">Starters</p>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Soup of the day <span class="menu-item-v">V</span></div><div class="menu-item-desc">Ask your server — changes daily, served with sourdough</div></div>
+          <div class="menu-item-price">£8</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Chicken liver parfait</div><div class="menu-item-desc">Brioche toast, red onion marmalade, cornichons</div></div>
+          <div class="menu-item-price">£10</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Charred hispi cabbage <span class="menu-item-v">V</span></div><div class="menu-item-desc">Brown butter, hazelnut, aged parmesan</div></div>
+          <div class="menu-item-price">£9</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Hand-dived scallops</div><div class="menu-item-desc">Cauliflower purée, crispy capers, lemon</div></div>
+          <div class="menu-item-price">£16</div>
+        </div>
+        <p class="menu-section-title">Mains</p>
+        <div class="menu-item">
+          <div><div class="menu-item-name">28-day aged sirloin</div><div class="menu-item-desc">250g, bone marrow butter, watercress, chips</div></div>
+          <div class="menu-item-price">£34</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Roast sea trout</div><div class="menu-item-desc">Samphire, brown shrimp butter, new potatoes</div></div>
+          <div class="menu-item-price">£26</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Mushroom & truffle risotto <span class="menu-item-v">V</span></div><div class="menu-item-desc">Wild mushrooms, truffle oil, aged parmesan</div></div>
+          <div class="menu-item-price">£22</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Slow-braised lamb shoulder</div><div class="menu-item-desc">Eight hours, roast garlic, salsa verde, white beans</div></div>
+          <div class="menu-item-price">£29</div>
+        </div>
+        <p class="menu-section-title">Desserts</p>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Dark chocolate tart</div><div class="menu-item-desc">Salted caramel, clotted cream</div></div>
+          <div class="menu-item-price">£9</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Sticky toffee pudding</div><div class="menu-item-desc">Medjool dates, toffee sauce, vanilla ice cream</div></div>
+          <div class="menu-item-price">£9</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Cheese selection</div><div class="menu-item-desc">Three British cheeses, quince, crackers</div></div>
+          <div class="menu-item-price">£14</div>
+        </div>
+      </div>
+
+      <!-- Drinks -->
+      <div class="menu-panel" id="panel-drinks" role="tabpanel">
+        <p class="menu-section-title">Natural & low-intervention wine</p>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Pét-Nat Rosé, Domaine Giachino</div><div class="menu-item-desc">Savoie, France — light, pétillant, strawberry</div></div>
+          <div class="menu-item-price">£38</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Orange Malvasia, Radikon</div><div class="menu-item-desc">Friuli, Italy — amber, apricot, honeyed</div></div>
+          <div class="menu-item-price">£55</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Côtes du Rhône Rouge, Gramenon</div><div class="menu-item-desc">Rhône, France — biodynamic, cherry, spice</div></div>
+          <div class="menu-item-price">£42</div>
+        </div>
+        <p class="menu-section-title">Cocktails</p>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Wren Sour</div><div class="menu-item-desc">Whisky, lemon, honey, thyme, egg white</div></div>
+          <div class="menu-item-price">£12</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Smoked Negroni</div><div class="menu-item-desc">Gin, Campari, sweet vermouth, orange smoke</div></div>
+          <div class="menu-item-price">£13</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Elderflower Spritz <span class="menu-item-v">V</span></div><div class="menu-item-desc">Elderflower cordial, cucumber, soda, mint</div></div>
+          <div class="menu-item-price">£7</div>
+        </div>
+        <p class="menu-section-title">Hot drinks</p>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Filter coffee</div><div class="menu-item-desc">Single origin, rotating — ask your server</div></div>
+          <div class="menu-item-price">£3.5</div>
+        </div>
+        <div class="menu-item">
+          <div><div class="menu-item-name">Flat white</div><div class="menu-item-desc">Double espresso, steamed whole milk</div></div>
+          <div class="menu-item-price">£4</div>
+        </div>
+      </div>
+
+      <p class="menu-key">
+        <span><span class="menu-item-v">V</span> Vegetarian</span>
+        <span>Please inform us of any allergies or dietary requirements</span>
+      </p>
+      </div><!-- /menu-body -->
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" aria-label="Restaurant gallery">
+    <div class="gallery-inner">
+      <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&h=580&fit=crop&auto=format&q=80" alt="Elegant dish at Wren" class="span2" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=480&h=280&fit=crop&auto=format&q=80" alt="Seasonal main course" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=480&h=280&fit=crop&auto=format&q=80" alt="Brunch at Wren" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=480&h=280&fit=crop&auto=format&q=80" alt="Guests at Wren" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=480&h=280&fit=crop&auto=format&q=80" alt="Wren interior atmosphere" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservations -->
+  <section class="reserve" id="reserve" aria-labelledby="reserve-h2">
+    <div class="reserve-inner">
+      <div class="reserve-left">
+        <p class="reserve-eyebrow">Book a table</p>
+        <h2 class="reserve-h2" id="reserve-h2">Reserve<br><em>your table.</em></h2>
+        <p>Fill in the form and we'll confirm within a few hours. For same-day bookings or groups of 8 or more, please call us directly.</p>
+        <div class="reserve-info">
+          <div class="reserve-info-row"><strong>Phone</strong><a href="tel:+441613456789" style="color:rgba(255,255,255,0.6);">0161 345 6789</a></div>
+          <div class="reserve-info-row"><strong>Email</strong><a href="mailto:hello@wrenrestaurant.co.uk" style="color:rgba(255,255,255,0.6);">hello@wrenrestaurant.co.uk</a></div>
+          <div class="reserve-info-row"><strong>Address</strong><span>34 Tib Street, Manchester M4 1LA</span></div>
+          <div class="reserve-info-row"><strong>Wed – Thu</strong><span>5pm – 10:30pm</span></div>
+          <div class="reserve-info-row"><strong>Friday</strong><span>12pm – 11pm</span></div>
+          <div class="reserve-info-row"><strong>Saturday</strong><span>10am – 11pm</span></div>
+          <div class="reserve-info-row"><strong>Sunday</strong><span>10am – 4pm</span></div>
+        </div>
+      </div>
+
+      <form class="reserve-form" action="#" aria-label="Table reservation form">
+        <div class="rform-grid">
+          <div class="rform-field">
+            <label class="rform-label" for="r-fname">First name</label>
+            <input type="text" id="r-fname" class="rform-input" placeholder="James">
+          </div>
+          <div class="rform-field">
+            <label class="rform-label" for="r-lname">Last name</label>
+            <input type="text" id="r-lname" class="rform-input" placeholder="Harrison">
+          </div>
+        </div>
+        <div class="rform-grid">
+          <div class="rform-field">
+            <label class="rform-label" for="r-email">Email</label>
+            <input type="email" id="r-email" class="rform-input" placeholder="james@example.com">
+          </div>
+          <div class="rform-field">
+            <label class="rform-label" for="r-phone">Phone</label>
+            <input type="tel" id="r-phone" class="rform-input" placeholder="07700 900 000">
+          </div>
+        </div>
+        <div class="rform-grid">
+          <div class="rform-field">
+            <label class="rform-label" for="r-date">Date</label>
+            <input type="date" id="r-date" class="rform-input">
+          </div>
+          <div class="rform-field">
+            <label class="rform-label" for="r-time">Time</label>
+            <select id="r-time" class="rform-input">
+              <option value="" disabled selected>Preferred time</option>
+              <optgroup label="Lunch (Fri–Sat)">
+                <option>12:00</option>
+                <option>12:30</option>
+                <option>13:00</option>
+                <option>13:30</option>
+              </optgroup>
+              <optgroup label="Brunch (Sat–Sun)">
+                <option>10:00</option>
+                <option>10:30</option>
+                <option>11:00</option>
+                <option>11:30</option>
+              </optgroup>
+              <optgroup label="Dinner (Wed–Sat)">
+                <option>17:00</option>
+                <option>17:30</option>
+                <option>18:00</option>
+                <option>18:30</option>
+                <option>19:00</option>
+                <option>19:30</option>
+                <option>20:00</option>
+                <option>20:30</option>
+                <option>21:00</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="rform-grid">
+          <div class="rform-field">
+            <label class="rform-label" for="r-covers">Number of guests</label>
+            <select id="r-covers" class="rform-input">
+              <option value="" disabled selected>Select covers</option>
+              <option>1 guest</option>
+              <option>2 guests</option>
+              <option>3 guests</option>
+              <option>4 guests</option>
+              <option>5 guests</option>
+              <option>6 guests</option>
+              <option>7 guests</option>
+              <option>8+ guests — please call us</option>
+            </select>
+          </div>
+          <div class="rform-field">
+            <label class="rform-label" for="r-occasion">Occasion (optional)</label>
+            <select id="r-occasion" class="rform-input">
+              <option value="">No special occasion</option>
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Date night</option>
+              <option>Business lunch</option>
+              <option>Private dining enquiry</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="rform-field">
+          <label class="rform-label" for="r-notes">Dietary requirements or notes</label>
+          <textarea id="r-notes" class="rform-input" placeholder="e.g. gluten-free, vegetarian, birthday cake, high chair needed..."></textarea>
+        </div>
+        <div>
+          <button type="submit" class="rform-submit">Request reservation</button>
+          <p class="rform-note" style="margin-top:12px;">We'll confirm by email within a few hours. No card required to reserve.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq" aria-labelledby="faq-h2">
+    <div class="faq-inner">
+      <div class="faq-left">
+        <p class="section-eyebrow">Good to know</p>
+        <h2 class="section-h2" id="faq-h2">Questions.</h2>
+        <p>Something else? Call us on <a href="tel:+441613456789">0161 345 6789</a> or find us on <a href="#">Instagram</a>.</p>
+      </div>
+      <div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false" aria-controls="fa1">Do you take walk-ins?<span class="faq-arrow" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="fa1">Yes — we keep tables free every service for walk-ins. For groups of 5 or more we'd suggest booking ahead, especially on Friday and Saturday evenings.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false" aria-controls="fa2">Do you cater for dietary requirements?<span class="faq-arrow" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="fa2">Absolutely. Our menu always has vegan, vegetarian and gluten-free options clearly marked. Let us know when booking and we'll make sure you're looked after.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false" aria-controls="fa3">Can I book a private dining event?<span class="faq-arrow" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="fa3">Yes — our private dining room seats up to 18. We offer set menus and can accommodate most dietary requirements. Email <a href="mailto:hello@wrenrestaurant.co.uk" style="color:var(--accent);">hello@wrenrestaurant.co.uk</a> to discuss.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false" aria-controls="fa4">Is there parking nearby?<span class="faq-arrow" aria-hidden="true">+</span></button>
+            <div class="faq-a" id="fa4">Car parks on Church Street and Piccadilly are both a short walk away. We're 5 minutes from Manchester Piccadilly and Victoria stations.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-logo">Wren</p>
+      <p class="footer-text">
+        34 Tib Street, Manchester M4 1LA<br>
+        <a href="tel:+441613456789" style="color:rgba(255,255,255,0.4);">0161 345 6789</a><br>
+        <a href="mailto:hello@wrenrestaurant.co.uk" style="color:rgba(255,255,255,0.4);">hello@wrenrestaurant.co.uk</a>
+      </p>
+    </div>
+    <div>
+      <p class="footer-col-title">Hours</p>
+      <div class="footer-links" style="gap:6px;">
+        <span style="font-size:12px;color:rgba(255,255,255,0.38);">Wed–Thu &nbsp;5pm–10:30pm</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.38);">Friday &nbsp;12pm–11pm</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.38);">Saturday &nbsp;10am–11pm</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.38);">Sunday &nbsp;10am–4pm</span>
+        <span style="font-size:12px;color:rgba(255,255,255,0.2);margin-top:4px;">Closed Mon & Tue</span>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-title">Navigate</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#reserve">Reservations</a>
+        <a href="#faq">FAQ</a>
+        <a href="#">Private Dining</a>
+      </nav>
+    </div>
+    <div>
+      <p class="footer-col-title">Follow</p>
+      <nav class="footer-links" aria-label="Social media">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Google</a>
+      </nav>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Wren Restaurant Ltd. All rights reserved.</span>
+    <span>Website by <a href="https://axiomarketing.co.uk" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.2);">Axio Marketing</a></span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('sitenav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Mobile nav
+  const ham = document.getElementById('ham');
+  const mob = document.getElementById('mobMenu');
+  ham.addEventListener('click', () => {
+    const open = mob.classList.toggle('open');
+    ham.setAttribute('aria-expanded', open);
+  });
+  mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mob.classList.remove('open');
+    ham.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const menuBody = document.getElementById('menuBody');
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      const open = menuBody.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open);
+    });
+  }
+
+  // Menu tabs
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.menu-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+    });
+  });
+
+  // FAQ
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  });
+</script>
+
+</body>
+</html>

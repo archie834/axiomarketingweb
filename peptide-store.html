@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcis Scientific — Research-Grade Peptides UK</title>
+  <meta name="description" content="Third-party tested research peptides, UK vialed. Every batch HPLC verified by Janoshik Analytical. COA published before dispatch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;1,300&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;1,300&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;1,300&display=swap"></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f0f4fb;
+      --surface:   #ffffff;
+      --card:      #ffffff;
+      --border:    rgba(15,23,60,0.08);
+      --border-hi: rgba(37,99,235,0.3);
+      --text:      #0f172a;
+      --muted:     #64748b;
+      --faint:     #94a3b8;
+      --accent:    #2563eb;
+      --accent-d:  rgba(37,99,235,0.08);
+      --accent-g:  rgba(37,99,235,0.04);
+      --red:       #ef4444;
+      --amber:     #b45309;
+      --amber-bg:  #fffbeb;
+      --amber-br:  #fde68a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── AGE GATE ── */
+    #age-gate {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,60,0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    #age-gate.hidden { display: none; }
+
+    .ag-modal {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 460px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(15,23,60,0.12), 0 32px 80px rgba(15,23,60,0.12);
+    }
+
+    .ag-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .ag-logo span { color: var(--accent); }
+    .ag-sub { font-size: 10px; letter-spacing: 0.28em; color: var(--faint); text-transform: uppercase; margin-bottom: 32px; }
+
+    .ag-modal h2 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .ag-modal > p { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 32px; }
+
+    .ag-btns { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .btn-enter { background: var(--accent); color: #fff; border: none; border-radius: 10px; padding: 14px 24px; font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: opacity 0.2s, transform 0.15s; }
+    .btn-enter:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-enter:active { transform: translateY(0); }
+    .btn-exit { background: transparent; color: var(--muted); border: 1px solid var(--border); border-radius: 10px; padding: 13px 24px; font-size: 14px; cursor: pointer; text-decoration: none; display: block; transition: border-color 0.2s; }
+    .btn-exit:hover { border-color: var(--faint); }
+    .ag-legal { font-size: 11px; color: var(--faint); line-height: 1.65; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 64px;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 0 rgba(15,23,60,0.04);
+    }
+
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+
+    .ruo-pill { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent); background: var(--accent-d); border: 1px solid rgba(37,99,235,0.2); border-radius: 4px; padding: 4px 8px; text-transform: uppercase; }
+
+    #cart-btn { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: border-color 0.2s, box-shadow 0.2s; }
+    #cart-btn:hover { border-color: rgba(37,99,235,0.25); box-shadow: 0 2px 8px rgba(37,99,235,0.1); }
+    #cart-count { position: absolute; top: -6px; right: -6px; background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: none; align-items: center; justify-content: center; }
+    #cart-count.show { display: flex; }
+
+    /* ── CART SIDEBAR ── */
+    #cart-overlay { position: fixed; inset: 0; background: rgba(15,23,60,0.3); backdrop-filter: blur(4px); z-index: 800; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    #cart-overlay.show { opacity: 1; pointer-events: auto; }
+
+    #cart-sidebar { position: fixed; top: 0; right: 0; width: 400px; max-width: 100vw; height: 100vh; background: #fff; border-left: 1px solid var(--border); z-index: 900; display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.22,1,0.36,1); box-shadow: -24px 0 64px rgba(15,23,60,0.1); }
+    #cart-sidebar.open { transform: translateX(0); }
+
+    .cart-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+    .cart-head h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; }
+    .cart-close { background: transparent; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 16px; transition: color 0.2s; }
+    .cart-close:hover { color: var(--text); }
+
+    #cart-items { flex: 1; overflow-y: auto; padding: 16px; }
+    .cart-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 200px; color: var(--faint); font-size: 14px; gap: 8px; }
+
+    .cart-item { display: flex; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .cart-item-img { width: 52px; height: 52px; border-radius: 8px; object-fit: cover; background: var(--bg); flex-shrink: 0; border: 1px solid var(--border); }
+    .cart-item-info { flex: 1; min-width: 0; }
+    .cart-item-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+    .cart-item-size { font-size: 12px; color: var(--muted); }
+    .cart-item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+    .cart-item-price { font-size: 14px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
+    .cart-qty { display: flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 3px 8px; }
+    .qty-btn { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 16px; width: 18px; height: 18px; display: flex; align-items: center; justify-content: center; transition: color 0.15s; }
+    .qty-btn:hover { color: var(--text); }
+    .qty-val { font-size: 13px; font-weight: 600; min-width: 16px; text-align: center; }
+
+    .cart-foot { padding: 16px 24px; border-top: 1px solid var(--border); }
+    .cart-ruo { font-size: 11px; color: var(--faint); text-align: center; margin-bottom: 12px; line-height: 1.5; }
+    .cart-subtotal { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; color: var(--muted); }
+    .cart-total-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .cart-total-row span:first-child { font-size: 15px; font-weight: 600; }
+    .cart-total-val { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: var(--accent); }
+
+    .btn-checkout { width: 100%; background: var(--accent); color: #fff; border: none; border-radius: 10px; padding: 14px; font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; transition: opacity 0.2s, transform 0.15s; margin-bottom: 12px; box-shadow: 0 4px 16px rgba(37,99,235,0.3); }
+    .btn-checkout:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-checkout:active { transform: translateY(0); }
+
+    .pay-icons { display: flex; gap: 8px; justify-content: center; }
+    .pay-icon { background: var(--bg); border: 1px solid var(--border); border-radius: 5px; padding: 4px 8px; font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: 0.05em; }
+
+    /* ── HERO ── */
+    .hero { padding: 96px 40px 80px; max-width: 980px; margin: 0 auto; }
+
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--accent); background: var(--accent-d); border: 1px solid rgba(37,99,235,0.2); border-radius: 100px; padding: 6px 16px; margin-bottom: 28px; font-weight: 500; }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: clamp(42px, 5.5vw, 68px); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 24px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+
+    .hero-lead { font-size: 17px; color: var(--muted); line-height: 1.7; max-width: 540px; margin-bottom: 48px; }
+
+    .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 40px; max-width: 560px; box-shadow: 0 2px 12px rgba(15,23,60,0.06); }
+    .stat { background: #fff; padding: 20px 16px; text-align: center; }
+    .stat strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; }
+    .stat span { font-size: 11px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-top: 2px; display: block; }
+
+    .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: #fff; border: none; border-radius: 10px; padding: 14px 28px; font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 0 4px 16px rgba(37,99,235,0.3); transition: opacity 0.2s, transform 0.15s; }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 13px 28px; font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; text-decoration: none; display: inline-block; box-shadow: 0 1px 4px rgba(15,23,60,0.06); transition: border-color 0.2s, box-shadow 0.2s; }
+    .btn-secondary:hover { border-color: rgba(37,99,235,0.3); box-shadow: 0 2px 8px rgba(37,99,235,0.08); }
+
+    /* ── RUO STRIP ── */
+    .ruo-strip { background: var(--amber-bg); border-top: 1px solid var(--amber-br); border-bottom: 1px solid var(--amber-br); padding: 12px 40px; font-size: 12px; color: var(--amber); text-align: center; font-weight: 500; line-height: 1.5; }
+
+    /* ── SHOP ── */
+    #shop { padding: 64px 40px; max-width: 1320px; margin: 0 auto; }
+
+    .shop-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; flex-wrap: wrap; gap: 16px; }
+    .shop-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+
+    .filter-tabs { display: flex; gap: 4px; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 4px; box-shadow: 0 1px 4px rgba(15,23,60,0.06); }
+    .filter-tab { background: transparent; border: none; border-radius: 7px; padding: 7px 18px; font-size: 13px; font-weight: 500; color: var(--muted); cursor: pointer; transition: background 0.2s, color 0.2s; white-space: nowrap; }
+    .filter-tab.active { background: var(--accent); color: #fff; box-shadow: 0 2px 8px rgba(37,99,235,0.25); }
+    .filter-tab:hover:not(.active) { color: var(--text); background: var(--bg); }
+
+    #product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+
+    .product-card { background: #fff; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s; box-shadow: 0 1px 4px rgba(15,23,60,0.06), 0 4px 16px rgba(15,23,60,0.05); }
+    .product-card:hover { border-color: rgba(37,99,235,0.25); transform: translateY(-3px); box-shadow: 0 4px 16px rgba(15,23,60,0.08), 0 16px 48px rgba(37,99,235,0.1); }
+
+    .card-img-wrap { position: relative; width: 100%; height: 180px; overflow: hidden; background: #e8f0fe; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,60,0.5) 0%, transparent 60%); }
+    .card-img-label { position: absolute; bottom: 12px; left: 12px; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.01em; text-shadow: 0 1px 8px rgba(0,0,0,0.5); }
+
+    .card-body { padding: 16px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+    .card-tags { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+    .card-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 7px; border-radius: 4px; text-transform: uppercase; }
+    .tag-best { background: rgba(37,99,235,0.1); color: var(--accent); }
+    .tag-pop  { background: rgba(245,158,11,0.1); color: #d97706; }
+    .tag-new  { background: rgba(16,185,129,0.1); color: #059669; }
+
+    .card-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: -0.01em; }
+    .card-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .card-size { font-size: 12px; color: var(--muted); font-weight: 500; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 2px 7px; }
+    .card-sku { font-size: 10px; color: var(--faint); font-family: monospace; }
+
+    .card-purity { display: flex; align-items: center; gap: 8px; }
+    .purity-bar-bg { flex: 1; height: 4px; background: var(--bg); border-radius: 2px; overflow: hidden; }
+    .purity-bar-fill { height: 100%; background: linear-gradient(90deg, #3b82f6, #2563eb); border-radius: 2px; }
+    .purity-label { font-size: 12px; color: var(--accent); font-weight: 700; white-space: nowrap; }
+
+    .coa-link { font-size: 11px; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: color 0.2s; }
+    .coa-link:hover { color: var(--accent); }
+
+    .card-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 4px; }
+    .card-price { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+    .card-price span { font-size: 13px; color: var(--muted); font-weight: 400; }
+
+    .btn-add { background: var(--accent-d); border: 1px solid rgba(37,99,235,0.2); color: var(--accent); border-radius: 8px; padding: 9px 16px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'Space Grotesk', sans-serif; transition: background 0.2s, border-color 0.2s, transform 0.15s; white-space: nowrap; }
+    .btn-add:hover { background: rgba(37,99,235,0.14); border-color: rgba(37,99,235,0.35); transform: scale(1.03); }
+    .btn-add:active { transform: scale(0.98); }
+    .btn-add.added { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    /* supply/water card image */
+    .card-img-supply { background: linear-gradient(135deg,#f0f4fb 0%,#dde8ff 100%); display: flex; align-items: center; justify-content: center; font-size: 52px; }
+
+    /* ── CALCULATOR ── */
+    #calculator { padding: 80px 40px; background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .calc-inner { max-width: 680px; margin: 0 auto; }
+
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .section-sub { font-size: 15px; color: var(--muted); line-height: 1.65; margin-bottom: 40px; }
+
+    .calc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .calc-field label { display: block; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: 0.04em; margin-bottom: 8px; text-transform: uppercase; }
+    .calc-field input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font-size: 16px; font-family: 'Space Grotesk', sans-serif; color: var(--text); transition: border-color 0.2s, box-shadow 0.2s; -moz-appearance: textfield; }
+    .calc-field input::-webkit-outer-spin-button,.calc-field input::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .calc-field input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    .calc-field .unit { font-size: 12px; color: var(--faint); margin-top: 5px; }
+
+    .calc-result { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid rgba(37,99,235,0.2); border-radius: 14px; padding: 28px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .calc-result-label { font-size: 12px; color: #3b82f6; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; }
+    .calc-result-val { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: var(--accent); letter-spacing: -0.03em; }
+    .calc-result-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .calc-result-right { text-align: right; }
+    .calc-note { font-size: 12px; color: var(--faint); margin-top: 16px; line-height: 1.65; font-style: italic; }
+
+    /* ── TRUST / COAs ── */
+    #coas { padding: 80px 40px; max-width: 1320px; margin: 0 auto; }
+
+    .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 56px; }
+    .trust-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 24px; box-shadow: 0 1px 4px rgba(15,23,60,0.05); transition: border-color 0.2s, box-shadow 0.2s; }
+    .trust-card:hover { border-color: rgba(37,99,235,0.2); box-shadow: 0 4px 16px rgba(37,99,235,0.08); }
+    .trust-icon { font-size: 28px; margin-bottom: 12px; }
+    .trust-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .trust-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    .coa-section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+    .coa-section-head h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+
+    .coa-search { display: flex; gap: 8px; }
+    .coa-search input { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 14px; color: var(--text); width: 220px; box-shadow: 0 1px 3px rgba(15,23,60,0.05); transition: border-color 0.2s, box-shadow 0.2s; }
+    .coa-search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+    .coa-search input::placeholder { color: var(--faint); }
+    .btn-search { background: var(--accent); border: none; color: #fff; border-radius: 8px; padding: 10px 16px; font-size: 13px; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+    .btn-search:hover { opacity: 0.88; }
+
+    .coa-table-wrap { overflow-x: auto; background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 1px 4px rgba(15,23,60,0.05); }
+    .coa-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .coa-table thead th { text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 14px 18px; border-bottom: 1px solid var(--border); background: var(--bg); }
+    .coa-table thead th:first-child { border-radius: 14px 0 0 0; }
+    .coa-table thead th:last-child { border-radius: 0 14px 0 0; }
+    .coa-table tbody td { padding: 14px 18px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .coa-table tbody tr:last-child td { border-bottom: none; }
+    .coa-table tbody tr:hover { background: #fafbff; }
+    .batch-num { font-family: monospace; font-size: 12px; color: var(--muted); }
+    .purity-chip { background: rgba(37,99,235,0.08); color: var(--accent); border-radius: 5px; padding: 3px 9px; font-size: 12px; font-weight: 700; }
+    .status-chip { border-radius: 5px; padding: 3px 9px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
+    .status-pass { background: rgba(16,185,129,0.1); color: #059669; }
+    .coa-dl { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; transition: opacity 0.2s; }
+    .coa-dl:hover { opacity: 0.7; }
+
+    /* ── PAYMENT ── */
+    #payment { padding: 80px 40px; background: var(--bg); border-top: 1px solid var(--border); }
+    .payment-inner { max-width: 960px; margin: 0 auto; }
+    .payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 40px; }
+    .pay-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 24px; box-shadow: 0 1px 4px rgba(15,23,60,0.05); transition: border-color 0.2s, box-shadow 0.2s; }
+    .pay-card:hover { border-color: rgba(37,99,235,0.2); box-shadow: 0 4px 16px rgba(37,99,235,0.08); }
+    .pay-card-icon { font-size: 28px; margin-bottom: 12px; }
+    .pay-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+    .pay-card p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .pay-badge { display: inline-block; margin-top: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 4px; text-transform: uppercase; }
+    .badge-blue  { background: rgba(37,99,235,0.08); color: var(--accent); }
+    .badge-green { background: rgba(16,185,129,0.1); color: #059669; }
+
+    /* ── FOOTER ── */
+    footer { background: #0f172a; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.06); padding: 56px 40px 32px; }
+    .footer-inner { max-width: 1320px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0.14em; color: #fff; margin-bottom: 12px; }
+    .footer-logo span { color: #60a5fa; }
+    .footer-tagline { font-size: 13px; color: #64748b; line-height: 1.7; max-width: 240px; }
+    .footer-col h5 { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #475569; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 13px; color: #64748b; text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-disclaimer { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 28px; font-size: 11px; color: #475569; line-height: 1.8; }
+    .footer-disclaimer strong { color: #64748b; }
+    .footer-bottom { margin-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 12px; color: #475569; }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 12px; color: #475569; text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: #94a3b8; }
+
+    /* ── TOAST ── */
+    #toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: #0f172a; border: 1px solid rgba(37,99,235,0.3); border-radius: 10px; padding: 12px 20px; font-size: 14px; font-weight: 500; color: #fff; z-index: 9000; transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), opacity 0.3s; white-space: nowrap; box-shadow: 0 8px 32px rgba(15,23,60,0.25); opacity: 0; pointer-events: none; }
+    #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 16px; }
+      .nav-links { display: none; }
+      .hero { padding: 56px 16px 40px; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .calc-grid { grid-template-columns: 1fr; }
+      #shop, #coas, #payment { padding: 48px 16px; }
+      #calculator { padding: 48px 16px; }
+      footer { padding: 48px 16px 24px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .ruo-strip { padding: 12px 16px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 36px; }
+      #product-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .shop-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- AGE GATE -->
+<div id="age-gate">
+  <div class="ag-modal">
+    <div class="ag-logo">ARCIS <span>·</span> SCIENTIFIC</div>
+    <div class="ag-sub">Research Supply UK</div>
+    <h2>Age Verification</h2>
+    <p>This website supplies research-use-only compounds to verified researchers. You must be 18 or over to enter and confirm these products are for laboratory research purposes only — not for human use.</p>
+    <div class="ag-btns">
+      <button class="btn-enter" onclick="enterSite()">I am 18 or over — Enter</button>
+      <a class="btn-exit" href="https://www.google.com">I am under 18 — Exit</a>
+    </div>
+    <p class="ag-legal">All products are for research use only (RUO). Not for human consumption. Not a medicine. By entering you agree to our Terms of Service and confirm your intended research use.</p>
+  </div>
+</div>
+
+<!-- CART OVERLAY -->
+<div id="cart-overlay" onclick="closeCart()"></div>
+
+<!-- CART SIDEBAR -->
+<aside id="cart-sidebar">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div id="cart-items">
+    <div class="cart-empty">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span>Your cart is empty</span>
+    </div>
+  </div>
+  <div class="cart-foot">
+    <p class="cart-ruo">⚠ All items are for research use only. Not for human consumption.</p>
+    <div class="cart-subtotal"><span>Subtotal</span><span id="cart-subtotal">£0.00</span></div>
+    <div class="cart-subtotal"><span>Shipping</span><span>Calculated at checkout</span></div>
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span class="cart-total-val" id="cart-total-val">£0.00</span>
+    </div>
+    <button class="btn-checkout" onclick="handleCheckout()">Proceed to Checkout →</button>
+    <div class="pay-icons">
+      <span class="pay-icon">BANK</span>
+      <span class="pay-icon">CRYPTO</span>
+      <span class="pay-icon">CARD</span>
+    </div>
+  </div>
+</aside>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">ARCIS <span>·</span></a>
+  <div class="nav-links">
+    <a href="#shop">Shop</a>
+    <a href="#calculator">Calculator</a>
+    <a href="#coas">COAs</a>
+    <a href="#payment">Payment</a>
+  </div>
+  <div class="nav-right">
+    <span class="ruo-pill">RUO Only</span>
+    <button id="cart-btn" onclick="openCart()" aria-label="Open cart">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span id="cart-count">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">UK Vialed &nbsp;·&nbsp; Janoshik Verified &nbsp;·&nbsp; Cold Chain Maintained</div>
+  <h1>Research-Grade.<br><em>Third-Party Tested.</em></h1>
+  <p class="hero-lead">Every batch HPLC + mass spec verified by Janoshik Analytical. COA published with batch number before dispatch. UK lyophilised, cold-chain stored.</p>
+  <div class="hero-stats">
+    <div class="stat"><strong>99.1%</strong><span>Avg Purity</span></div>
+    <div class="stat"><strong>48hr</strong><span>UK Dispatch</span></div>
+    <div class="stat"><strong>20+</strong><span>Compounds</span></div>
+    <div class="stat"><strong>100%</strong><span>Batch Tested</span></div>
+  </div>
+  <div class="hero-ctas">
+    <a href="#shop" class="btn-primary">Browse Compounds</a>
+    <a href="#coas" class="btn-secondary">View COAs</a>
+  </div>
+</section>
+
+<!-- RUO STRIP -->
+<div class="ruo-strip">
+  ⚠ &nbsp;All products are for research use only (RUO). Not for human consumption. Not a medicine. Not intended to diagnose, treat, cure, or prevent any disease.
+</div>
+
+<!-- SHOP -->
+<section id="shop">
+  <div class="shop-header">
+    <h2>All Compounds</h2>
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="peptides">Peptides</button>
+      <button class="filter-tab" data-filter="bac-water">BAC Water</button>
+      <button class="filter-tab" data-filter="supplies">Supplies</button>
+    </div>
+  </div>
+  <div id="product-grid"></div>
+</section>
+
+<!-- CALCULATOR -->
+<section id="calculator">
+  <div class="calc-inner">
+    <div class="section-label">Research Tool</div>
+    <h2 class="section-title">Reconstitution Calculator</h2>
+    <p class="section-sub">Calculate the exact volume to draw from your reconstituted vial. Input your vial amount, bacteriostatic water volume, and desired dose.</p>
+    <div class="calc-grid">
+      <div class="calc-field">
+        <label>Vial Amount</label>
+        <input type="number" id="calc-vial" placeholder="5" min="0.1" step="0.1" oninput="calcRecon()">
+        <div class="unit">milligrams (mg)</div>
+      </div>
+      <div class="calc-field">
+        <label>BAC Water Added</label>
+        <input type="number" id="calc-water" placeholder="2" min="0.1" step="0.1" oninput="calcRecon()">
+        <div class="unit">millilitres (ml)</div>
+      </div>
+      <div class="calc-field">
+        <label>Desired Dose</label>
+        <input type="number" id="calc-dose" placeholder="250" min="1" step="1" oninput="calcRecon()">
+        <div class="unit">micrograms (mcg)</div>
+      </div>
+    </div>
+    <div class="calc-result">
+      <div>
+        <div class="calc-result-label">Volume to draw</div>
+        <div class="calc-result-val" id="calc-ml">— ml</div>
+        <div class="calc-result-sub">millilitres</div>
+      </div>
+      <div class="calc-result-right">
+        <div class="calc-result-label">On insulin syringe (100 IU/ml)</div>
+        <div class="calc-result-val" id="calc-units">— IU</div>
+        <div class="calc-result-sub">international units</div>
+      </div>
+    </div>
+    <p class="calc-note">This tool is for research reference only. Verify all calculations independently before research use.</p>
+  </div>
+</section>
+
+<!-- COAs -->
+<section id="coas">
+  <div class="section-label">Transparency</div>
+  <h2 class="section-title">Third-Party Verified</h2>
+  <p class="section-sub">Every batch independently tested before listing.</p>
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="trust-icon">🔬</div>
+      <h4>Janoshik Analytical</h4>
+      <p>HPLC + mass spectrometry on every batch. Czech Republic lab, industry standard for peptide purity verification.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon">📄</div>
+      <h4>Public COA Access</h4>
+      <p>Certificate of Analysis published with batch number before dispatch. Search any batch below for the full test report.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon">🇬🇧</div>
+      <h4>UK Lyophilised</h4>
+      <p>Powder imported from vetted synthesisers, vialed and lyophilised at a UK cleanroom for local cold-chain integrity.</p>
+    </div>
+    <div class="trust-card">
+      <div class="trust-icon">❄️</div>
+      <h4>Cold Chain Dispatch</h4>
+      <p>Refrigerated storage at 2–8°C. Ice pack included with every order. Royal Mail Tracked 48 or DHL Express.</p>
+    </div>
+  </div>
+  <div class="coa-section-head">
+    <h3>Batch COA Lookup</h3>
+    <div class="coa-search">
+      <input type="text" placeholder="Compound or batch number…" id="coa-input">
+      <button class="btn-search" onclick="searchCOA()">Search</button>
+    </div>
+  </div>
+  <div class="coa-table-wrap">
+    <table class="coa-table">
+      <thead>
+        <tr>
+          <th>Compound</th><th>Batch</th><th>Size</th><th>Purity</th><th>Lab</th><th>Date</th><th>Status</th><th>COA</th>
+        </tr>
+      </thead>
+      <tbody id="coa-tbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PAYMENT -->
+<section id="payment">
+  <div class="payment-inner">
+    <div class="section-label">Checkout Options</div>
+    <h2 class="section-title">Flexible Payment</h2>
+    <p class="section-sub">Four secure methods. Zero-fee bank transfer, instant crypto, and high-risk card processors that actually work.</p>
+    <div class="payment-grid">
+      <div class="pay-card">
+        <div class="pay-card-icon">🏦</div>
+        <h4>Bank Transfer</h4>
+        <p>BACS / Faster Payments. Zero fees, same-day clearing. Unique reference generated per order.</p>
+        <span class="pay-badge badge-green">0% fee</span>
+      </div>
+      <div class="pay-card">
+        <div class="pay-card-icon">₿</div>
+        <h4>Cryptocurrency</h4>
+        <p>Bitcoin, Ethereum, USDT, USDC. ~1% fee. Instant settlement, zero chargeback risk.</p>
+        <span class="pay-badge badge-blue">Instant</span>
+      </div>
+      <div class="pay-card">
+        <div class="pay-card-icon">💳</div>
+        <h4>Card (Primary)</h4>
+        <p>Visa &amp; Mastercard via high-risk merchant processor. 3D Secure enabled. 4–6% fee applies.</p>
+        <span class="pay-badge badge-green">3DS Secure</span>
+      </div>
+      <div class="pay-card">
+        <div class="pay-card-icon">🔄</div>
+        <h4>Card (Backup)</h4>
+        <p>Secondary processor for uninterrupted service. Always-on redundancy so orders are never delayed.</p>
+        <span class="pay-badge badge-green">Always on</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">ARCIS <span>·</span> SCIENTIFIC</div>
+        <p class="footer-tagline">Research-grade peptides. UK vialed, third-party tested, cold-chain dispatched. For scientific research use only.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="#shop">All Compounds</a></li>
+          <li><a href="#shop">Peptides</a></li>
+          <li><a href="#shop">BAC Water</a></li>
+          <li><a href="#shop">Supplies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Research</h5>
+        <ul>
+          <li><a href="#calculator">Reconstitution Calc</a></li>
+          <li><a href="#coas">COA Lookup</a></li>
+          <li><a href="#">Storage Guide</a></li>
+          <li><a href="#">Compound Index</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About Arcis</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-disclaimer">
+      <strong>Research Use Only (RUO):</strong> All products sold by Arcis Scientific are strictly for laboratory and scientific research purposes only. They are not medicines, pharmaceuticals, or dietary supplements. They are not approved by the MHRA, FDA, or any other regulatory authority for human use. They must not be administered to humans or animals. By purchasing from this site you confirm that you are a qualified researcher and products will be used solely for lawful research activities in a controlled laboratory environment. Arcis Scientific accepts no liability for misuse.<br><br>
+      Arcis Scientific Ltd &nbsp;·&nbsp; Registered in England &amp; Wales &nbsp;·&nbsp; Company No. 15XXXXXX &nbsp;·&nbsp; VAT No. GB 4XX XXX XXX
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Arcis Scientific Ltd. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a><a href="#">Compliance</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+  /* ── SVG IMAGE GENERATORS ── */
+  function getBacWaterImg(size) {
+    const multi = size.includes('×');
+    const bg1='#041e2c', bg2='#0c4a6e', cap='#22d3ee';
+    let inner = '';
+    if (multi) {
+      for (let i=0;i<5;i++){const x=138+i*42;inner+=`<rect x="${x}" y="52" width="26" height="68" rx="6" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/><rect x="${x+2}" y="55" width="3" height="58" rx="1.5" fill="rgba(255,255,255,0.12)"/><rect x="${x}" y="100" width="26" height="18" rx="0 0 6 6" fill="rgba(34,211,238,0.18)"/><rect x="${x+5}" y="43" width="16" height="13" rx="3" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/><rect x="${x+6}" y="33" width="14" height="13" rx="3" fill="${cap}" opacity="0.72"/><rect x="${x+7}" y="35" width="4" height="8" rx="2" fill="rgba(255,255,255,0.28)"/>`;}
+    } else {
+      inner=`<rect x="198" y="38" width="84" height="114" rx="12" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/><rect x="200" y="42" width="6" height="102" rx="3" fill="rgba(255,255,255,0.14)"/><rect x="278" y="42" width="3" height="102" rx="1.5" fill="rgba(255,255,255,0.05)"/><rect x="198" y="105" width="84" height="45" rx="0 0 12 12" fill="rgba(34,211,238,0.16)"/><ellipse cx="240" cy="105" rx="35" ry="4" fill="rgba(34,211,238,0.10)"/><rect x="216" y="26" width="48" height="17" rx="5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/><rect x="218" y="12" width="44" height="18" rx="5" fill="${cap}" opacity="0.78"/><rect x="220" y="14" width="9" height="12" rx="3" fill="rgba(255,255,255,0.3)"/><rect x="198" y="64" width="84" height="40" fill="rgba(0,0,0,0.22)"/><text x="240" y="81" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="rgba(255,255,255,0.82)" letter-spacing="1">BACTERIOSTATIC</text><text x="240" y="96" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="rgba(255,255,255,0.9)">WATER</text>`;
+    }
+    let dots=''; for(let x=16;x<480;x+=36)for(let y=16;y<200;y+=36)dots+=`<circle cx="${x}" cy="${y}" r="1" fill="rgba(34,211,238,0.04)"/>`;
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="480" height="200" viewBox="0 0 480 200"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${bg1}"/><stop offset="100%" stop-color="${bg2}"/></linearGradient></defs><rect width="480" height="200" fill="url(#bg)"/>${dots}${inner}<text x="240" y="158" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="rgba(255,255,255,0.9)" letter-spacing="1.5">BACTERIOSTATIC WATER</text><text x="240" y="176" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.38)" letter-spacing="2.5">${size.toUpperCase()} · STERILE · 0.9% BENZYL ALCOHOL</text><rect x="13" y="13" width="52" height="17" rx="3" fill="rgba(34,211,238,0.12)" stroke="rgba(34,211,238,0.28)" stroke-width="1"/><text x="39" y="25.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#67e8f9" letter-spacing="1">STERILE</text></svg>`;
+    return 'data:image/svg+xml,'+encodeURIComponent(svg);
+  }
+
+  function getSyringeImg() {
+    const bg1='#080f1e',bg2='#131d35';
+    const marks=[265,288,311,334,357].map((x,i)=>`<line x1="${x}" y1="88" x2="${x}" y2="${i%2===0?78:82}" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>${i%2===0?`<text x="${x}" y="76" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="rgba(255,255,255,0.38)">${(i*0.2).toFixed(1)}</text>`:''}`).join('');
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="480" height="200" viewBox="0 0 480 200"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${bg1}"/><stop offset="100%" stop-color="${bg2}"/></linearGradient></defs><rect width="480" height="200" fill="url(#bg)"/>
+    <rect x="108" y="86" width="260" height="30" rx="5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+    <rect x="110" y="88" width="256" height="5" rx="2" fill="rgba(255,255,255,0.11)"/>
+    <rect x="110" y="109" width="256" height="5" rx="2" fill="rgba(255,255,255,0.04)"/>
+    ${marks}
+    <rect x="363" y="94" width="55" height="14" rx="3" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+    <rect x="415" y="78" width="12" height="46" rx="4" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+    <rect x="84" y="93" width="26" height="16" rx="3" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+    <rect x="38" y="99" width="48" height="4" rx="2" fill="rgba(147,197,253,0.55)"/>
+    <line x1="34" y1="101" x2="36" y2="101" stroke="rgba(147,197,253,0.3)" stroke-width="3"/>
+    <rect x="100" y="74" width="10" height="54" rx="3" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+    <rect x="110" y="87" width="16" height="28" rx="4" fill="rgba(37,99,235,0.4)" stroke="rgba(96,165,250,0.25)" stroke-width="1"/>
+    <rect x="380" y="86" width="8" height="30" rx="2" fill="rgba(255,255,255,0.06)"/>
+    <text x="240" y="155" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="rgba(255,255,255,0.9)" letter-spacing="1.5">INSULIN SYRINGES</text>
+    <text x="240" y="173" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.38)" letter-spacing="2.5">1ML × 100 · U100 · INDIVIDUALLY STERILE</text>
+    <rect x="13" y="13" width="50" height="17" rx="3" fill="rgba(96,165,250,0.12)" stroke="rgba(96,165,250,0.28)" stroke-width="1"/>
+    <text x="38" y="25.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#93c5fd" letter-spacing="1">STERILE</text></svg>`;
+    return 'data:image/svg+xml,'+encodeURIComponent(svg);
+  }
+
+  function getKitImg() {
+    const bg1='#0d1b3e',bg2='#1e3a8a';
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="480" height="200" viewBox="0 0 480 200"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${bg1}"/><stop offset="100%" stop-color="${bg2}"/></linearGradient></defs><rect width="480" height="200" fill="url(#bg)"/>
+    <rect x="118" y="48" width="52" height="90" rx="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+    <rect x="120" y="52" width="5" height="78" rx="2.5" fill="rgba(255,255,255,0.14)"/>
+    <rect x="131" y="36" width="28" height="17" rx="4" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+    <rect x="132" y="23" width="26" height="17" rx="4" fill="#60a5fa" opacity="0.78"/>
+    <rect x="134" y="25" width="6" height="11" rx="2.5" fill="rgba(255,255,255,0.28)"/>
+    <rect x="118" y="115" width="52" height="21" rx="0 0 10 10" fill="rgba(220,235,255,0.22)"/>
+    <rect x="118" y="70" width="52" height="40" fill="rgba(0,0,0,0.2)"/>
+    <text x="144" y="87" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="rgba(255,255,255,0.75)" letter-spacing="0.5">PEPTIDE</text>
+    <text x="144" y="100" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="rgba(255,255,255,0.5)">VIAL</text>
+    <rect x="210" y="90" width="170" height="22" rx="4" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.2)" stroke-width="1.3"/>
+    <rect x="212" y="92" width="166" height="4" rx="2" fill="rgba(255,255,255,0.10)"/>
+    ${[228,250,272,294,316,338,360].map(x=>`<line x1="${x}" y1="90" x2="${x}" y2="${84}" stroke="rgba(255,255,255,0.28)" stroke-width="1"/>`).join('')}
+    <rect x="194" y="97" width="18" height="8" rx="2" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <rect x="160" y="100" width="36" height="3" rx="1.5" fill="rgba(147,197,253,0.5)"/>
+    <rect x="375" y="84" width="10" height="34" rx="3" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.16)" stroke-width="1"/>
+    <rect x="212" y="91" width="14" height="20" rx="3" fill="rgba(37,99,235,0.4)"/>
+    <rect x="192" y="56" width="30" height="10" rx="5" fill="rgba(200,220,255,0.14)" stroke="rgba(200,220,255,0.3)" stroke-width="1"/>
+    <text x="207" y="64.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="rgba(255,255,255,0.5)">PREP SWAB</text>
+    <line x1="207" y1="66" x2="207" y2="90" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="240" y="156" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="rgba(255,255,255,0.9)" letter-spacing="1.5">RECONSTITUTION KIT</text>
+    <text x="240" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.38)" letter-spacing="2">VIAL · SYRINGE · BAC WATER · SWABS</text>
+    <rect x="13" y="13" width="36" height="17" rx="3" fill="rgba(147,197,253,0.12)" stroke="rgba(147,197,253,0.28)" stroke-width="1"/>
+    <text x="31" y="25.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#93c5fd" letter-spacing="1">KIT</text></svg>`;
+    return 'data:image/svg+xml,'+encodeURIComponent(svg);
+  }
+
+  function getSwabImg() {
+    const bg1='#0c111e',bg2='#1a2235';
+    let packets='';
+    for(let i=4;i>=0;i--){const y=42+i*9,x=148-i*2,op=(0.04+(4-i)*0.025).toFixed(3),bop=(0.08+(4-i)*0.04).toFixed(3);packets+=`<rect x="${x}" y="${y}" width="184" height="38" rx="6" fill="rgba(255,255,255,${bop})" stroke="rgba(255,255,255,${op*3})" stroke-width="1"/>`;}
+    const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="480" height="200" viewBox="0 0 480 200"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${bg1}"/><stop offset="100%" stop-color="${bg2}"/></linearGradient></defs><rect width="480" height="200" fill="url(#bg)"/>
+    ${packets}
+    <rect x="148" y="42" width="184" height="38" rx="6" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.28)" stroke-width="1.5"/>
+    <rect x="150" y="44" width="180" height="5" rx="2.5" fill="rgba(255,255,255,0.13)"/>
+    <rect x="150" y="73" width="180" height="5" rx="2.5" fill="rgba(255,255,255,0.05)"/>
+    <line x1="240" y1="42" x2="240" y2="80" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="200" y="59" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="rgba(255,255,255,0.55)" letter-spacing="0.8">ALCOHOL</text>
+    <text x="200" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="rgba(255,255,255,0.38)">PREP PAD</text>
+    <text x="280" y="59" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">70% IPA</text>
+    <text x="280" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="6" fill="rgba(255,255,255,0.3)">STERILE</text>
+    <text x="240" y="156" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="bold" fill="rgba(255,255,255,0.9)" letter-spacing="1.5">ALCOHOL PREP SWABS</text>
+    <text x="240" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.38)" letter-spacing="2.5">70% ISOPROPYL ALCOHOL · × 200</text>
+    <rect x="13" y="13" width="50" height="17" rx="3" fill="rgba(147,197,253,0.10)" stroke="rgba(147,197,253,0.25)" stroke-width="1"/>
+    <text x="38" y="25.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#93c5fd" letter-spacing="1">STERILE</text></svg>`;
+    return 'data:image/svg+xml,'+encodeURIComponent(svg);
+  }
+
+  /* ── SVG VIAL IMAGE GENERATOR (peptides) ── */
+  function getPeptideImg(name, size, id) {
+    const pals = [
+      {bg1:'#0d1b3e',bg2:'#1e40af',cap:'#3b82f6',pw:'rgba(220,235,255,0.28)'},
+      {bg1:'#0a1225',bg2:'#1e3a8a',cap:'#60a5fa',pw:'rgba(200,225,255,0.25)'},
+      {bg1:'#0f1f44',bg2:'#1d4ed8',cap:'#93c5fd',pw:'rgba(210,230,255,0.28)'},
+      {bg1:'#070f28',bg2:'#2563eb',cap:'#bfdbfe',pw:'rgba(225,238,255,0.3)'},
+      {bg1:'#0c1830',bg2:'#1e3a8a',cap:'#3b82f6',pw:'rgba(215,232,255,0.26)'},
+      {bg1:'#0a0e28',bg2:'#3730a3',cap:'#818cf8',pw:'rgba(210,220,255,0.28)'},
+    ];
+    const p = pals[(id - 1) % pals.length];
+    const label = name.length > 13 ? name.slice(0, 12) + '…' : name;
+    // dot-grid pattern
+    let dots = '';
+    for (let x = 20; x < 480; x += 38) {
+      for (let y = 18; y < 200; y += 38) {
+        dots += `<circle cx="${x}" cy="${y}" r="1.2" fill="rgba(255,255,255,0.045)"/>`;
+      }
+    }
+    // connecting lines
+    let lines = '';
+    const pts = [[80,50],[140,90],[100,150],[170,40],[300,80],[360,130],[400,55],[420,160],[330,170]];
+    for (let i = 0; i < pts.length - 1; i++) {
+      lines += `<line x1="${pts[i][0]}" y1="${pts[i][1]}" x2="${pts[i+1][0]}" y2="${pts[i+1][1]}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;
+      lines += `<circle cx="${pts[i][0]}" cy="${pts[i][1]}" r="2.5" fill="rgba(255,255,255,0.07)"/>`;
+    }
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="480" height="200" viewBox="0 0 480 200">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="${p.bg1}"/>
+          <stop offset="100%" stop-color="${p.bg2}"/>
+        </linearGradient>
+        <linearGradient id="vg" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.20)"/>
+          <stop offset="45%" stop-color="rgba(255,255,255,0.07)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+        </linearGradient>
+      </defs>
+      <rect width="480" height="200" fill="url(#g)"/>
+      ${dots}${lines}
+      <rect x="208" y="46" width="64" height="96" rx="11" fill="url(#vg)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+      <rect x="210" y="50" width="5" height="84" rx="2.5" fill="rgba(255,255,255,0.15)"/>
+      <rect x="256" y="50" width="3" height="84" rx="1.5" fill="rgba(255,255,255,0.05)"/>
+      <rect x="221" y="31" width="38" height="20" rx="5" fill="rgba(255,255,255,0.11)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+      <rect x="223" y="33" width="5" height="14" rx="2.5" fill="rgba(255,255,255,0.14)"/>
+      <rect x="222" y="19" width="36" height="17" rx="5" fill="${p.cap}" opacity="0.82"/>
+      <rect x="224" y="21" width="7" height="11" rx="3" fill="rgba(255,255,255,0.3)"/>
+      <rect x="208" y="118" width="64" height="22" rx="0 0 11 11" fill="${p.pw}"/>
+      <ellipse cx="240" cy="118" rx="24" ry="3.5" fill="rgba(255,255,255,0.12)"/>
+      <rect x="208" y="72" width="64" height="42" fill="rgba(0,0,0,0.18)"/>
+      <rect x="209" y="73" width="62" height="1" fill="rgba(255,255,255,0.08)"/>
+      <rect x="209" y="113" width="62" height="1" fill="rgba(255,255,255,0.08)"/>
+      <text x="240" y="90" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="rgba(255,255,255,0.88)" letter-spacing="0.8">${name.toUpperCase()}</text>
+      <text x="240" y="105" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" fill="rgba(255,255,255,0.52)" letter-spacing="0.5">${size} LYOPHILISED</text>
+      <text x="240" y="156" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="bold" fill="rgba(255,255,255,0.94)" letter-spacing="1.5">${label.toUpperCase()}</text>
+      <text x="240" y="174" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="rgba(255,255,255,0.38)" letter-spacing="2.5">RESEARCH USE ONLY</text>
+      <rect x="13" y="13" width="36" height="17" rx="3" fill="rgba(147,197,253,0.15)" stroke="rgba(147,197,253,0.3)" stroke-width="1"/>
+      <text x="31" y="25.5" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#93c5fd" letter-spacing="1">RUO</text>
+      <text x="467" y="25" text-anchor="end" font-family="Arial,sans-serif" font-size="9" font-weight="bold" fill="rgba(255,255,255,0.65)">≥98%</text>
+      <text x="467" y="37" text-anchor="end" font-family="Arial,sans-serif" font-size="7" fill="rgba(255,255,255,0.3)" letter-spacing="1">PURITY</text>
+    </svg>`;
+    return 'data:image/svg+xml,' + encodeURIComponent(svg);
+  }
+
+  const products = [
+    { id:1,  name:'BPC-157',          cat:'peptides',  size:'5mg',      price:32, purity:99.1, sku:'ARC-BPC157-5',  tag:'bestseller', batch:'ARC-2411-001', pi:0 },
+    { id:2,  name:'TB-500',           cat:'peptides',  size:'5mg',      price:38, purity:98.7, sku:'ARC-TB500-5',   tag:'popular',    batch:'ARC-2411-002', pi:1 },
+    { id:3,  name:'Ipamorelin',       cat:'peptides',  size:'5mg',      price:28, purity:99.3, sku:'ARC-IPA-5',     tag:'',           batch:'ARC-2411-003', pi:2 },
+    { id:4,  name:'CJC-1295',         cat:'peptides',  size:'2mg',      price:35, purity:98.9, sku:'ARC-CJC-2',     tag:'',           batch:'ARC-2411-004', pi:3 },
+    { id:5,  name:'Semaglutide',      cat:'peptides',  size:'5mg',      price:65, purity:99.0, sku:'ARC-SEMA-5',    tag:'popular',    batch:'ARC-2411-005', pi:4 },
+    { id:6,  name:'Tirzepatide',      cat:'peptides',  size:'5mg',      price:72, purity:98.8, sku:'ARC-TIRZ-5',    tag:'new',        batch:'ARC-2411-006', pi:5 },
+    { id:7,  name:'GHK-Cu',           cat:'peptides',  size:'50mg',     price:45, purity:99.2, sku:'ARC-GHK-50',    tag:'',           batch:'ARC-2411-007', pi:0 },
+    { id:8,  name:'Epithalon',        cat:'peptides',  size:'20mg',     price:42, purity:99.0, sku:'ARC-EPIT-20',   tag:'',           batch:'ARC-2411-008', pi:1 },
+    { id:9,  name:'Selank',           cat:'peptides',  size:'5mg',      price:30, purity:98.5, sku:'ARC-SEL-5',     tag:'',           batch:'ARC-2411-009', pi:2 },
+    { id:10, name:'Semax',            cat:'peptides',  size:'10mg',     price:35, purity:98.9, sku:'ARC-SEMX-10',   tag:'',           batch:'ARC-2411-010', pi:3 },
+    { id:11, name:'PT-141',           cat:'peptides',  size:'10mg',     price:40, purity:99.1, sku:'ARC-PT141-10',  tag:'bestseller', batch:'ARC-2411-011', pi:4 },
+    { id:12, name:'KPV',              cat:'peptides',  size:'10mg',     price:38, purity:99.4, sku:'ARC-KPV-10',    tag:'new',        batch:'ARC-2411-012', pi:5 },
+    { id:13, name:'AOD-9604',         cat:'peptides',  size:'5mg',      price:36, purity:98.8, sku:'ARC-AOD-5',     tag:'',           batch:'ARC-2411-013', pi:0 },
+    { id:14, name:'MOTS-c',           cat:'peptides',  size:'5mg',      price:55, purity:99.0, sku:'ARC-MOTSC-5',   tag:'',           batch:'ARC-2411-014', pi:1 },
+    { id:15, name:'Melanotan II',     cat:'peptides',  size:'10mg',     price:35, purity:98.6, sku:'ARC-MT2-10',    tag:'',           batch:'ARC-2411-015', pi:2 },
+    { id:16, name:'DSIP',             cat:'peptides',  size:'5mg',      price:29, purity:98.4, sku:'ARC-DSIP-5',    tag:'',           batch:'ARC-2411-016', pi:3 },
+    { id:17, name:'Thymosin Alpha 1', cat:'peptides',  size:'5mg',      price:48, purity:99.2, sku:'ARC-TA1-5',     tag:'',           batch:'ARC-2411-017', pi:4 },
+    { id:18, name:'SS-31',            cat:'peptides',  size:'10mg',     price:62, purity:99.0, sku:'ARC-SS31-10',   tag:'new',        batch:'ARC-2411-018', pi:5 },
+    { id:19, name:'Bacteriostatic Water',    cat:'bac-water', size:'30ml vial', price:8,  purity:null, sku:'ARC-BAC-30',   tag:'',           batch:null, icon:'💧' },
+    { id:20, name:'Bacteriostatic Water 10ml', cat:'bac-water', size:'10ml × 5', price:22, purity:null, sku:'ARC-BAC-10X5', tag:'bestseller', batch:null, icon:'💧' },
+    { id:21, name:'Insulin Syringes', cat:'supplies',  size:'1ml × 100',  price:18, purity:null, sku:'ARC-SYR-100',  tag:'',           batch:null, icon:'💉' },
+    { id:22, name:'Reconstitution Kit', cat:'supplies', size:'Standard',  price:12, purity:null, sku:'ARC-KIT-1',    tag:'',           batch:null, icon:'🧪' },
+    { id:23, name:'Alcohol Prep Swabs', cat:'supplies', size:'× 200',     price:6,  purity:null, sku:'ARC-SWAB-200', tag:'',           batch:null, icon:'🩹' },
+  ];
+
+  const coaData = products.filter(p => p.batch).map(p => ({
+    compound: p.name, batch: p.batch, size: p.size, purity: p.purity,
+    lab: 'Janoshik Analytical',
+    date: '2024-11-' + String(p.id).padStart(2,'0'),
+    status: 'PASS'
+  }));
+
+  /* ── CART ── */
+  let cart = {};
+
+  function addToCart(id) {
+    const p = products.find(x => x.id === id);
+    if (!p) return;
+    cart[id] = cart[id] ? { ...cart[id], qty: cart[id].qty + 1 } : { ...p, qty: 1 };
+    updateCartUI();
+    showToast(`${p.name} added to cart`);
+    const btn = document.getElementById('add-' + id);
+    if (btn) {
+      btn.textContent = '✓ Added';
+      btn.classList.add('added');
+      setTimeout(() => { btn.textContent = 'Add to Cart'; btn.classList.remove('added'); }, 1500);
+    }
+  }
+
+  function changeQty(id, delta) {
+    if (!cart[id]) return;
+    cart[id].qty += delta;
+    if (cart[id].qty <= 0) delete cart[id];
+    updateCartUI();
+  }
+
+  function updateCartUI() {
+    const items = Object.values(cart);
+    const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+    const count = items.reduce((s, i) => s + i.qty, 0);
+    const countEl = document.getElementById('cart-count');
+    countEl.textContent = count;
+    count > 0 ? countEl.classList.add('show') : countEl.classList.remove('show');
+    document.getElementById('cart-subtotal').textContent = '£' + total.toFixed(2);
+    document.getElementById('cart-total-val').textContent = '£' + total.toFixed(2);
+    const container = document.getElementById('cart-items');
+    if (!items.length) {
+      container.innerHTML = `<div class="cart-empty"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span>Your cart is empty</span></div>`;
+      return;
+    }
+    container.innerHTML = items.map(item => {
+      const imgSrc = item.cat === 'peptides'
+        ? getPeptideImg(item.name, item.size, item.id)
+        : null;
+      const imgHtml = imgSrc
+        ? `<img class="cart-item-img" src="${imgSrc}" alt="${item.name}" width="52" height="52">`
+        : `<div class="cart-item-img" style="display:flex;align-items:center;justify-content:center;font-size:22px;">${item.icon}</div>`;
+      return `<div class="cart-item">${imgHtml}<div class="cart-item-info"><div class="cart-item-name">${item.name}</div><div class="cart-item-size">${item.size}</div></div><div class="cart-item-right"><div class="cart-item-price">£${(item.price * item.qty).toFixed(2)}</div><div class="cart-qty"><button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button><span class="qty-val">${item.qty}</span><button class="qty-btn" onclick="changeQty(${item.id},1)">+</button></div></div></div>`;
+    }).join('');
+  }
+
+  function openCart() { document.getElementById('cart-sidebar').classList.add('open'); document.getElementById('cart-overlay').classList.add('show'); }
+  function closeCart() { document.getElementById('cart-sidebar').classList.remove('open'); document.getElementById('cart-overlay').classList.remove('show'); }
+  function handleCheckout() { showToast('Checkout coming soon — use bank transfer or email us'); }
+
+  /* ── RENDER PRODUCTS ── */
+  function renderProducts(filter) {
+    const grid = document.getElementById('product-grid');
+    const list = filter === 'all' ? products : products.filter(p => p.cat === filter);
+    grid.innerHTML = list.map(p => {
+      const tagHtml = p.tag === 'bestseller' ? `<span class="card-tag tag-best">Bestseller</span>`
+                    : p.tag === 'popular'    ? `<span class="card-tag tag-pop">Popular</span>`
+                    : p.tag === 'new'        ? `<span class="card-tag tag-new">New</span>` : '';
+
+      let imgSection;
+      if (p.cat === 'peptides') {
+        imgSection = `
+          <div class="card-img-wrap">
+            <img src="${getPeptideImg(p.name, p.size, p.id)}" alt="${p.name} research peptide vial" width="480" height="180">
+          </div>`;
+      } else {
+        let svgSrc;
+        if (p.cat === 'bac-water') svgSrc = getBacWaterImg(p.size);
+        else if (p.sku === 'ARC-SYR-100') svgSrc = getSyringeImg();
+        else if (p.sku === 'ARC-KIT-1')   svgSrc = getKitImg();
+        else                               svgSrc = getSwabImg();
+        imgSection = `<div class="card-img-wrap"><img src="${svgSrc}" alt="${p.name}" width="480" height="180"></div>`;
+      }
+
+      const purityHtml = p.purity ? `
+        <div class="card-purity">
+          <div class="purity-bar-bg"><div class="purity-bar-fill" style="width:${Math.min(100, (p.purity - 97) / 3 * 100)}%"></div></div>
+          <span class="purity-label">${p.purity}%</span>
+        </div>
+        <a class="coa-link" href="#">📄 COA — ${p.batch}</a>` : '';
+
+      return `
+        <div class="product-card">
+          ${imgSection}
+          <div class="card-body">
+            <div class="card-top">
+              <div></div>
+              <div class="card-tags">${tagHtml}</div>
+            </div>
+            <div class="card-name">${p.name}</div>
+            <div class="card-meta">
+              <span class="card-size">${p.size}</span>
+              <span class="card-sku">${p.sku}</span>
+            </div>
+            ${purityHtml}
+            <div class="card-bottom">
+              <div class="card-price">£${p.price}<span> /vial</span></div>
+              <button class="btn-add" id="add-${p.id}" onclick="addToCart(${p.id})">Add to Cart</button>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  /* ── FILTER TABS ── */
+  document.querySelectorAll('.filter-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderProducts(btn.dataset.filter);
+    });
+  });
+
+  /* ── CALCULATOR ── */
+  function calcRecon() {
+    const vialMg = parseFloat(document.getElementById('calc-vial').value);
+    const waterMl = parseFloat(document.getElementById('calc-water').value);
+    const doseMcg = parseFloat(document.getElementById('calc-dose').value);
+    if (!vialMg || !waterMl || !doseMcg || vialMg <= 0 || waterMl <= 0 || doseMcg <= 0) {
+      document.getElementById('calc-ml').textContent = '—';
+      document.getElementById('calc-units').textContent = '—';
+      return;
+    }
+    const concMcgPerMl = (vialMg * 1000) / waterMl;
+    const volumeMl = doseMcg / concMcgPerMl;
+    document.getElementById('calc-ml').textContent = volumeMl.toFixed(3) + ' ml';
+    document.getElementById('calc-units').textContent = (volumeMl * 100).toFixed(1) + ' IU';
+  }
+
+  /* ── COA TABLE ── */
+  function renderCOA(data) {
+    const tbody = document.getElementById('coa-tbody');
+    if (!data.length) { tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--faint)">No batches found</td></tr>`; return; }
+    tbody.innerHTML = data.map(r => `
+      <tr>
+        <td><strong>${r.compound}</strong></td>
+        <td><span class="batch-num">${r.batch}</span></td>
+        <td>${r.size}</td>
+        <td><span class="purity-chip">${r.purity}%</span></td>
+        <td style="color:var(--muted);font-size:12px">${r.lab}</td>
+        <td style="color:var(--muted);font-size:12px">${r.date}</td>
+        <td><span class="status-chip status-pass">${r.status}</span></td>
+        <td><a class="coa-dl" href="#">↓ PDF</a></td>
+      </tr>`).join('');
+  }
+
+  function searchCOA() {
+    const q = document.getElementById('coa-input').value.trim().toLowerCase();
+    renderCOA(q ? coaData.filter(r => r.batch.toLowerCase().includes(q) || r.compound.toLowerCase().includes(q)) : coaData);
+  }
+
+  /* ── AGE GATE ── */
+  function enterSite() { document.getElementById('age-gate').classList.add('hidden'); sessionStorage.setItem('age-verified','1'); }
+  if (sessionStorage.getItem('age-verified')) document.getElementById('age-gate').classList.add('hidden');
+
+  /* ── TOAST ── */
+  let toastTimer;
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+  }
+
+  /* ── INIT ── */
+  renderProducts('all');
+  renderCOA(coaData);
+</script>
+</body>
+</html>

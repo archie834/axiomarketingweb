@@ -2,9 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maison De May Beauty — Eyebrow Technician</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <title>Maison De May Beauty — Eyebrow Technician, Peterborough</title>
+  <meta name="description" content="Expert eyebrow technician in Peterborough. Maison De May Beauty specialises in microblading, brow lamination and shaping. Book your brow transformation today.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://maison-de-may.vercel.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Maison De May Beauty — Eyebrow Technician, Peterborough">
+  <meta property="og:description" content="Expert eyebrow technician in Peterborough. Brow transformations tailored to you. Book your appointment today.">
+  <meta property="og:url" content="https://maison-de-may.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Schema: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Maison De May Beauty",
+    "url": "https://maison-de-may.vercel.app"
+  }
+  </script>
+
+  <!-- Schema: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "@id": "https://maison-de-may.vercel.app/#business",
+    "name": "Maison De May Beauty",
+    "url": "https://maison-de-may.vercel.app",
+    "description": "Expert eyebrow technician in Peterborough specialising in microblading, brow lamination and shaping.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Peterborough",
+      "addressRegion": "Cambridgeshire",
+      "addressCountry": "GB"
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Peterborough"},
+      {"@type": "AdministrativeArea", "name": "Cambridgeshire"}
+    ],
+    "knowsAbout": ["Microblading", "Brow Lamination", "Eyebrow Shaping", "Eyebrow Tinting"]
+  }
+  </script>
+
+  <!-- Fonts (async) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;700&display=swap"></noscript>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
     body{background:#E8D6BC;color:#1E1008;font-family:'Jost',sans-serif;-webkit-font-smoothing:antialiased}
@@ -34,6 +83,11 @@
     #plb-prev{left:1rem}#plb-next{right:1rem}
     .proc-img{cursor:pointer}
 
+    /* Responsive nav (replaces Tailwind utilities) */
+    .desk-only { display: none; }
+    .mob-only { display: block; }
+    @media(min-width:768px) { .desk-only { display: flex; } .mob-only { display: none; } }
+
     /* ── Mobile nav fixes ── */
     @media(max-width:767px){
       .nav{height:90px!important}
@@ -48,7 +102,7 @@
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div style="max-width:1320px;margin:0 auto;padding:0 2rem;width:100%;display:flex;align-items:center;justify-content:space-between;position:relative">
-    <div class="hidden md:flex" style="gap:2.5rem"><a href="about.html" class="nl" style="font-size:1rem;letter-spacing:.18em">About</a><a href="#process" class="nl" style="font-size:1rem;letter-spacing:.18em">Our Process</a></div>
+    <div class="desk-only" style="gap:2.5rem"><a href="about.html" class="nl" style="font-size:1rem;letter-spacing:.18em">About</a><a href="#process" class="nl" style="font-size:1rem;letter-spacing:.18em">Our Process</a></div>
 
     <!-- Logo — doubled -->
     <a href="index.html" style="position:absolute;left:50%;transform:translateX(-50%)" aria-label="Maison De May Beauty">
@@ -59,14 +113,14 @@
       </svg>
     </a>
 
-    <div class="hidden md:flex" style="gap:2.5rem;align-items:center">
+    <div class="desk-only" style="gap:2.5rem;align-items:center">
       <a href="gallery.html" class="nl" style="font-size:1rem;letter-spacing:.18em">Gallery</a>
       <a href="booking.html" class="nl" style="font-size:1rem;letter-spacing:.18em">Book Now</a>
     </div>
-    <button id="ham" class="md:hidden" style="background:none;border:none;cursor:pointer" aria-label="Menu">
+    <button id="ham" class="mob-only" style="background:none;border:none;cursor:pointer" aria-label="Menu">
       <svg width="22" height="14" viewBox="0 0 22 14" fill="none"><rect y="0" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/><rect y="6" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/><rect y="12" width="22" height="1.5" rx=".75" fill="rgba(250,245,236,.8)"/></svg>
     </button>
-    <a href="booking.html" class="nl md:hidden" style="font-size:.7rem;letter-spacing:.12em">BOOK</a>
+    <a href="booking.html" class="nl mob-only" style="font-size:.7rem;letter-spacing:.12em">BOOK</a>
   </div>
   <!-- Gold line under logo, full width, overlaps hero image -->
   <div style="position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%);pointer-events:none"></div>
@@ -79,9 +133,10 @@
   </div>
 </nav>
 
+<main>
 <!-- HERO -->
 <section style="height:100vh;position:relative;overflow:hidden">
-  <img src="CHLOES BROWS/After.jpg" alt="" class="hero-img" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% top;display:block;filter:saturate(.85) contrast(1.08)">
+  <img src="CHLOES BROWS/After.jpg" alt="Maison De May brow transformation" class="hero-img" width="1200" height="1373" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% top;display:block;filter:saturate(.85) contrast(1.08)">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 60%,rgba(250,245,236,.3) 100%)"></div>
   <div style="position:absolute;bottom:0;left:0;right:0;padding:0 2rem 3rem;text-align:center">
     <h1 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(3.5rem,8vw,7rem);line-height:.97;letter-spacing:-.035em;color:#1E1008;margin-bottom:1.75rem">
@@ -99,7 +154,7 @@
 <!-- ABOUT — image as background, beige fades in from left over text -->
 <section id="about" style="position:relative;overflow:hidden;min-height:700px;display:flex;align-items:center">
   <!-- Full background image on the right -->
-  <img src="CHLOES BROWS/Gallery1.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 40%;display:block;filter:saturate(.9) contrast(1.03)">
+  <img src="CHLOES BROWS/Gallery1.jpg" alt="Maison De May eyebrow treatment" width="1200" height="1267" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:55% 40%;display:block;filter:saturate(.9) contrast(1.03)">
   <!-- Beige fade stops before the eyes -->
   <div style="position:absolute;inset:0;background:linear-gradient(to right,#F5EDDD 0%,rgba(245,237,221,.97) 22%,rgba(245,237,221,.6) 35%,rgba(245,237,221,.05) 44%,transparent 50%);pointer-events:none"></div>
   <!-- Gold border top -->
@@ -131,7 +186,7 @@
 
       <div>
         <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
-          <img src="CHLOES BROWS/Before.jpg" alt="" class="proc-img" data-idx="0" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <img src="CHLOES BROWS/Before.jpg" alt="Before brow treatment" class="proc-img" width="1200" height="1847" loading="lazy" decoding="async" data-idx="0" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
           <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">01</div>
         </div>
@@ -141,7 +196,7 @@
 
       <div>
         <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
-          <img src="CHLOES BROWS/After.jpg" alt="" class="proc-img" data-idx="1" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <img src="CHLOES BROWS/After.jpg" alt="After brow treatment" class="proc-img" width="1200" height="1373" loading="lazy" decoding="async" data-idx="1" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
           <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">02</div>
         </div>
@@ -151,7 +206,7 @@
 
       <div>
         <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
-          <img src="CHLOES BROWS/Healed.jpg" alt="" class="proc-img" data-idx="2" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <img src="CHLOES BROWS/Healed.jpg" alt="Healed brow result" class="proc-img" width="1200" height="1600" loading="lazy" decoding="async" data-idx="2" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
           <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">03</div>
         </div>
@@ -161,7 +216,7 @@
 
       <div>
         <div class="iz" style="position:relative;margin-bottom:1.25rem;border:2.5px solid #B8902E">
-          <img src="CHLOES BROWS/TopUp.jpg" alt="" class="proc-img" data-idx="3" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
+          <img src="CHLOES BROWS/TopUp.jpg" alt="Brow top up result" class="proc-img" width="1200" height="1600" loading="lazy" decoding="async" data-idx="3" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;filter:saturate(.88) contrast(1.03)">
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(250,245,236,.4) 0%,transparent 45%);pointer-events:none"></div>
           <div style="position:absolute;bottom:1.25rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;line-height:1;color:rgba(184,144,46,.2)">04</div>
         </div>
@@ -178,9 +233,12 @@
 <!-- Process Lightbox -->
 <div id="plb"><button id="plb-close">✕ Close</button><button id="plb-prev">&#8592;</button><img id="plb-img" src="" alt=""><button id="plb-next">&#8594;</button></div>
 
+</main>
+
 <!-- FOOTER -->
 <footer style="background:#FAF5EC;position:relative;padding:2.5rem 2rem;text-align:center">
   <div style="position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(to right,transparent 0%,#B8902E 15%,#D4B46A 50%,#B8902E 85%,transparent 100%)"></div>
+  <p style="font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#B8902E;opacity:0.5;margin:0 0 16px;">Website by <a href="https://axiomarketing.co.uk" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Axio Marketing</a></p>
   <svg width="220" height="68" viewBox="0 0 164 50" fill="none" style="display:block;margin:0 auto"><path d="M38 13 Q82 2 126 13" stroke="#B8902E" stroke-width="1.2" fill="none" stroke-linecap="round"/><text x="82" y="31" font-family="Cormorant Garamond,serif" font-size="15" font-weight="400" fill="#B8902E" text-anchor="middle" letter-spacing="2">MAISON DE MAY</text><text x="82" y="44" font-family="Jost,sans-serif" font-size="6" font-weight="500" fill="#B8902E" text-anchor="middle" letter-spacing="4">BEAUTY</text></svg>
 </footer>
 

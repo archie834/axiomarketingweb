@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Process — Concept 2</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Montserrat',sans-serif;background:#fff;color:#000;-webkit-font-smoothing:antialiased}
+
+    .section-pad{padding:72px 40px;max-width:1400px;margin:0 auto;}
+    .section-header{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid #000;padding-bottom:16px;margin-bottom:48px;}
+    .section-header h2{font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-0.03em;margin:0;}
+    .section-header p{font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#999;margin:0;}
+
+    /* ── STAGE ── */
+    .process2-stage{position:relative;min-height:420px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px 0;}
+
+    /* ── INTRO ── */
+    .process2-intro{display:flex;flex-direction:column;align-items:center;gap:32px;transition:opacity 0.4s ease, transform 0.4s ease;}
+    .process2-intro.hide{opacity:0;transform:scale(0.85) rotate(10deg);pointer-events:none;}
+
+    .process2-swirl-wrap{transition:transform 0.6s cubic-bezier(0.34,1.56,0.64,1);}
+    .process2-swirl-wrap.pulse{transform:scale(1.18) rotate(50deg);}
+    .process2-swirl{width:130px;height:130px;animation:process2-spin 16s linear infinite;}
+    .process2-swirl path{stroke:#000;stroke-width:2;fill:none;stroke-linecap:round;}
+    @keyframes process2-spin{to{transform:rotate(360deg);}}
+
+    .process2-cta{font-size:12px;font-weight:900;letter-spacing:0.22em;text-transform:uppercase;background:#000;color:#fff;border:2px solid #000;padding:20px 48px;cursor:pointer;font-family:inherit;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1), background-color 0.25s ease, color 0.25s ease;}
+    .process2-cta:hover{transform:scale(1.06);}
+    .process2-cta:active{transform:scale(0.96);}
+    .process2-cta:focus-visible{outline:2px solid #000;outline-offset:6px;}
+    .process2-hint{font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#999;}
+
+    /* ── CARD ── */
+    .process2-card{width:100%;max-width:720px;margin:0 auto;opacity:0;transform:translateY(var(--ty,-60px)) rotate(var(--rot,-14deg)) scale(var(--sc,0.88));transition:opacity 0.55s cubic-bezier(0.34,1.56,0.64,1), transform 0.55s cubic-bezier(0.34,1.56,0.64,1);}
+    .process2-card.show{opacity:1;transform:translateY(0) rotate(0deg) scale(1);}
+
+    /* progress dots */
+    .process2-progress{display:flex;align-items:center;justify-content:center;margin-bottom:40px;}
+    .process2-dot{width:46px;height:46px;border-radius:50%;border:2px solid #000;background:#fff;color:#000;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;letter-spacing:-0.02em;cursor:pointer;font-family:inherit;flex-shrink:0;transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background-color 0.25s ease, color 0.25s ease;}
+    .process2-dot:hover{transform:scale(1.08);}
+    .process2-dot:focus-visible{outline:2px solid #000;outline-offset:4px;}
+    .process2-dot.active{background:#000;color:#fff;transform:scale(1.18);}
+    .process2-dot.done{background:#000;color:#fff;}
+    .process2-line{width:64px;height:2px;background:rgba(0,0,0,0.12);transition:background-color 0.4s ease;}
+    .process2-line.done{background:#000;}
+
+    .process2-num{font-size:88px;font-weight:900;letter-spacing:-0.05em;line-height:1;color:rgba(0,0,0,0.07);margin-bottom:4px;}
+    .process2-content h3{font-size:30px;font-weight:900;letter-spacing:-0.02em;text-transform:uppercase;margin:0 0 14px;}
+    .process2-content p{font-size:15px;color:#666;line-height:1.8;margin:0 auto 36px;max-width:520px;}
+
+    .process2-next{font-size:11px;font-weight:900;letter-spacing:0.22em;text-transform:uppercase;background:#fff;color:#000;border:2px solid #000;padding:18px 44px;cursor:pointer;font-family:inherit;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1), background-color 0.25s ease, color 0.25s ease;}
+    .process2-next:hover{background:#000;color:#fff;transform:scale(1.05);}
+    .process2-next:active{transform:scale(0.96);}
+    .process2-next:focus-visible{outline:2px solid #000;outline-offset:6px;}
+
+    .process2-restart{margin-top:18px;font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#999;background:none;border:none;cursor:pointer;font-family:inherit;transition:color 0.2s ease, transform 0.2s ease;display:inline-block;}
+    .process2-restart:hover{color:#000;transform:scale(1.05);}
+
+    @media(max-width:768px){
+      .section-pad{padding:32px 20px;}
+      .section-header{margin-bottom:24px;}
+      .section-header h2{font-size:24px;}
+      .process2-stage{min-height:380px;padding:8px 0;}
+      .process2-swirl{width:90px;height:90px;}
+      .process2-num{font-size:56px;}
+      .process2-content h3{font-size:20px;margin-bottom:10px;}
+      .process2-content p{font-size:13px;line-height:1.6;margin-bottom:24px;}
+      .process2-dot{width:38px;height:38px;font-size:11px;}
+      .process2-line{width:30px;}
+      .process2-progress{margin-bottom:28px;}
+      .process2-cta{padding:16px 36px;font-size:11px;}
+      .process2-next{padding:15px 36px;font-size:10px;}
+    }
+  </style>
+</head>
+<body>
+
+  <section id="how" class="section-pad">
+    <div class="section-header">
+      <h2>THE PROCESS</h2>
+      <p>Three steps</p>
+    </div>
+
+    <div class="process2-stage">
+
+      <!-- INTRO -->
+      <div class="process2-intro" id="process2-intro">
+        <div class="process2-swirl-wrap" id="process2-swirl-wrap">
+          <svg class="process2-swirl" viewBox="0 0 200 200" aria-hidden="true">
+            <path d="M100.00,94.00 L101.08,93.17 L102.42,92.56 L103.96,92.22 L105.67,92.20 L107.46,92.54 L109.28,93.26 L111.03,94.38 L112.64,95.89 L114.03,97.78 L115.11,100.00 L115.82,102.51 L116.10,105.23 L115.90,108.10 L115.17,111.02 L113.91,113.91 L112.10,116.65 L109.76,119.15 L106.92,121.30 L103.65,123.02 L100.00,124.22 L96.07,124.82 L91.95,124.77 L87.76,124.02 L83.62,122.54 L79.65,120.35 L75.98,117.45 L72.74,113.89 L70.03,109.74 L67.98,105.07 L66.67,100.00 L66.18,94.64 L66.57,89.14 L67.86,83.63 L70.08,78.27 L73.21,73.21 L77.19,68.61 L81.97,64.62 L87.45,61.37 L93.50,58.98 L100.00,57.56 L106.78,57.18 L113.68,57.90 L120.51,59.75 L127.09,62.71 L133.23,66.77 L138.76,71.84 L143.50,77.84 L147.30,84.63 L150.02,92.08 L151.56,100.00 L151.82,108.21 L150.77,116.49 L148.37,124.65 L144.66,132.45 L139.68,139.68 L133.52,146.13 L126.30,151.62 L118.18,155.96 L109.35,159.02 L100.00,160.67 L90.37,160.82 L80.69,159.43 L71.22,156.49 L62.20,152.03 L53.88,146.12 L46.50,138.87 L40.26,130.44 L35.37,121.00 L31.98,110.77 L30.22,100.00 L30.18,88.94 L31.90,77.87 L35.39,67.08 L40.60,56.84 L47.44,47.44 L55.77,39.13 L65.43,32.14 L76.19,26.71 L87.80,22.98 L100.00,21.11 L112.48,21.18 L124.94,23.24 L137.06,27.27 L148.51,33.23 L159.00,41.00 L168.25,50.42 L175.97,61.29 L181.96,73.37 L186.02,86.38 L188.00,100.00"></path>
+          </svg>
+        </div>
+        <button type="button" class="process2-cta" id="process2-start">See Our Process</button>
+        <p class="process2-hint">3 steps · takes 10 seconds</p>
+      </div>
+
+      <!-- CARD -->
+      <div class="process2-card" id="process2-card" hidden>
+        <div class="process2-progress">
+          <button type="button" class="process2-dot" data-step="0" aria-label="Step 1">01</button>
+          <span class="process2-line"></span>
+          <button type="button" class="process2-dot" data-step="1" aria-label="Step 2">02</button>
+          <span class="process2-line"></span>
+          <button type="button" class="process2-dot" data-step="2" aria-label="Step 3">03</button>
+        </div>
+        <div class="process2-content">
+          <div class="process2-num">01</div>
+          <h3>Title</h3>
+          <p>Description</p>
+          <button type="button" class="process2-next" id="process2-next">Next →</button>
+          <div><button type="button" class="process2-restart" id="process2-restart">Start over</button></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      const steps = [
+        { title: "You Tell Us What You Want", text: "Tell us about your business and what you want your website to look like. No technical knowledge needed — just describe your vision and we'll take it from there." },
+        { title: "We Build It Up", text: "Our team designs and builds your fully bespoke website from scratch — no templates, no shortcuts. Real progress you can see, not mockups." },
+        { title: "Love It? Buy It. Don't? Walk Away", text: "If you're happy, approve it and pay a one-off fee to launch. If it's not right for you, there's no charge and no obligation — walk away owing nothing." }
+      ];
+
+      const intro = document.getElementById('process2-intro');
+      const swirlWrap = document.getElementById('process2-swirl-wrap');
+      const startBtn = document.getElementById('process2-start');
+      const card = document.getElementById('process2-card');
+      const numEl = card.querySelector('.process2-num');
+      const titleEl = card.querySelector('h3');
+      const textEl = card.querySelector('p');
+      const nextBtn = document.getElementById('process2-next');
+      const restartBtn = document.getElementById('process2-restart');
+      const dots = card.querySelectorAll('.process2-dot');
+      const lines = card.querySelectorAll('.process2-line');
+
+      let current = 0;
+
+      function pulseSwirl(){
+        swirlWrap.classList.add('pulse');
+        setTimeout(() => swirlWrap.classList.remove('pulse'), 600);
+      }
+
+      function setVars(ty, rot, sc){
+        card.style.setProperty('--ty', ty);
+        card.style.setProperty('--rot', rot);
+        card.style.setProperty('--sc', sc);
+      }
+
+      function render(step){
+        numEl.textContent = String(step+1).padStart(2,'0');
+        titleEl.textContent = steps[step].title;
+        textEl.textContent = steps[step].text;
+        dots.forEach((d,i) => {
+          d.classList.toggle('active', i === step);
+          d.classList.toggle('done', i < step);
+        });
+        lines.forEach((l,i) => l.classList.toggle('done', i < step));
+        if (step === steps.length - 1) {
+          nextBtn.textContent = 'Get Started →';
+        } else {
+          nextBtn.textContent = 'Next →';
+        }
+      }
+
+      function goTo(step, dir){
+        if (step === current) return;
+        const forward = dir !== undefined ? dir > 0 : step > current;
+        // exit
+        setVars(forward ? '-34px' : '34px', forward ? '12deg' : '-12deg', '0.9');
+        card.classList.remove('show');
+        setTimeout(() => {
+          current = step;
+          render(current);
+          // enter from opposite side
+          setVars(forward ? '34px' : '-34px', forward ? '-12deg' : '12deg', '0.9');
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => card.classList.add('show'));
+          });
+        }, 300);
+      }
+
+      startBtn.addEventListener('click', () => {
+        pulseSwirl();
+        intro.classList.add('hide');
+        setTimeout(() => {
+          intro.hidden = true;
+          card.hidden = false;
+          current = 0;
+          render(0);
+          setVars('-56px', '-14deg', '0.88');
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => card.classList.add('show'));
+          });
+        }, 350);
+      });
+
+      nextBtn.addEventListener('click', () => {
+        pulseSwirl();
+        if (current === steps.length - 1) {
+          window.location.href = 'index.html#contact';
+          return;
+        }
+        goTo(current + 1, 1);
+      });
+
+      dots.forEach(d => d.addEventListener('click', () => {
+        pulseSwirl();
+        goTo(parseInt(d.dataset.step, 10));
+      }));
+
+      restartBtn.addEventListener('click', () => {
+        pulseSwirl();
+        card.classList.remove('show');
+        setVars('34px', '12deg', '0.9');
+        setTimeout(() => {
+          card.hidden = true;
+          intro.hidden = false;
+          requestAnimationFrame(() => intro.classList.remove('hide'));
+        }, 300);
+      });
+    })();
+  </script>
+
+</body>
+</html>

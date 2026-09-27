@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Call Us — 5 Options</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;}
+    body{background:#000;color:#fff;font-family:'Montserrat',sans-serif;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#000;border-bottom:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;gap:40px;height:56px;}
+    nav a{font-size:10px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+    nav a:hover{color:#fff;}
+
+    /* SECTIONS */
+    .section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,255,255,0.08);padding:80px 40px;gap:48px;}
+    .section-label{font-size:9px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.25);}
+    .section-title{font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:-0.03em;text-align:center;}
+    .divider{width:40px;height:1px;background:rgba(255,255,255,0.15);}
+
+    /* OPTION 1 — Inline Text */
+    .opt1{font-size:13px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;display:inline-block;}
+    .opt1:hover{color:#fff;}
+    .opt1 strong{color:#fff;}
+
+    /* OPTION 2 — Outline Button */
+    .opt2{display:inline-flex;align-items:center;gap:14px;border:1.5px solid rgba(255,255,255,0.5);padding:18px 40px;font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;color:#fff;transition:border-color 0.2s,transform 0.2s;}
+    .opt2:hover{border-color:#fff;transform:scale(1.04);}
+
+    /* OPTION 3 — Filled White Button */
+    .opt3{display:inline-flex;align-items:center;gap:14px;background:#fff;color:#000;padding:20px 48px;font-size:10px;font-weight:900;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;transition:transform 0.2s;}
+    .opt3:hover{transform:scale(1.04);}
+
+    /* OPTION 4 — Large Number */
+    .opt4-wrap{text-align:center;text-decoration:none;color:#fff;display:block;transition:opacity 0.2s;}
+    .opt4-wrap:hover{opacity:0.6;}
+    .opt4-tag{font-size:10px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:12px;}
+    .opt4-num{font-size:clamp(40px,7vw,80px);font-weight:900;letter-spacing:-0.04em;}
+
+    /* OPTION 5 — Icon Card */
+    .opt5{display:inline-flex;align-items:center;gap:16px;border:1px solid rgba(255,255,255,0.25);padding:16px 28px 16px 20px;text-decoration:none;color:#fff;transition:border-color 0.2s;}
+    .opt5:hover{border-color:#fff;}
+    .opt5-icon{width:44px;height:44px;border:1px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .opt5-cta{font-size:9px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:4px;}
+    .opt5-num{font-size:15px;font-weight:700;letter-spacing:0.05em;display:block;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#option-1">Option 1</a>
+  <a href="#option-2">Option 2</a>
+  <a href="#option-3">Option 3</a>
+  <a href="#option-4">Option 4</a>
+  <a href="#option-5">Option 5</a>
+</nav>
+
+<!-- OPTION 1 -->
+<section class="section" id="option-1">
+  <p class="section-label">Option 1</p>
+  <h2 class="section-title">Inline Text</h2>
+  <div class="divider"></div>
+  <a href="tel:07700900123" class="opt1">Call Us → <strong>07700 900123</strong></a>
+</section>
+
+<!-- OPTION 2 -->
+<section class="section" id="option-2">
+  <p class="section-label">Option 2</p>
+  <h2 class="section-title">Outline Button</h2>
+  <div class="divider"></div>
+  <a href="tel:07700900123" class="opt2">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.92 2.18 2 2 0 012.9 0h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg>
+    Call Us &nbsp;·&nbsp; 07700 900123
+  </a>
+</section>
+
+<!-- OPTION 3 -->
+<section class="section" id="option-3">
+  <p class="section-label">Option 3</p>
+  <h2 class="section-title">Filled White Button</h2>
+  <div class="divider"></div>
+  <a href="tel:07700900123" class="opt3">Call Us — 07700 900123</a>
+</section>
+
+<!-- OPTION 4 -->
+<section class="section" id="option-4">
+  <p class="section-label">Option 4</p>
+  <h2 class="section-title">Large Number</h2>
+  <div class="divider"></div>
+  <a href="tel:07700900123" class="opt4-wrap">
+    <p class="opt4-tag">Call Us</p>
+    <p class="opt4-num">07700 900123</p>
+  </a>
+</section>
+
+<!-- OPTION 5 -->
+<section class="section" id="option-5">
+  <p class="section-label">Option 5</p>
+  <h2 class="section-title">Icon Card</h2>
+  <div class="divider"></div>
+  <a href="tel:07700900123" class="opt5">
+    <div class="opt5-icon">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.92 2.18 2 2 0 012.9 0h3a2 2 0 012 1.72c.12.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </div>
+    <div>
+      <span class="opt5-cta">Call Us</span>
+      <span class="opt5-num">07700 900123</span>
+    </div>
+  </a>
+</section>
+
+</body>
+</html>
